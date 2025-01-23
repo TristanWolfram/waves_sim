@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+    <scenario>
+        <looks>
+            <look name="Yellow" rgb="1.0 0.9 0.0" roughness="0.3"/>
+            <look name="Gray" gray="0.1" roughness="0.4" metalness="0.5"/>
+            <look name="Green" rgb="0.0 0.2 0.0" roughness="0.9"/>
+            <look name="Invisible" rgb="1 1 1" roughness="0.2" alpha="0.0"/>
+            <look name="Black" rgb="0.0 0.0 0.0" roughness="0.2"/>
+            <look name="White" rgb="1.0 1.0 1.0" roughness="0.2"/>
+            <look name="Brown" rgb="0.5 0.3 0.0" roughness="0.2"/>
+            <look name="Pink" rgb="1.0 0.078 0.576" roughness="0.8"/>
+            <Look name="SandLook" color="1.0,0.8,0.6" />
+            <Look name="WaterLook" color="0.0,0.5,1.0" transparency="0.5" />
+            <Look name="RockLook" color="0.3,0.3,0.3" />
+            <look name="SimpleIsland" gray="1.0" roughness="0.2" texture="textures/IslandTexture.jpg"/>
+            <look name="Container" gray="1.0" roughness="0.2" texture="textures/container.jpg"/>
+            <look name="Fisherboat" gray="1.0" roughness="0.2" texture="textures/fisher_boat.jpg"/>
+        </looks>
+    </scenario>

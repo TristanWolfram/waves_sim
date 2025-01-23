@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+    <scenario>
+    
+        <animated name="MoovingBoat" type="model" collition="true">
+            <physical>
+                <mesh filename="boats/fisher_boat_phys.obj" scale="5.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </physical>
+            <visual>
+                <mesh filename="boats/fisher_boat.obj" scale="5.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </visual>
+            <material name="Boat"/>
+            <look name="Fisherboat" uv_mode="0"/>
+            <trajectory type="spline" playback="repeat">
+                <keypoint time="0.0" xyz="-10.0 10.0 0.5" rpy="-1.57 0.0 3.14"/>
+                <keypoint time="5.0" xyz="0.0 10.0 0.5" rpy="-1.57 0.0 3.14"/>
+                <keypoint time="10.0" xyz="10.0 12.0 0.5" rpy="-1.57 0.0 3.1"/>
+                <keypoint time="15.0" xyz="20.0 13.0 0.5" rpy="-1.57 0.0 3.09"/>
+                <keypoint time="20.0" xyz="25.0 15.0 0.5" rpy="-1.57 0.0 3.08"/>
+            </trajectory>
+        </animated>
+
+    </scenario>

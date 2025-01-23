@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20250122-1224-Experimental"
+	Name="stormtrooper"
+	Generator="ctest-3.22.1"
+	CompilerName="/usr/bin/g++"
+	CompilerVersion="11.4.0"
+	OSName="Linux"
+	Hostname="stormtrooper"
+	OSRelease="6.8.0-51-generic"
+	OSVersion="#52~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Dec  9 15:00:52 UTC 2"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="60"
+	ProcessorCacheSize="6144"
+	NumberOfLogicalCPU="4"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="2047"
+	TotalPhysicalMemory="15826"
+	LogicalProcessorsPerPhysical="1"
+	ProcessorClockFrequency="3891.32"
+	>
+	<Testing>
+		<StartDateTime>Jan 22 13:24 CET</StartDateTime>
+		<StartTestTime>1737548692</StartTestTime>
+		<TestList/>
+		<EndDateTime>Jan 22 13:24 CET</EndDateTime>
+		<EndTestTime>1737548692</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<scenario>
+
+    <static name="Container" type="model">
+        <physical>
+            <mesh filename="obstacles/container_phys.obj" scale="1.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </physical>
+        <visual>
+            <mesh filename="obstacles/container.obj" scale="1.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </visual>
+        <material name="Steel"/>
+        <look name="Container" uv_mode="0"/>
+        <world_transform xyz="0.0 0.0 -0.93" rpy="-1.57 0.0 -0.1"/>
+    </static>
+    <static name="Container2" type="model">
+        <physical>
+            <mesh filename="obstacles/container_phys.obj" scale="1.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </physical>
+        <visual>
+            <mesh filename="obstacles/container.obj" scale="1.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </visual>
+        <material name="Steel"/>
+        <look name="Container" uv_mode="0"/>
+        <world_transform xyz="0.0 0.4 -0.93" rpy="-1.57 0.0 0.0"/>
+    </static>
+    <static name="Container3" type="model">
+        <physical>
+            <mesh filename="obstacles/container_phys.obj" scale="1.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </physical>
+        <visual>
+            <mesh filename="obstacles/container.obj" scale="1.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </visual>
+        <material name="Steel"/>
+        <look name="Container" uv_mode="0"/>
+        <world_transform xyz="0.0 0.14 -1.22" rpy="-1.57 0.0 0.0"/>
+    </static>
+
+    <static name="Rocks" type="model">
+        <physical>
+            <mesh filename="obstacles/rocks_phys.obj" scale="1.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </physical>
+        <visual>
+            <mesh filename="obstacles/rocks.obj" scale="1.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </visual>
+        <material name="Stone"/>
+        <look name="Grey"/>
+        <world_transform xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0"/>
+    </static>
+
+
+
+    <dynamic name="Container4" type="model" physics="floating">
+        <physical>
+            <mesh filename="obstacles/container_phys.obj" scale="1.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </physical>
+        <visual>
+            <mesh filename="obstacles/container.obj" scale="1.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </visual>
+        <material name="Container"/>
+        <look name="Container" uv_mode="0"/>
+        <world_transform xyz="-1.0 4.0 0.0" rpy="-1.57 0.0 0.0"/>
+    </dynamic>
+    <dynamic name="Container5" type="model" physics="floating">
+        <physical>
+            <mesh filename="obstacles/container_phys.obj" scale="1.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </physical>
+        <visual>
+            <mesh filename="obstacles/container.obj" scale="1.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </visual>
+        <material name="Container"/>
+        <look name="Container" uv_mode="0"/>
+        <world_transform xyz="1.0 4.0 0.0" rpy="-1.57 0.0 0.4"/>
+    </dynamic>
+    <dynamic name="Container6" type="model" physics="floating">
+        <physical>
+            <mesh filename="obstacles/container_phys.obj" scale="1.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </physical>
+        <visual>
+            <mesh filename="obstacles/container.obj" scale="1.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </visual>
+        <material name="Container"/>
+        <look name="Container" uv_mode="0"/>
+        <world_transform xyz="0.0 4.0 0.0" rpy="-1.57 0.0 2.0"/>
+    </dynamic>
+
+    <dynamic name="Fisherboat" type="model" physics="floating">
+        <physical>
+            <mesh filename="boats/fisher_boat_phys.obj" scale="5.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </physical>
+        <visual>
+            <mesh filename="boats/fisher_boat.obj" scale="5.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </visual>
+        <material name="Boat"/>
+        <look name="Fisherboat" uv_mode="0"/>
+        <world_transform xyz="7.0 7.0 -1.0" rpy="-1.57 0.0 0.0"/>
+    </dynamic>
+
+    <!--animated name="MoovingBoat" type="model" collition="true">
+        <physical>
+            <mesh filename="boats/fisher_boat_phys.obj" scale="5.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </physical>
+        <visual>
+            <mesh filename="boats/fisher_boat.obj" scale="5.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </visual>
+        <material name="Boat"/>
+        <look name="Fisherboat" uv_mode="0"/>
+        <trajectory type="spline" playback="repeat">
+        <keypoint time="0.0" xyz="-10.0 10.0 0.5" rpy="-1.57 0.0 3.14"/>
+        <keypoint time="5.0" xyz="0.0 10.0 0.5" rpy="-1.57 0.0 3.14"/>
+        <keypoint time="10.0" xyz="10.0 12.0 0.5" rpy="-1.57 0.0 3.1"/>
+        <keypoint time="15.0" xyz="20.0 13.0 0.5" rpy="-1.57 0.0 3.09"/>
+        <keypoint time="20.0" xyz="25.0 15.0 0.5" rpy="-1.57 0.0 3.08"/>
+        </trajectory>
+    </animated-->
+
+</scenario>

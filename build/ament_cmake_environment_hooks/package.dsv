@@ -1,0 +1,4 @@
+source;share/ocean_sim/local_setup.bash
+source;share/ocean_sim/local_setup.dsv
+source;share/ocean_sim/local_setup.sh
+source;share/ocean_sim/local_setup.zsh
