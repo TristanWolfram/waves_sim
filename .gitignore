@@ -2,3 +2,8 @@
 
 build/
 
+log/
+
+.vscode/
+
+scenario_parser/output/
