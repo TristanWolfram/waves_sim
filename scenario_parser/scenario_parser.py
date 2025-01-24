@@ -23,7 +23,7 @@ def json_to_xml(json_file, output_file):
                 # Physical element
                 physical = ET.SubElement(animated, "physical")
                 ET.SubElement(
-                    physical, "mesh", filename="boats/fisher_boat_phys.obj", scale="5.0"
+                    physical, "mesh", filename="boats/fisher_boat_phys.obj", scale="4.0"
                 )
                 ET.SubElement(physical, "origin", xyz="0.0 0.0 0.0", rpy="0.0 0.0 0.0")
 
@@ -47,23 +47,88 @@ def json_to_xml(json_file, output_file):
             # Add keypoints to the trajectory
             trajectory = vehicles[vehicle_name]
             position = details["center_position_m"]
-            heading = details["heading_rad"]
+            heading = details["heading_rad"] + 3.14159  # Add 180 degrees (in radians) to the heading
 
             ET.SubElement(
                 trajectory,
                 "keypoint",
                 time=str(time_key),
                 xyz=f"{position[0]} {position[1]} 0.5",
-                rpy=f"0.0 0.0 {heading}",
+                rpy=f"-1.57 0.0 {heading}"
             )
 
     # Generate the XML tree and write it to a file
     tree = ET.ElementTree(root)
     ET.indent(tree, space="    ", level=0)  # Pretty print the XML
     tree.write(output_file, encoding="utf-8", xml_declaration=True)
+    print(f"Dynamic XML file has been generated: {output_file}")
 
 
-json_input = "scenario_parser/input/dynamics.json"
+def parse_static_to_xml(json_file, output_file):
+    # Read the JSON file
+    with open(json_file, 'r') as f:
+        json_data = json.load(f)
 
-output_file = "scenario_parser/output/dynamics.scn"
+    # Create the root XML element
+    root = ET.Element("scenario")
+
+    first_wall = True
+
+    # Process JSON data and build XML structure for statics
+    for wall_name, wall_data in json_data.items():
+        if wall_data["type"] == "wall":
+            dimensions = wall_data["sides_m"]
+
+            if first_wall:
+                first_wall = False
+
+                # Handle outer boundary as separate walls
+                for i, side in enumerate(dimensions):
+                    start, end = side
+                    length = ((end[0] - start[0])**2 + (end[1] - start[1])**2)**0.5
+                    center_x = (start[0] + end[0]) / 2
+                    center_y = (start[1] + end[1]) / 2
+                    angle = 0.0 if end[1] == start[1] else 1.5708  # 90 degrees in radians for vertical walls
+
+                    static = ET.SubElement(root, "static", name=f"{wall_name}_side{i}", type="box")
+                    ET.SubElement(static, "dimensions", xyz=f"{length} 0.1 1.0")
+                    ET.SubElement(static, "material", name="Steel")
+                    ET.SubElement(static, "look", name="Gray")
+                    ET.SubElement(static, "world_transform", xyz=f"{center_x} {center_y} 0.0", rpy=f"0.0 0.0 {angle}")
+
+            else:
+                # Calculate width, height, and position from the sides
+                x_min = min([point[0] for side in dimensions for point in side])
+                x_max = max([point[0] for side in dimensions for point in side])
+                y_min = min([point[1] for side in dimensions for point in side])
+                y_max = max([point[1] for side in dimensions for point in side])
+
+                length = x_max - x_min
+                width = y_max - y_min
+                height = 5.0  # Default height for the box
+
+                # Calculate the center position
+                center_x = x_min + length / 2
+                center_y = y_min + width / 2
+
+                # Create the static element
+                static = ET.SubElement(root, "static", name=wall_name, type="box")
+                ET.SubElement(static, "dimensions", xyz=f"{length} {width} {height}")
+                ET.SubElement(static, "material", name="Steel")
+                ET.SubElement(static, "look", name="Gray")
+                ET.SubElement(static, "world_transform", xyz=f"{center_x} {center_y} {(-height / 2) + 1}", rpy="0.0 0.0 0.0")
+                # +1 to place the wall inside the water
+
+    # Generate the XML tree and write it to a file
+    tree = ET.ElementTree(root)
+    ET.indent(tree, space="    ", level=0)  # Pretty print the XML
+    tree.write(output_file, encoding="utf-8", xml_declaration=True)
+    print(f"Static XML file has been generated: {output_file}")
+
+json_input = "scenario_parser/dynamics.json"
+output_file = "metadata/dynamics.scn"
 json_to_xml(json_input, output_file)
+
+json_input_statics = "scenario_parser/statics.json"
+output_file_statics = "metadata/statics.scn"
+parse_static_to_xml(json_input_statics, output_file_statics)

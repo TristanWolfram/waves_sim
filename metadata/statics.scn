@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<scenario>
+    <static name="Wall0_side0" type="box">
+        <dimensions xyz="175.0 0.1 1.0" />
+        <material name="Steel" />
+        <look name="Gray" />
+        <world_transform xyz="87.5 0.0 0.0" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="Wall0_side1" type="box">
+        <dimensions xyz="100.0 0.1 1.0" />
+        <material name="Steel" />
+        <look name="Gray" />
+        <world_transform xyz="0.0 50.0 0.0" rpy="0.0 0.0 1.5708" />
+    </static>
+    <static name="Wall0_side2" type="box">
+        <dimensions xyz="175.0 0.1 1.0" />
+        <material name="Steel" />
+        <look name="Gray" />
+        <world_transform xyz="87.5 100.0 0.0" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="Wall0_side3" type="box">
+        <dimensions xyz="100.0 0.1 1.0" />
+        <material name="Steel" />
+        <look name="Gray" />
+        <world_transform xyz="175.0 50.0 0.0" rpy="0.0 0.0 1.5708" />
+    </static>
+    <static name="Wall1" type="box">
+        <dimensions xyz="3 40 5.0" />
+        <material name="Steel" />
+        <look name="Gray" />
+        <world_transform xyz="71.5 20.0 -1.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="Wall2" type="box">
+        <dimensions xyz="5 35 5.0" />
+        <material name="Steel" />
+        <look name="Gray" />
+        <world_transform xyz="147.5 17.5 -1.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="Wall3" type="box">
+        <dimensions xyz="10 10 5.0" />
+        <material name="Steel" />
+        <look name="Gray" />
+        <world_transform xyz="25.0 85.0 -1.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="Wall4" type="box">
+        <dimensions xyz="15 20 5.0" />
+        <material name="Steel" />
+        <look name="Gray" />
+        <world_transform xyz="117.5 70.0 -1.5" rpy="0.0 0.0 0.0" />
+    </static>
+</scenario>
