@@ -1,32 +1,32 @@
 {
   "vehicle0": {
     "type": "car",
-    "length_m": 8,
-    "width_m": 4
+    "length_m": 8.0,
+    "width_m": 1.42
   },
   "vehicle1": {
     "type": "car",
-    "length_m": 8,
-    "width_m": 4
+    "length_m": 8.0,
+    "width_m": 1.42
   },
   "vehicle2": {
     "type": "car",
-    "length_m": 8,
-    "width_m": 4
+    "length_m": 8.0,
+    "width_m": 1.42
   },
   "vehicle3": {
     "type": "car",
-    "length_m": 8,
-    "width_m": 4
+    "length_m": 8.0,
+    "width_m": 1.42
   },
   "vehicle4": {
     "type": "car",
-    "length_m": 8,
-    "width_m": 4
+    "length_m": 8.0,
+    "width_m": 1.42
   },
   "vehicle5": {
     "type": "car",
-    "length_m": 8,
-    "width_m": 4
+    "length_m": 8.0,
+    "width_m": 1.42
   }
 }

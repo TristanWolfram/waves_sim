@@ -1,28 +1,28 @@
 <?xml version='1.0' encoding='utf-8'?>
 <scenario>
     <static name="Wall0_side0" type="box">
-        <dimensions xyz="175.0 0.1 1.0" />
+        <dimensions xyz="190.0 0.1 1.0" />
         <material name="Steel" />
         <look name="Gray" />
-        <world_transform xyz="87.5 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <world_transform xyz="95.0 0.0 0.0" rpy="0.0 0.0 0.0" />
     </static>
     <static name="Wall0_side1" type="box">
-        <dimensions xyz="100.0 0.1 1.0" />
+        <dimensions xyz="110.0 0.1 1.0" />
         <material name="Steel" />
         <look name="Gray" />
-        <world_transform xyz="0.0 50.0 0.0" rpy="0.0 0.0 1.5708" />
+        <world_transform xyz="0.0 55.0 0.0" rpy="0.0 0.0 1.5708" />
     </static>
     <static name="Wall0_side2" type="box">
-        <dimensions xyz="175.0 0.1 1.0" />
+        <dimensions xyz="190.0 0.1 1.0" />
         <material name="Steel" />
         <look name="Gray" />
-        <world_transform xyz="87.5 100.0 0.0" rpy="0.0 0.0 0.0" />
+        <world_transform xyz="95.0 110.0 0.0" rpy="0.0 0.0 0.0" />
     </static>
     <static name="Wall0_side3" type="box">
-        <dimensions xyz="100.0 0.1 1.0" />
+        <dimensions xyz="110.0 0.1 1.0" />
         <material name="Steel" />
         <look name="Gray" />
-        <world_transform xyz="175.0 50.0 0.0" rpy="0.0 0.0 1.5708" />
+        <world_transform xyz="190.0 55.0 0.0" rpy="0.0 0.0 1.5708" />
     </static>
     <static name="Wall1" type="box">
         <dimensions xyz="3 40 5.0" />
@@ -37,15 +37,34 @@
         <world_transform xyz="147.5 17.5 -1.5" rpy="0.0 0.0 0.0" />
     </static>
     <static name="Wall3" type="box">
-        <dimensions xyz="10 10 5.0" />
+        <dimensions xyz="2 10 5.0" />
         <material name="Steel" />
         <look name="Gray" />
-        <world_transform xyz="25.0 85.0 -1.5" rpy="0.0 0.0 0.0" />
+        <world_transform xyz="121.0 85.0 -1.5" rpy="0.0 0.0 0.0" />
     </static>
     <static name="Wall4" type="box">
-        <dimensions xyz="15 20 5.0" />
+        <dimensions xyz="3 1 5.0" />
         <material name="Steel" />
         <look name="Gray" />
-        <world_transform xyz="117.5 70.0 -1.5" rpy="0.0 0.0 0.0" />
+        <world_transform xyz="123.5 85.5 -1.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="Wall5" type="model">
+        <physical>
+            <mesh filename="obstacles/rock3.obj" scale="1.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </physical>
+        <visual>
+            <mesh filename="obstacles/rock3.obj" scale="1.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </visual>
+        <material name="Stone" />
+        <look name="rock3" />
+        <world_transform xyz="25.0 85.0 1.5" rpy="-1.57 0.0 0.0" />
+    </static>
+    <static name="Wall6" type="box">
+        <dimensions xyz="20 20 5.0" />
+        <material name="Steel" />
+        <look name="Gray" />
+        <world_transform xyz="120.0 70.0 -1.5" rpy="0.0 0.0 0.0" />
     </static>
 </scenario>

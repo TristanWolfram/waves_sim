@@ -15,5 +15,6 @@
             <look name="SimpleIsland" gray="1.0" roughness="0.2" texture="textures/IslandTexture.jpg"/>
             <look name="Container" gray="1.0" roughness="0.2" texture="textures/container.jpg"/>
             <look name="Fisherboat" gray="1.0" roughness="0.2" texture="textures/fisher_boat.jpg"/>
+            <look name="rock3" gray="1.0" roughness="0.2" texture="textures/rock3.png"/>
         </looks>
     </scenario>

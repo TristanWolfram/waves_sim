@@ -23,14 +23,14 @@ def json_to_xml(json_file, output_file):
                 # Physical element
                 physical = ET.SubElement(animated, "physical")
                 ET.SubElement(
-                    physical, "mesh", filename="boats/fisher_boat_phys.obj", scale="4.0"
+                    physical, "mesh", filename="boats/fisher_boat_phys.obj", scale="1.0"
                 )
                 ET.SubElement(physical, "origin", xyz="0.0 0.0 0.0", rpy="0.0 0.0 0.0")
 
                 # Visual element
                 visual = ET.SubElement(animated, "visual")
                 ET.SubElement(
-                    visual, "mesh", filename="boats/fisher_boat.obj", scale="5.0"
+                    visual, "mesh", filename="boats/fisher_boat.obj", scale="1.0"
                 )
                 ET.SubElement(visual, "origin", xyz="0.0 0.0 0.0", rpy="0.0 0.0 0.0")
 
