@@ -30,11 +30,18 @@
         <look name="Gray" />
         <world_transform xyz="71.5 20.0 -1.5" rpy="0.0 0.0 0.0" />
     </static>
-    <static name="Wall2" type="box">
-        <dimensions xyz="5 35 5.0" />
-        <material name="Steel" />
-        <look name="Gray" />
-        <world_transform xyz="147.5 17.5 -1.5" rpy="0.0 0.0 0.0" />
+    <static name="Wall2" type="model">
+        <physical>
+            <mesh filename="obstacles/rocks_line.obj" scale="1.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </physical>
+        <visual>
+            <mesh filename="obstacles/rocks_line.obj" scale="1.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </visual>
+        <material name="Stone" />
+        <look name="rocks_line" />
+        <world_transform xyz="147.5 17.5 1.5" rpy="-1.57 0.0 0.0" />
     </static>
     <static name="Wall3" type="box">
         <dimensions xyz="2 10 5.0" />

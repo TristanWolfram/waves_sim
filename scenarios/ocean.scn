@@ -36,15 +36,11 @@
   <include file="$(find ocean_sim)/metadata/materials.scn"/>
   <include file="$(find ocean_sim)/metadata/looks.scn"/>
 
-  <!--include file="$(find ocean_sim)/metadata/environment_base.scn"/-->
-
   <include file="$(find ocean_sim)/metadata/dynamics.scn"/>
   <include file="$(find ocean_sim)/metadata/statics.scn"/>
 
-  <include file="$(find ocean_sim)/metadata/test_vehicle.scn"/>
+  <!--include file="$(find ocean_sim)/metadata/test_vehicle.scn"/-->
 
-  <!--include file="$(find stonefish_sim)/drones/orca.scn"/>
-  <<include file="$(find stonefish_sim)/drones/freya.scn"/> -->
-  
+  <!--include file="$(find ocean_sim)/metadata/environment_base.scn"/-->
 
 </scenario>
