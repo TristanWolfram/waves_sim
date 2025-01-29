@@ -32,15 +32,15 @@
     </static>
     <static name="Wall2" type="model">
         <physical>
-            <mesh filename="obstacles/rocks_line.obj" scale="1.0"/>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mesh filename="obstacles/rocks_line.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
         </physical>
         <visual>
-            <mesh filename="obstacles/rocks_line.obj" scale="1.0"/>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mesh filename="obstacles/rocks_line.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
         </visual>
         <material name="Stone" />
-        <look name="rocks_line" />
+        <look name="rocks_line" uv_mode="0" />
         <world_transform xyz="147.5 17.5 1.5" rpy="-1.57 0.0 0.0" />
     </static>
     <static name="Wall3" type="box">
@@ -57,15 +57,15 @@
     </static>
     <static name="Wall5" type="model">
         <physical>
-            <mesh filename="obstacles/rock3.obj" scale="1.0"/>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mesh filename="obstacles/rock3.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
         </physical>
         <visual>
-            <mesh filename="obstacles/rock3.obj" scale="1.0"/>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mesh filename="obstacles/rock3.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
         </visual>
         <material name="Stone" />
-        <look name="rock3" />
+        <look name="rock3" uv_mode="0" />
         <world_transform xyz="25.0 85.0 1.5" rpy="-1.57 0.0 0.0" />
     </static>
     <static name="Wall6" type="box">

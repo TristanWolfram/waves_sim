@@ -111,23 +111,47 @@ def parse_static_to_xml(json_file, output_file):
                 center_x = x_min + length / 2
                 center_y = y_min + width / 2
 
-                # Create the static element
-                static = ET.SubElement(root, "static", name=wall_name, type="box")
-                ET.SubElement(static, "dimensions", xyz=f"{length} {width} {height}")
-                ET.SubElement(static, "material", name="Steel")
-                ET.SubElement(static, "look", name="Gray")
-                ET.SubElement(static, "world_transform", xyz=f"{center_x} {center_y} {(-height / 2) + 1}", rpy="0.0 0.0 0.0")
-                # +1 to place the wall inside the water
+                if wall_name in model_replacement:
+                    print(f"Found {wall_name} in model_replacement")
+                    model_file = model_replacement[wall_name]
+                    static = ET.SubElement(root, "static", name=wall_name, type="model")
 
-    # Generate the XML tree and write it to a file
+                    physical = ET.SubElement(static, "physical")
+                    ET.SubElement(physical, "mesh", filename=f"obstacles/{model_file}.obj", scale="1.0")
+                    ET.SubElement(physical, "origin", xyz="0.0 0.0 0.0", rpy="0.0 0.0 0.0")
+
+                    visual = ET.SubElement(static, "visual")
+                    ET.SubElement(visual, "mesh", filename=f"obstacles/{model_file}.obj", scale="1.0")
+                    ET.SubElement(visual, "origin", xyz="0.0 0.0 0.0", rpy="0.0 0.0 0.0")
+
+                    # hard coded for now
+                    ET.SubElement(static, "material", name="Stone")
+                    ET.SubElement(static, "look", name=model_file, uv_mode="0")
+                    ET.SubElement(static, "world_transform", xyz=f"{center_x} {center_y} 1.5", rpy="-1.57 0.0 0.0")
+                else:
+                    static = ET.SubElement(root, "static", name=wall_name, type="box")
+                    ET.SubElement(static, "dimensions", xyz=f"{length} {width} {height}")
+                    ET.SubElement(static, "material", name="Steel")
+                    ET.SubElement(static, "look", name="Gray")
+                    ET.SubElement(static, "world_transform", xyz=f"{center_x} {center_y} {(-height / 2) + 1}", rpy="0.0 0.0 0.0")
+                    # +1 to place the wall inside the water
+
     tree = ET.ElementTree(root)
-    ET.indent(tree, space="    ", level=0)  # Pretty print the XML
+    ET.indent(tree, space="    ", level=0)
     tree.write(output_file, encoding="utf-8", xml_declaration=True)
     print(f"Static XML file has been generated: {output_file}")
 
 json_input = "scenario_parser/dynamics.json"
 output_file = "metadata/dynamics.scn"
 json_to_xml(json_input, output_file)
+
+# list for model replacements 
+# name should correspont to both the .obj file and the .png / .jpg (texture) file
+# .obj file must be located in data/obstacles
+model_replacement = {
+    "Wall2": "rocks_line",
+    "Wall5": "rock3"
+}
 
 json_input_statics = "scenario_parser/statics.json"
 output_file_statics = "metadata/statics.scn"
