@@ -79,8 +79,7 @@ def parse_static_to_xml(json_file, output_file):
         if wall_data["type"] == "wall":
             dimensions = wall_data["sides_m"]
 
-            if first_wall:
-                first_wall = False
+            if wall_name == "OuterBorder":
 
                 # Handle outer boundary as separate walls
                 for i, side in enumerate(dimensions):
@@ -95,6 +94,8 @@ def parse_static_to_xml(json_file, output_file):
                     ET.SubElement(static, "material", name="Steel")
                     ET.SubElement(static, "look", name="Gray")
                     ET.SubElement(static, "world_transform", xyz=f"{center_x} {center_y} 0.0", rpy=f"0.0 0.0 {angle}")
+                
+                print(f"Found outer border, drawing at {center_x} {center_y} with length {length}")
 
             else:
                 # Calculate width, height, and position from the sides
@@ -127,7 +128,7 @@ def parse_static_to_xml(json_file, output_file):
                     # hard coded for now
                     ET.SubElement(static, "material", name="Stone")
                     ET.SubElement(static, "look", name=model_file, uv_mode="0")
-                    ET.SubElement(static, "world_transform", xyz=f"{center_x} {center_y} 1.5", rpy="-1.57 0.0 0.0")
+                    ET.SubElement(static, "world_transform", xyz=f"{center_x} {center_y} 0.5", rpy="-1.57 0.0 0.0")
                 else:
                     static = ET.SubElement(root, "static", name=wall_name, type="box")
                     ET.SubElement(static, "dimensions", xyz=f"{length} {width} {height}")
@@ -149,8 +150,8 @@ json_to_xml(json_input, output_file)
 # name should correspont to both the .obj file and the .png / .jpg (texture) file
 # .obj file must be located in data/obstacles
 model_replacement = {
-    "Wall2": "rocks_line",
-    "Wall5": "rock3"
+    "Pier2": "rocks_line",
+    "Building1": "rock3"
 }
 
 json_input_statics = "scenario_parser/statics.json"

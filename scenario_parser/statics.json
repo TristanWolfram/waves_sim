@@ -1,5 +1,5 @@
 {
-  "Wall0": {
+  "OuterBorder": {
     "type": "wall",
     "sides_m": [
       [
@@ -44,7 +44,7 @@
       ]
     ]
   },
-  "Wall1": {
+  "Pier1": {
     "type": "wall",
     "sides_m": [
       [
@@ -89,7 +89,7 @@
       ]
     ]
   },
-  "Wall2": {
+  "Pier2": {
     "type": "wall",
     "sides_m": [
       [
@@ -134,7 +134,7 @@
       ]
     ]
   },
-  "Wall3": {
+  "Pier3": {
     "type": "wall",
     "sides_m": [
       [
@@ -179,7 +179,7 @@
       ]
     ]
   },
-  "Wall4": {
+  "Pier4": {
     "type": "wall",
     "sides_m": [
       [
@@ -224,7 +224,7 @@
       ]
     ]
   },
-  "Wall5": {
+  "Building1": {
     "type": "wall",
     "sides_m": [
       [
@@ -269,7 +269,7 @@
       ]
     ]
   },
-  "Wall6": {
+  "Building2": {
     "type": "wall",
     "sides_m": [
       [
