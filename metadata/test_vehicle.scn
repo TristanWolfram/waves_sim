@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
     <scenario>
     
-        <dynamic name="Fisherboat" type="model" physics="floating">
+        <static name="Fisherboat" type="model">
             <physical>
-                <mesh filename="boats/fisher_boat_phys.obj" scale="1.0"/>
+                <mesh filename="boats/fisher_boat_cube_phys.obj" scale="1.0"/>
                 <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             </physical>
             <visual>
@@ -12,12 +12,12 @@
             </visual>
             <material name="Boat"/>
             <look name="Fisherboat" uv_mode="0"/>
-            <world_transform xyz="126.0 82.0 -1.0" rpy="-1.57 0.0 3.14"/>
-        </dynamic>
+            <world_transform xyz="130.0 35.0 0.8" rpy="-1.57 0.0 3.94"/>
+        </static>
 
-        <dynamic name="Fisherboat2" type="model" physics="floating">
+        <static name="Fisherboat" type="model">
             <physical>
-                <mesh filename="boats/fisher_boat_phys.obj" scale="1.0"/>
+                <mesh filename="boats/fisher_boat_cube_phys.obj" scale="1.0"/>
                 <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             </physical>
             <visual>
@@ -26,7 +26,7 @@
             </visual>
             <material name="Boat"/>
             <look name="Fisherboat" uv_mode="0"/>
-            <world_transform xyz="70.0 70.0 -1.0" rpy="-1.57 0.0 3.14"/>
-        </dynamic>
+            <world_transform xyz="155.0 55.0 0.8" rpy="-1.57 0.0 2.36"/>
+        </static>
 
     </scenario>

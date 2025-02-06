@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+    <scenario>
+    
+        <static name="Mountains" type="model">
+            <physical>
+                <mesh filename="static/mountains_phys.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </physical>
+            <visual>
+                <mesh filename="static/mountains.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </visual>
+            <material name="Stone"/>
+            <look name="mountains" uv_mode="0"/>
+            <world_transform xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0"/>
+        </static>
+
+        <dynamic name="Transport_Ship" type="model" physics="floating">
+            <physical>
+                <mesh filename="boats/transport_phys.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </physical>
+            <visual>
+                <mesh filename="boats/transport.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </visual>
+            <material name="Boat2"/>
+            <look name="Yellow"/>
+            <world_transform xyz="95.0 125.0 -1.0" rpy="-1.57 0.0 3.14"/>
+        </dynamic>
+
+    </scenario>

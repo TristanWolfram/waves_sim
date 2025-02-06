@@ -23,7 +23,7 @@ def json_to_xml(json_file, output_file):
                 # Physical element
                 physical = ET.SubElement(animated, "physical")
                 ET.SubElement(
-                    physical, "mesh", filename="boats/fisher_boat_phys.obj", scale="1.0"
+                    physical, "mesh", filename="boats/fisher_boat_cube_phys.obj", scale="1.0"
                 )
                 ET.SubElement(physical, "origin", xyz="0.0 0.0 0.0", rpy="0.0 0.0 0.0")
 
@@ -118,7 +118,7 @@ def parse_static_to_xml(json_file, output_file):
                     static = ET.SubElement(root, "static", name=wall_name, type="model")
 
                     physical = ET.SubElement(static, "physical")
-                    ET.SubElement(physical, "mesh", filename=f"obstacles/{model_file}.obj", scale="1.0")
+                    ET.SubElement(physical, "mesh", filename=f"obstacles/{model_file}_phys.obj", scale="1.0")
                     ET.SubElement(physical, "origin", xyz="0.0 0.0 0.0", rpy="0.0 0.0 0.0")
 
                     visual = ET.SubElement(static, "visual")
@@ -151,7 +151,9 @@ json_to_xml(json_input, output_file)
 # .obj file must be located in data/obstacles
 model_replacement = {
     "Pier2": "rocks_line",
-    "Building1": "rock3"
+    "Building1": "rock3",
+    "Building2": "stone_formation",
+    "Building3": "rock3",
 }
 
 json_input_statics = "scenario_parser/statics.json"
