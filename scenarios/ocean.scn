@@ -36,7 +36,7 @@
   <include file="$(find ocean_sim)/metadata/materials.scn"/>
   <include file="$(find ocean_sim)/metadata/looks.scn"/>
 
-  <!--include file="$(find ocean_sim)/metadata/dynamics.scn"/-->
+  <include file="$(find ocean_sim)/metadata/dynamics.scn"/>
   <include file="$(find ocean_sim)/metadata/statics.scn"/>
 
   <include file="$(find ocean_sim)/metadata/test_vehicle.scn"/>

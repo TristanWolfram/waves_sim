@@ -1,34 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
 <scenario>
-    <static name="OuterBorder_side0" type="box">
-        <dimensions xyz="190.0 0.1 1.0" />
-        <material name="Steel" />
-        <look name="Gray" />
-        <world_transform xyz="95.0 0.0 0.0" rpy="0.0 0.0 0.0" />
-    </static>
-    <static name="OuterBorder_side1" type="box">
-        <dimensions xyz="110.0 0.1 1.0" />
-        <material name="Steel" />
-        <look name="Gray" />
-        <world_transform xyz="0.0 55.0 0.0" rpy="0.0 0.0 1.5708" />
-    </static>
-    <static name="OuterBorder_side2" type="box">
-        <dimensions xyz="190.0 0.1 1.0" />
-        <material name="Steel" />
-        <look name="Gray" />
-        <world_transform xyz="95.0 110.0 0.0" rpy="0.0 0.0 0.0" />
-    </static>
-    <static name="OuterBorder_side3" type="box">
-        <dimensions xyz="110.0 0.1 1.0" />
-        <material name="Steel" />
-        <look name="Gray" />
-        <world_transform xyz="190.0 55.0 0.0" rpy="0.0 0.0 1.5708" />
-    </static>
-    <static name="Pier1" type="box">
-        <dimensions xyz="3 40 5.0" />
-        <material name="Steel" />
-        <look name="Gray" />
-        <world_transform xyz="71.5 20.0 -1.5" rpy="0.0 0.0 0.0" />
+    <static name="Pier1" type="model">
+        <physical>
+            <mesh filename="obstacles/rocks_line2_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/rocks_line2.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        </visual>
+        <material name="Stone" />
+        <look name="rocks_line2" uv_mode="0" />
+        <world_transform xyz="66.5 65.0 0.5" rpy="1.57 0.0 0.0" />
     </static>
     <static name="Pier2" type="model">
         <physical>
@@ -41,7 +24,7 @@
         </visual>
         <material name="Stone" />
         <look name="rocks_line" uv_mode="0" />
-        <world_transform xyz="147.5 17.5 0.5" rpy="-1.57 0.0 0.0" />
+        <world_transform xyz="108.0 32.5 0.5" rpy="1.57 0.0 0.0" />
     </static>
     <static name="Building1" type="model">
         <physical>
@@ -54,7 +37,7 @@
         </visual>
         <material name="Stone" />
         <look name="rock3" uv_mode="0" />
-        <world_transform xyz="25.0 85.0 0.5" rpy="-1.57 0.0 0.0" />
+        <world_transform xyz="155.0 85.0 0.5" rpy="1.57 0.0 0.0" />
     </static>
     <static name="Building2" type="model">
         <physical>
@@ -67,19 +50,6 @@
         </visual>
         <material name="Stone" />
         <look name="stone_formation" uv_mode="0" />
-        <world_transform xyz="105.0 85.0 0.5" rpy="1.57 0.0 0.0" />
-    </static>
-    <static name="Building3" type="model">
-        <physical>
-            <mesh filename="obstacles/rock3_phys.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
-        </physical>
-        <visual>
-            <mesh filename="obstacles/rock3.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
-        </visual>
-        <material name="Stone" />
-        <look name="rock3" uv_mode="0" />
-        <world_transform xyz="175.0 55.0 0.5" rpy="-1.57 0.0 0.0" />
+        <world_transform xyz="25.0 25.0 0.5" rpy="1.57 0.0 0.0" />
     </static>
 </scenario>

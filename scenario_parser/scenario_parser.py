@@ -81,6 +81,9 @@ def parse_static_to_xml(json_file, output_file):
 
             if wall_name == "OuterBorder":
 
+                if not CREATE_OUTER_BORDER:
+                    print("Skipping outer border")
+                    continue
                 # Handle outer boundary as separate walls
                 for i, side in enumerate(dimensions):
                     start, end = side
@@ -112,9 +115,9 @@ def parse_static_to_xml(json_file, output_file):
                 center_x = x_min + length / 2
                 center_y = y_min + width / 2
 
-                if wall_name in model_replacement:
+                if wall_name in MODEL_REPLACEMENTS:
                     print(f"Found {wall_name} in model_replacement")
-                    model_file = model_replacement[wall_name]
+                    model_file = MODEL_REPLACEMENTS[wall_name]
                     static = ET.SubElement(root, "static", name=wall_name, type="model")
 
                     physical = ET.SubElement(static, "physical")
@@ -128,7 +131,7 @@ def parse_static_to_xml(json_file, output_file):
                     # hard coded for now
                     ET.SubElement(static, "material", name="Stone")
                     ET.SubElement(static, "look", name=model_file, uv_mode="0")
-                    ET.SubElement(static, "world_transform", xyz=f"{center_x} {center_y} 0.5", rpy="-1.57 0.0 0.0")
+                    ET.SubElement(static, "world_transform", xyz=f"{center_x} {center_y} 0.5", rpy="1.57 0.0 0.0")
                 else:
                     static = ET.SubElement(root, "static", name=wall_name, type="box")
                     ET.SubElement(static, "dimensions", xyz=f"{length} {width} {height}")
@@ -149,12 +152,15 @@ json_to_xml(json_input, output_file)
 # list for model replacements 
 # name should correspont to both the .obj file and the .png / .jpg (texture) file
 # .obj file must be located in data/obstacles
-model_replacement = {
+MODEL_REPLACEMENTS = {
+    "Pier1": "rocks_line2",
     "Pier2": "rocks_line",
     "Building1": "rock3",
     "Building2": "stone_formation",
     "Building3": "rock3",
 }
+
+CREATE_OUTER_BORDER = False
 
 json_input_statics = "scenario_parser/statics.json"
 output_file_statics = "metadata/statics.scn"
