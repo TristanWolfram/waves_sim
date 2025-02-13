@@ -9,9 +9,7 @@
             <look name="White" rgb="1.0 1.0 1.0" roughness="0.2"/>
             <look name="Brown" rgb="0.5 0.3 0.0" roughness="0.2"/>
             <look name="Pink" rgb="1.0 0.078 0.576" roughness="0.8"/>
-            <Look name="SandLook" color="1.0,0.8,0.6" />
-            <Look name="WaterLook" color="0.0,0.5,1.0" transparency="0.5" />
-            <Look name="RockLook" color="0.3,0.3,0.3" />
+            <look name="Orange" rgb="0.933 0.353 0.055" roughness="0.8" metalness="0.8"/>
             <look name="SimpleIsland" gray="1.0" roughness="0.2" texture="textures/IslandTexture.jpg"/>
             <look name="Container" gray="1.0" roughness="0.2" texture="textures/container.jpg"/>
             <look name="Fisherboat" gray="1.0" roughness="0.2" texture="textures/fisher_boat.jpg"/>
@@ -19,6 +17,8 @@
             <look name="rocks_line" gray="1.0" roughness="0.2" texture="textures/rocks_line.png"/>
             <look name="rocks_line2" gray="1.0" roughness="0.2" texture="textures/rocks_line2.jpg"/>
             <look name="stone_formation" gray="1.0" roughness="0.2" texture="textures/stone_formation.jpg"/>
-            <look name="mountains" gray="1.0" roughness="0.2" texture="textures/mountains.png"/>
+            <!--look name="mountains" gray="1.0" roughness="0.2" texture="textures/mountains.png"/-->
+            <look name="big_mountains" gray="1.0" roughness="1.0" texture="textures/big_mountains.png"/>
+            <look name="buoy" gray="1.0" roughness="0.2" texture="textures/Buoy1.png"/>
         </looks>
     </scenario>

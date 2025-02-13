@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
     <scenario>
     
-        <static name="Mountains" type="model">
+        <static name="Mountains_Big" type="model">
             <physical>
-                <mesh filename="static/mountains_phys.obj" scale="1.0"/>
+                <mesh filename="static/big_mountains_phys.obj" scale="1.0"/>
                 <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             </physical>
             <visual>
-                <mesh filename="static/mountains.obj" scale="1.0"/>
+                <mesh filename="static/big_mountains.obj" scale="1.0"/>
                 <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             </visual>
             <material name="Stone"/>
-            <look name="mountains" uv_mode="0"/>
+            <look name="big_mountains"/>
             <world_transform xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0"/>
         </static>
 
-        <!--dynamic name="Transport_Ship" type="model" physics="floating">
+        <dynamic name="Transport_Ship" type="model" physics="floating">
             <physical>
                 <mesh filename="boats/transport_phys.obj" scale="1.0"/>
                 <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
@@ -25,8 +25,113 @@
                 <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             </visual>
             <material name="Boat2"/>
-            <look name="Yellow"/>
-            <world_transform xyz="95.0 125.0 -1.0" rpy="-1.57 0.0 3.14"/>
-        </dynamic-->
+            <look name="Orange"/>
+            <world_transform xyz="100.0 175.0 -1.0" rpy="-1.57 0.0 3.14"/>
+        </dynamic>
+
+        <dynamic name="Buoy0" type="model" physics="floating">
+            <physical>
+                <mesh filename="obstacles/buoy1.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </physical>
+            <visual>
+                <mesh filename="obstacles/buoy1.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </visual>
+            <material name="Buoy"/>
+            <look name="buoy"/>
+            <world_transform xyz="10.0 10.0 -1.0" rpy="-1.57 0.0 0.0"/>
+        </dynamic>
+        <dynamic name="Buoy1" type="model" physics="floating">
+            <physical>
+                <mesh filename="obstacles/buoy1.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </physical>
+            <visual>
+                <mesh filename="obstacles/buoy1.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </visual>
+            <material name="Buoy"/>
+            <look name="buoy"/>
+            <world_transform xyz="10.0 140.0 -1.0" rpy="-1.57 0.0 0.0"/>
+        </dynamic>
+        <dynamic name="Buoy2" type="model" physics="floating">
+            <physical>
+                <mesh filename="obstacles/buoy1.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </physical>
+            <visual>
+                <mesh filename="obstacles/buoy1.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </visual>
+            <material name="Buoy"/>
+            <look name="buoy"/>
+            <world_transform xyz="190.0 140.0 -1.0" rpy="-1.57 0.0 0.0"/>
+        </dynamic>
+        <dynamic name="Buoy3" type="model" physics="floating">
+            <physical>
+                <mesh filename="obstacles/buoy1.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </physical>
+            <visual>
+                <mesh filename="obstacles/buoy1.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </visual>
+            <material name="Buoy"/>
+            <look name="buoy"/>
+            <world_transform xyz="190.0 10.0 -1.0" rpy="-1.57 0.0 0.0"/>
+        </dynamic>
+        <dynamic name="Buoy4" type="model" physics="floating">
+            <physical>
+                <mesh filename="obstacles/buoy1.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </physical>
+            <visual>
+                <mesh filename="obstacles/buoy1.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </visual>
+            <material name="Buoy"/>
+            <look name="buoy"/>
+            <world_transform xyz="-5.0 75.0 0.0" rpy="-1.57 0.0 0.0"/>
+        </dynamic>
+        <dynamic name="Buoy5" type="model" physics="floating">
+            <physical>
+                <mesh filename="obstacles/buoy1.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </physical>
+            <visual>
+                <mesh filename="obstacles/buoy1.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </visual>
+            <material name="Buoy"/>
+            <look name="buoy"/>
+            <world_transform xyz="100.0 155.0 -1.0" rpy="-1.57 0.0 0.0"/>
+        </dynamic>
+        <dynamic name="Buoy6" type="model" physics="floating">
+            <physical>
+                <mesh filename="obstacles/buoy1.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </physical>
+            <visual>
+                <mesh filename="obstacles/buoy1.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </visual>
+            <material name="Buoy"/>
+            <look name="buoy"/>
+            <world_transform xyz="205.0 75.0 -1.0" rpy="-1.57 0.0 0.0"/>
+        </dynamic>
+        <dynamic name="Buoy7" type="model" physics="floating">
+            <physical>
+                <mesh filename="obstacles/buoy1.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </physical>
+            <visual>
+                <mesh filename="obstacles/buoy1.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </visual>
+            <material name="Buoy"/>
+            <look name="buoy"/>
+            <world_transform xyz="100.0 -5.0 -1.0" rpy="-1.57 0.0 0.0"/>
+        </dynamic>
 
     </scenario>

@@ -28,6 +28,7 @@ install(DIRECTORY
   launch
   metadata
   scenarios
+  src
   DESTINATION share/${PROJECT_NAME}
 )
 

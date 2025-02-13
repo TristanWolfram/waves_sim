@@ -12,9 +12,15 @@
             </visual>
             <material name="Boat"/>
             <look name="Fisherboat" uv_mode="0"/>
-            <world_transform xyz="130.0 35.0 0.8" rpy="-1.57 0.0 3.94"/>
+            <world_transform xyz="140.0 50.0 0.5" rpy="-1.57 0.0 0.0"/>
+            <sensor name="Cam" rate="20.0" type="camera">
+                <specs resolution_x="800" resolution_y="600" horizontal_fov="60.0"/>
+                <origin xyz="-3.2 1.75 0.0" rpy="0.0 1.57 3.14"/>
+                <ros_publisher topic="/sim_cam_test_boat"/>
+            </sensor>
         </static>
 
+<!--
         <static name="Fisherboat" type="model">
             <physical>
                 <mesh filename="boats/fisher_boat_cube_phys.obj" scale="1.0"/>
@@ -28,5 +34,5 @@
             <look name="Fisherboat" uv_mode="0"/>
             <world_transform xyz="155.0 55.0 0.8" rpy="-1.57 0.0 2.36"/>
         </static>
-
+-->
     </scenario>
