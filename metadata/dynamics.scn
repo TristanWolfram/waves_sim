@@ -8056,13 +8056,13 @@
             <keypoint time="199.9" xyz="31.677 15.158 0.5016872036499727" rpy="-1.5764053909108944 -0.014120201648407063 8.81759" />
         </trajectory>
         <sensor name="Cam" rate="10.0" type="camera">
-            <specs resolution_x="800" resolution_y="600" horizontal_fov="60.0" />
+            <specs resolution_x="1280" resolution_y="720" horizontal_fov="90.0" />
             <noise depth="0.02" />
             <origin xyz="-3.2 1.75 0.0" rpy="0.0 1.57 3.14" />
             <ros_publisher topic="/sim_cam_color0" />
         </sensor>
         <sensor name="Dcam" rate="10.0" type="depthcamera">
-            <specs resolution_x="800" resolution_y="600" horizontal_fov="60.0" depth_min="0.2" depth_max="10.0" />
+            <specs resolution_x="1280" resolution_y="720" horizontal_fov="90.0" depth_min="0.2" depth_max="20.0" />
             <noise depth="0.02" />
             <origin xyz="-3.2 1.75 0.0" rpy="0.0 1.57 3.14" />
             <ros_publisher topic="/sim_cam_depth0" />

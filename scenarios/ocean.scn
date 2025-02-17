@@ -38,16 +38,17 @@
 
 <!-- Simulation interiors -->
   <!--
-  -->
+   <include file="$(find ocean_sim)/metadata/surroundings.scn"/>
   <include file="$(find ocean_sim)/metadata/dynamics.scn"/>
-  
+  -->
   <include file="$(find ocean_sim)/metadata/statics.scn"/>
-  <include file="$(find ocean_sim)/metadata/surroundings.scn"/>
+ 
   
 
 <!-- Testing stuff -->
-  <!--
+  
   <include file="$(find ocean_sim)/metadata/test_vehicle.scn"/>
+  <!--
   <include file="$(find ocean_sim)/metadata/robot.scn"/>
   <include file="$(find ocean_sim)/metadata/environment_base.scn"/>
   -->

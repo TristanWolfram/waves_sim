@@ -66,7 +66,7 @@
             </visual>
             <material name="Buoy"/>
             <look name="buoy"/>
-            <world_transform xyz="190.0 140.0 -1.0" rpy="-1.57 0.0 0.0"/>
+            <world_transform xyz="290.0 150.0 -1.0" rpy="-1.57 0.0 0.0"/>
         </dynamic>
         <dynamic name="Buoy3" type="model" physics="floating">
             <physical>
@@ -79,7 +79,7 @@
             </visual>
             <material name="Buoy"/>
             <look name="buoy"/>
-            <world_transform xyz="190.0 10.0 -1.0" rpy="-1.57 0.0 0.0"/>
+            <world_transform xyz="290.0 10.0 -1.0" rpy="-1.57 0.0 0.0"/>
         </dynamic>
         <dynamic name="Buoy4" type="model" physics="floating">
             <physical>
@@ -105,7 +105,7 @@
             </visual>
             <material name="Buoy"/>
             <look name="buoy"/>
-            <world_transform xyz="100.0 155.0 -1.0" rpy="-1.57 0.0 0.0"/>
+            <world_transform xyz="150.0 165.0 -1.0" rpy="-1.57 0.0 0.0"/>
         </dynamic>
         <dynamic name="Buoy6" type="model" physics="floating">
             <physical>
@@ -118,7 +118,7 @@
             </visual>
             <material name="Buoy"/>
             <look name="buoy"/>
-            <world_transform xyz="205.0 75.0 -1.0" rpy="-1.57 0.0 0.0"/>
+            <world_transform xyz="305.0 80.0 -1.0" rpy="-1.57 0.0 0.0"/>
         </dynamic>
         <dynamic name="Buoy7" type="model" physics="floating">
             <physical>
@@ -131,7 +131,7 @@
             </visual>
             <material name="Buoy"/>
             <look name="buoy"/>
-            <world_transform xyz="100.0 -5.0 -1.0" rpy="-1.57 0.0 0.0"/>
+            <world_transform xyz="150.0 -5.0 -1.0" rpy="-1.57 0.0 0.0"/>
         </dynamic>
 
     </scenario>

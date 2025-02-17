@@ -51,13 +51,13 @@ def parse_dynamic_to_xml(json_file, output_file, vehicles_with_camera, INCLUDE_W
                     print(f"Adding depth camera to {vehicle_name}, ROS2 topic -> /sim_cam_depth{number_of_vehicles_with_camera}")
 
                     sensor = ET.SubElement(animated, "sensor", name="Cam", rate="10.0", type="camera")
-                    ET.SubElement(sensor, "specs", resolution_x="800", resolution_y="600", horizontal_fov="60.0")
+                    ET.SubElement(sensor, "specs", resolution_x="1280", resolution_y="720", horizontal_fov="90.0")
                     ET.SubElement(sensor, "noise", depth="0.02")
                     ET.SubElement(sensor, "origin", xyz="-3.2 1.75 0.0", rpy="0.0 1.57 3.14")
                     ET.SubElement(sensor, "ros_publisher", topic=f"/sim_cam_color{number_of_vehicles_with_camera}")   
 
                     sensor = ET.SubElement(animated, "sensor", name="Dcam", rate="10.0", type="depthcamera")
-                    ET.SubElement(sensor, "specs", resolution_x="800", resolution_y="600", horizontal_fov="60.0", depth_min="0.2", depth_max="10.0")
+                    ET.SubElement(sensor, "specs", resolution_x="1280", resolution_y="720", horizontal_fov="90.0", depth_min="0.2", depth_max="20.0")
                     ET.SubElement(sensor, "noise", depth="0.02")
                     ET.SubElement(sensor, "origin", xyz="-3.2 1.75 0.0", rpy="0.0 1.57 3.14")
                     ET.SubElement(sensor, "ros_publisher", topic=f"/sim_cam_depth{number_of_vehicles_with_camera}") 

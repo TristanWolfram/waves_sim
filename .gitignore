@@ -9,3 +9,5 @@ log/
 scenario_parser/output/
 
 output/
+data/static/big_mountains.obj
+data/textures/big_mountains.png

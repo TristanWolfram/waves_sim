@@ -16,23 +16,23 @@
             <sensor name="Cam" rate="20.0" type="camera">
                 <specs resolution_x="800" resolution_y="600" horizontal_fov="60.0"/>
                 <origin xyz="-3.2 1.75 0.0" rpy="0.0 1.57 3.14"/>
-                <ros_publisher topic="/sim_cam_test_boat"/>
+                <ros_publisher topic="/sim_cam_color0"/>
             </sensor>
         </static>
 
-<!--
-        <static name="Fisherboat" type="model">
+
+        <static name="ResearchBoat" type="model">
             <physical>
-                <mesh filename="boats/fisher_boat_cube_phys.obj" scale="1.0"/>
+                <mesh filename="boats/res_boat_phys.obj" scale="1.0"/>
                 <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             </physical>
             <visual>
-                <mesh filename="boats/fisher_boat.obj" scale="1.0"/>
+                <mesh filename="boats/res_boat.obj" scale="1.0"/>
                 <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             </visual>
             <material name="Boat"/>
-            <look name="Fisherboat" uv_mode="0"/>
-            <world_transform xyz="155.0 55.0 0.8" rpy="-1.57 0.0 2.36"/>
+            <look name="LightGray"/>
+            <world_transform xyz="150.0 70.0 0.8" rpy="-1.57 0.0 0.0"/>
         </static>
--->
+
     </scenario>
