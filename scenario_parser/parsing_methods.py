@@ -4,7 +4,7 @@ import math
 import random
 
 
-def parse_dynamic_to_xml(json_file, output_file, vehicles_with_camera, INCLUDE_WAVE_NOISE=False, wave_amplitude=0.1, wave_frequency=0.5):
+def parse_dynamic_to_xml(json_file, output_file, vehicles_with_camera, vehicle_models, INCLUDE_WAVE_NOISE=False, wave_amplitude=0.1, wave_frequency=0.5):
     with open(json_file, "r") as f:
         json_data = json.load(f)
 
@@ -17,6 +17,14 @@ def parse_dynamic_to_xml(json_file, output_file, vehicles_with_camera, INCLUDE_W
 
         for vehicle_name, details in vehicle_data.items():
             if vehicle_name not in vehicles:
+
+                # Fetch vehicle model details
+                model_details = vehicle_models[vehicle_name]
+                phys_model = model_details["phys_model"]
+                model = model_details["model"]
+                material = model_details["material"]
+                look = model_details["look"]
+
                 animated = ET.SubElement(
                     root, "animated", name=vehicle_name, type="model", collition="true"
                 )
@@ -24,20 +32,20 @@ def parse_dynamic_to_xml(json_file, output_file, vehicles_with_camera, INCLUDE_W
                 # Physical element
                 physical = ET.SubElement(animated, "physical")
                 ET.SubElement(
-                    physical, "mesh", filename="boats/fisher_boat_cube_phys.obj", scale="1.0"
+                    physical, "mesh", filename=phys_model, scale="1.0"
                 )
                 ET.SubElement(physical, "origin", xyz="0.0 0.0 0.0", rpy="0.0 0.0 0.0")
 
                 # Visual element
                 visual = ET.SubElement(animated, "visual")
                 ET.SubElement(
-                    visual, "mesh", filename="boats/fisher_boat.obj", scale="1.0"
+                    visual, "mesh", filename=model, scale="1.0"
                 )
                 ET.SubElement(visual, "origin", xyz="0.0 0.0 0.0", rpy="0.0 0.0 0.0")
 
                 # Material and Look
-                ET.SubElement(animated, "material", name="Boat")
-                ET.SubElement(animated, "look", name="Fisherboat", uv_mode="0")
+                ET.SubElement(animated, "material", name=material)
+                ET.SubElement(animated, "look", name=look, uv_mode="0")
 
                 # Trajectory element
                 trajectory = ET.SubElement(

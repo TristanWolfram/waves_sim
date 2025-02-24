@@ -8,12 +8,24 @@ wave_amplitude = 0.005
 wave_frequency = 3.0
 
 VEHICLES_WITH_CAMERA = [
-    "Boat3"
+    "Boat6"
     ]
+
+VEHICLE_MODELS = {
+    "Boat0": {"model": "boats/fisher_boat.obj", "phys_model": "boats/fisher_boat_cube_phys.obj", "material": "Boat", "look": "Fisherboat"},
+    "Boat1": {"model": "boats/fisher_boat.obj", "phys_model": "boats/fisher_boat_cube_phys.obj", "material": "Boat", "look": "Fisherboat"},
+    "Boat2": {"model": "boats/fisher_boat.obj", "phys_model": "boats/fisher_boat_cube_phys.obj", "material": "Boat", "look": "Fisherboat"},
+    "Boat3": {"model": "boats/fisher_boat.obj", "phys_model": "boats/fisher_boat_cube_phys.obj", "material": "Boat", "look": "Fisherboat"},
+    "Boat4": {"model": "boats/fisher_boat.obj", "phys_model": "boats/fisher_boat_cube_phys.obj", "material": "Boat", "look": "Fisherboat"},
+    "Boat5": {"model": "boats/fisher_boat.obj", "phys_model": "boats/fisher_boat_cube_phys.obj", "material": "Boat", "look": "Fisherboat"},
+    "Boat6": {"model": "boats/res_boat.obj", "phys_model": "boats/res_boat_cube_phys.obj", "material": "Boat", "look": "LightGray"},
+    "Boat7": {"model": "boats/res_boat.obj", "phys_model": "boats/res_boat_cube_phys.obj", "material": "Boat", "look": "LightGray"},
+    "Boat8": {"model": "boats/res_boat.obj", "phys_model": "boats/res_boat_cube_phys.obj", "material": "Boat", "look": "LightGray"},
+}
 
 json_input = "scenario_parser/dynamics.json"
 output_file = "metadata/dynamics.scn"
-pm.parse_dynamic_to_xml(json_input, output_file, VEHICLES_WITH_CAMERA, INCLUDE_WAVE_NOISE, wave_amplitude, wave_frequency)
+pm.parse_dynamic_to_xml(json_input, output_file, VEHICLES_WITH_CAMERA, VEHICLE_MODELS, INCLUDE_WAVE_NOISE, wave_amplitude, wave_frequency)
 
 # Parsing of static data:
 
