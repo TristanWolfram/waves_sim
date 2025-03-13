@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<scenario>
+  <environment>
+    <ned latitude="63.446827" longitude="10.421906"/> 
+    <ocean>
+        <water density="1031.0" jerlov="0.20"/>
+        <waves height="0.0"/>
+        <particles enabled="true"/>
+        <current type="uniform">
+            <velocity xyz="0.1 0.1 0.1"/>
+        </current>
+    </ocean>
+    <atmosphere>
+        <sun azimuth="-88.0" elevation="20.0"/>
+    </atmosphere>
+  </environment>
+
+
+<!-- Needed configurations of materials and visuals -->
+  <include file="$(find ocean_sim)/metadata/materials.scn"/>
+  <include file="$(find ocean_sim)/metadata/looks.scn"/>
+
+<!-- Simulation interiors -->
+
+  <include file="$(find ocean_sim)/metadata/surroundings.scn"/>
+  <include file="$(find ocean_sim)/metadata/01-statics.scn"/>
+  <!--
+  <include file="$(find ocean_sim)/metadata/test_vehicle.scn"/>
+ -->
+  
+
+<!-- Other testing stuff -->
+  
+  <!--
+  <include file="$(find ocean_sim)/metadata/environment_base.scn"/>
+  -->
+
+</scenario>

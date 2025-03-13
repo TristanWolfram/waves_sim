@@ -41,11 +41,9 @@
    
   
   -->
-  <include file="$(find ocean_sim)/metadata/dynamics.scn"/>
+  <include file="$(find ocean_sim)/metadata/01-dynamics.scn"/>
+  <include file="$(find ocean_sim)/metadata/01-statics.scn"/>
   <include file="$(find ocean_sim)/metadata/surroundings.scn"/>
-  <include file="$(find ocean_sim)/metadata/statics.scn"/>
- 
-  
 
 <!-- Testing stuff -->
   

@@ -62,13 +62,22 @@ def parse_dynamic_to_xml(json_file, output_file, vehicles_with_camera, vehicle_m
                     ET.SubElement(sensor, "specs", resolution_x="1280", resolution_y="720", horizontal_fov="90.0")
                     ET.SubElement(sensor, "noise", depth="0.02")
                     ET.SubElement(sensor, "origin", xyz="-3.2 1.75 0.0", rpy="0.0 1.57 3.14")
-                    ET.SubElement(sensor, "ros_publisher", topic=f"/sim_cam_color{number_of_vehicles_with_camera}")   
+                    ET.SubElement(sensor, "ros_publisher", topic=f"/sim_cam_color{number_of_vehicles_with_camera}")  
 
-                    sensor = ET.SubElement(animated, "sensor", name="Dcam", rate="10.0", type="depthcamera")
-                    ET.SubElement(sensor, "specs", resolution_x="1280", resolution_y="720", horizontal_fov="90.0", depth_min="0.2", depth_max="20.0")
-                    ET.SubElement(sensor, "noise", depth="0.02")
-                    ET.SubElement(sensor, "origin", xyz="-3.2 1.75 0.0", rpy="0.0 1.57 3.14")
-                    ET.SubElement(sensor, "ros_publisher", topic=f"/sim_cam_depth{number_of_vehicles_with_camera}") 
+                    cameras = [
+                        {"name": "DcamF", "xyz": "-1.0 3.0 0.0", "rpy": "0.0 1.57 3.14", "topic": "/sim_camF_depth"},
+                        {"name": "DcamR", "xyz": "-1.0 3.0 0.0", "rpy": "0.0 3.14 3.14", "topic": "/sim_camR_depth"},
+                        {"name": "DcamL", "xyz": "-1.0 3.0 0.0", "rpy": "0.0 0.0 3.14", "topic": "/sim_camL_depth"},
+                        {"name": "DcamB", "xyz": "-1.0 3.0 0.0", "rpy": "0.0 -1.57 3.14", "topic": "/sim_camB_depth"},
+                    ]
+
+                    for cam in cameras:
+                        sensor = ET.SubElement(animated, "sensor", name=cam["name"], rate="10.0", type="depthcamera")
+                        ET.SubElement(sensor, "specs", resolution_x="256", resolution_y="128", horizontal_fov="90.0", depth_min="0.2", depth_max="100.0")
+                        ET.SubElement(sensor, "noise", depth="0.02")
+                        ET.SubElement(sensor, "origin", xyz=cam["xyz"], rpy=cam["rpy"])
+                        ET.SubElement(sensor, "ros_publisher", topic=f"{cam["topic"]}_{number_of_vehicles_with_camera}")
+
                     number_of_vehicles_with_camera += 1                 
 
             # Add keypoints to the trajectory
@@ -166,22 +175,24 @@ def parse_static_to_xml(json_file, output_file, CREATE_OUTER_BORDER=False, MODEL
                     print(f"Found {wall_name} in model_replacement")
                     model_data = MODEL_REPLACEMENTS[wall_name]
                     model_file = model_data["model"]
+                    phys_file = model_data["phys_model"]
+                    look = model_data["look"]
                     rpy_values = model_data["rpy"]
 
                     static = ET.SubElement(root, "static", name=wall_name, type="model")
 
                     physical = ET.SubElement(static, "physical")
-                    ET.SubElement(physical, "mesh", filename=f"obstacles/{model_file}_phys.obj", scale="1.0")
-                    ET.SubElement(physical, "origin", xyz="0.0 0.0 0.0", rpy="0.0 0.0 0.0")
+                    ET.SubElement(physical, "mesh", filename=f"obstacles/{phys_file}.obj", scale="1.0")
+                    ET.SubElement(physical, "origin", xyz="0.0 0.0 0.0", rpy="-1.57 0.0 0.0")
 
                     visual = ET.SubElement(static, "visual")
                     ET.SubElement(visual, "mesh", filename=f"obstacles/{model_file}.obj", scale="1.0")
-                    ET.SubElement(visual, "origin", xyz="0.0 0.0 0.0", rpy="0.0 0.0 0.0")
+                    ET.SubElement(visual, "origin", xyz="0.0 0.0 0.0", rpy=f"{rpy_values[0]} {rpy_values[1]} {rpy_values[2]}")
 
                     # hard coded for now
                     ET.SubElement(static, "material", name="Stone")
-                    ET.SubElement(static, "look", name=model_file, uv_mode="0")
-                    ET.SubElement(static, "world_transform", xyz=f"{center_x} {center_y} 0.5", rpy=f"{rpy_values[0]} {rpy_values[1]} {rpy_values[2]}")
+                    ET.SubElement(static, "look", name=look)
+                    ET.SubElement(static, "world_transform", xyz=f"{center_x} {center_y} 0.5", rpy="0.0 0.0 0.0")
                 else:
                     static = ET.SubElement(root, "static", name=wall_name, type="box")
                     ET.SubElement(static, "dimensions", xyz=f"{length} {width} {height}")

@@ -1,9 +1,17 @@
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch_ros.actions import Node
-from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, TextSubstitution
+from launch.substitution import Substitution
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from ament_index_python.packages import get_package_share_directory
+
+class ConcatenateSubstitutions(Substitution):
+    def __init__(self, *substitutions):
+        self.substitutions = substitutions
+
+    def perform(self, context):
+        return ''.join([sub.perform(context) for sub in self.substitutions])
 
 def generate_launch_description():
     # Get the directories of the involved packages
@@ -22,9 +30,13 @@ def generate_launch_description():
     )
 
     scenario_desc_arg = DeclareLaunchArgument(
-        'scenario_desc',
-        default_value=PathJoinSubstitution([scenario_desc_default, 'ocean.scn']),
-        description='Path to the scenario file'
+        'scn',
+        default_value=PathJoinSubstitution('ocean'),
+        description='Path to the scenario file',
+        choices=[
+            'ocean',
+            'testing',
+        ]
     )
 
     window_res_x_arg = DeclareLaunchArgument(
@@ -39,9 +51,16 @@ def generate_launch_description():
         description='Window resolution height'
     )
 
+    quality_arg = DeclareLaunchArgument(
+        'rendering_quality',
+        default_value='high',
+    )
+
     # Logic to prepend the scenarios directory if only a filename is provided
     scenario_desc_resolved = PathJoinSubstitution([
-        vortex_stonefish_sim_dir, 'scenarios', LaunchConfiguration('scenario_desc')
+        vortex_stonefish_sim_dir, 
+        'scenarios', 
+        ConcatenateSubstitutions(LaunchConfiguration('scn'), TextSubstitution(text='.scn'))
     ])
 
     # Include the original launch file from stonefish_ros2 package
@@ -51,7 +70,8 @@ def generate_launch_description():
             'simulation_data': LaunchConfiguration('simulation_data'),
             'scenario_desc': scenario_desc_resolved,
             'window_res_x': LaunchConfiguration('window_res_x'),
-            'window_res_y': LaunchConfiguration('window_res_y')
+            'window_res_y': LaunchConfiguration('window_res_y'),
+            'rendering_quality': LaunchConfiguration('rendering_quality')
         }.items()
     )
 
@@ -60,5 +80,6 @@ def generate_launch_description():
         scenario_desc_arg,
         window_res_x_arg,
         window_res_y_arg,
+        quality_arg,
         include_stonefish_launch
     ])
