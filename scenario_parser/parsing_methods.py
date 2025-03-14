@@ -76,7 +76,8 @@ def parse_dynamic_to_xml(json_file, output_file, vehicles_with_camera, vehicle_m
                         ET.SubElement(sensor, "specs", resolution_x="256", resolution_y="128", horizontal_fov="90.0", depth_min="0.2", depth_max="100.0")
                         ET.SubElement(sensor, "noise", depth="0.02")
                         ET.SubElement(sensor, "origin", xyz=cam["xyz"], rpy=cam["rpy"])
-                        ET.SubElement(sensor, "ros_publisher", topic=f"{cam["topic"]}_{number_of_vehicles_with_camera}")
+                        topic = cam["topic"]
+                        ET.SubElement(sensor, "ros_publisher", topic=f"{topic}_{number_of_vehicles_with_camera}")
 
                     number_of_vehicles_with_camera += 1                 
 

@@ -13,7 +13,7 @@ wave_amplitude = 0.005
 wave_frequency = 3.0
 
 VEHICLES_WITH_CAMERA = [
-    "Boat6"
+    "Boat2"
     ]
 
 VEHICLE_MODELS = {

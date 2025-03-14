@@ -12,38 +12,14 @@
             </visual>
             <material name="Boat"/>
             <look name="Fisherboat" uv_mode="0"/>
-            <world_transform xyz="100.0 155.0 0.5" rpy="-1.57 0.0 0.0"/>
-            <!--Front-->
-            <sensor name="DcamF" rate="10.0" type="depthcamera">
-                <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
-                <origin xyz="-1.0 3.0 0.0" rpy="0.0 1.57 3.14" />
-                <ros_publisher topic="/sim_camF_depth" />
-            </sensor>
-            <!--Right-->
-            <sensor name="DcamR" rate="10.0" type="depthcamera">
-                <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
-                <origin xyz="-1.0 3.0 0.0" rpy="0.0 3.14 3.14" />
-                <ros_publisher topic="/sim_camR_depth" />
-            </sensor>
-            <!--Left-->
-            <sensor name="DcamL" rate="10.0" type="depthcamera">
-                <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
-                <origin xyz="-1.0 3.0 0.0" rpy="0.0 0.0 3.14" />
-                <ros_publisher topic="/sim_camL_depth" />
-            </sensor>
-            <!--Back-->
-            <sensor name="DcamB" rate="10.0" type="depthcamera">
-                <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
-                <origin xyz="-1.0 3.0 0.0" rpy="0.0 4.71 3.14" />
-                <ros_publisher topic="/sim_camB_depth" />
-            </sensor>
+            <world_transform xyz="150.0 150.0 0.5" rpy="-1.57 0.0 -1.57"/>
         </static>
 
         <static name="SensorPlatform" type="box">
             <dimensions xyz="0.01 0.01 0.01"/>
             <material name="Neutral"/>
             <look name="LightGray"/>
-            <world_transform xyz="150.0 90.0 -2.0" rpy="-1.57 0.0 3.14"/>
+            <world_transform xyz="150.0 55.0 -2.0" rpy="-1.57 0.0 3.14"/>
         </static>
 
         <animated name="MovingBoat0" type="model" collition="true">
@@ -58,9 +34,47 @@
             <material name="Boat"/>
             <look name="LightGray"/>
             <trajectory type="spline" playback="repeat">
-                <keypoint time="0.0" xyz="205.0 150.0 0.5" rpy="-1.57 0.0 1.57"/>
-                <keypoint time="30.0" xyz="205.0 10.0 0.5" rpy="-1.57 0.0 1.57"/>
+                <keypoint time="0.0" xyz="205.0 150.0 0.5" rpy="-1.57 0.0 -1.57"/>
+                <keypoint time="30.0" xyz="205.0 10.0 0.5" rpy="-1.57 0.0 -1.57"/>
             </trajectory>
+            <!--Color Cam-->
+            <sensor name="Cam" rate="10.0" type="camera">
+                <specs resolution_x="1280" resolution_y="720" horizontal_fov="90.0" />
+                <noise depth="0.02" />
+                <origin xyz="-3.2 1.75 0.0" rpy="0.0 1.57 3.14" />
+                <ros_publisher topic="/sim_cam_color0" />
+            </sensor>
+            <!--Front-->
+            <sensor name="DcamF" rate="10.0" type="depthcamera">
+                <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
+                <origin xyz="-1.0 3.0 0.0" rpy="0.0 1.57 3.14" />
+                <ros_publisher topic="/sim_camF_depth_0" />
+            </sensor>
+            <!--Right-->
+            <sensor name="DcamR" rate="10.0" type="depthcamera">
+                <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
+                <origin xyz="-1.0 3.0 0.0" rpy="0.0 3.14 3.14" />
+                <ros_publisher topic="/sim_camR_depth_0" />
+            </sensor>
+            <!--Left-->
+            <sensor name="DcamL" rate="10.0" type="depthcamera">
+                <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
+                <origin xyz="-1.0 3.0 0.0" rpy="0.0 0.0 3.14" />
+                <ros_publisher topic="/sim_camL_depth_0" />
+            </sensor>
+            <!--Back-->
+            <sensor name="DcamB" rate="10.0" type="depthcamera">
+                <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
+                <origin xyz="-1.0 3.0 0.0" rpy="0.0 4.71 3.14" />
+                <ros_publisher topic="/sim_camB_depth_0" />
+            </sensor>
         </animated>
+
+        <static name="Wall" type="box">
+            <dimensions xyz="300.0 0.2 100.0"/>
+            <material name="Steel"/>
+            <look name="White"/>
+            <world_transform xyz="150.0 160.0 0.0" rpy="0.0 0.0 0.0"/>
+        </static>
 
     </scenario>
