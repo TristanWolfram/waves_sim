@@ -1,8 +1,30 @@
 import json
 import xml.etree.ElementTree as ET
 import math
+import numpy as np
 import random
 
+# Parameters for wave noise model
+wave_amplitude = 0.01  # Amplitude of wave motion in Z direction
+wave_frequency = 0.005  # Wave frequency in Hz
+
+dt = 0.1  # Time step in seconds
+r = 0.997  # Weak damping factor
+omega_d = 2 * math.pi * wave_frequency
+
+a = 2 * r * math.cos(omega_d * dt)
+b = -r**2
+
+# Initialize noise variables
+z_noise = [np.random.randn(), np.random.randn()]
+pitch_noise = [np.random.randn(), np.random.randn()]
+roll_noise = [np.random.randn(), np.random.randn()]
+
+def update_noise(noise_list, a, b, amplitude):
+    e = 0.1 * np.random.randn()  # Small random input
+    new_value = a * noise_list[-1] + b * noise_list[-2] + e
+    noise_list.append(new_value)
+    return amplitude * new_value  # Scale by wave_amplitude
 
 def parse_dynamic_to_xml(json_file, output_file, vehicles_with_camera, vehicle_models, INCLUDE_WAVE_NOISE=False, wave_amplitude=0.1, wave_frequency=0.5):
     with open(json_file, "r") as f:
@@ -13,7 +35,7 @@ def parse_dynamic_to_xml(json_file, output_file, vehicles_with_camera, vehicle_m
     number_of_vehicles_with_camera = 0
 
     for time_key, vehicle_data in json_data["time_s"].items():
-        time_float = float(time_key)  # Ensure time is a float
+        time_float = float(time_key)
 
         for vehicle_name, details in vehicle_data.items():
             if vehicle_name not in vehicles:
@@ -60,36 +82,34 @@ def parse_dynamic_to_xml(json_file, output_file, vehicles_with_camera, vehicle_m
 
                     sensor = ET.SubElement(animated, "sensor", name="Cam", rate="10.0", type="camera")
                     ET.SubElement(sensor, "specs", resolution_x="1280", resolution_y="720", horizontal_fov="90.0")
-                    ET.SubElement(sensor, "noise", depth="0.02")
                     ET.SubElement(sensor, "origin", xyz="-3.2 1.75 0.0", rpy="0.0 1.57 3.14")
                     ET.SubElement(sensor, "ros_publisher", topic=f"/sim_cam_color{number_of_vehicles_with_camera}")  
 
                     cameras = [
-                        {"name": "DcamF", "xyz": "-1.0 3.0 0.0", "rpy": "0.0 1.57 3.14", "topic": "/sim_camF_depth"},
-                        {"name": "DcamR", "xyz": "-1.0 3.0 0.0", "rpy": "0.0 3.14 3.14", "topic": "/sim_camR_depth"},
-                        {"name": "DcamL", "xyz": "-1.0 3.0 0.0", "rpy": "0.0 0.0 3.14", "topic": "/sim_camL_depth"},
-                        {"name": "DcamB", "xyz": "-1.0 3.0 0.0", "rpy": "0.0 -1.57 3.14", "topic": "/sim_camB_depth"},
+                        {"name": "DcamF", "xyz": "-3.2 1.75 0.0", "rpy": "0.0 1.57 3.14", "topic": "/sim_camF_depth"},
+                        {"name": "DcamR", "xyz": "-3.2 1.75 0.0", "rpy": "0.0 3.14 3.14", "topic": "/sim_camR_depth"},
+                        {"name": "DcamL", "xyz": "-3.2 1.75 0.0", "rpy": "0.0 0.0 3.14", "topic": "/sim_camL_depth"},
+                        {"name": "DcamB", "xyz": "-3.2 1.75 0.0", "rpy": "0.0 -1.57 3.14", "topic": "/sim_camB_depth"},
                     ]
 
                     for cam in cameras:
                         sensor = ET.SubElement(animated, "sensor", name=cam["name"], rate="10.0", type="depthcamera")
                         ET.SubElement(sensor, "specs", resolution_x="256", resolution_y="128", horizontal_fov="90.0", depth_min="0.2", depth_max="100.0")
-                        ET.SubElement(sensor, "noise", depth="0.02")
+                        ET.SubElement(sensor, "noise", depth="0.0002")
                         ET.SubElement(sensor, "origin", xyz=cam["xyz"], rpy=cam["rpy"])
                         topic = cam["topic"]
                         ET.SubElement(sensor, "ros_publisher", topic=f"{topic}_{number_of_vehicles_with_camera}")
 
-                    number_of_vehicles_with_camera += 1                 
+                    number_of_vehicles_with_camera += 1       
 
-            # Add keypoints to the trajectory
             trajectory = vehicles[vehicle_name]
             position = details["center_position_m"]
-            heading = details["heading_rad"] + 3.14159  # Adjust heading by 180 degrees
+            heading = details["heading_rad"] + 3.14159
 
-            z = 0.5  # Default depth of the boat
-            pitch = -1.57  # Default pitch of the boat
-            roll = 0.0  # Default roll of the boat
-
+            z = 0.5  # Base depth of the boat
+            pitch = -1.57  # Default pitch
+            roll = 0.0  # Default roll
+            
             if INCLUDE_WAVE_NOISE:
 
                 # ** Add wave motion **
@@ -106,13 +126,19 @@ def parse_dynamic_to_xml(json_file, output_file, vehicles_with_camera, vehicle_m
                 pitch += pitch_amplitude * math.sin(wave_frequency * time_float + phase_shift_pitch)
                 roll += roll_amplitude * math.sin(wave_frequency * time_float + phase_shift_roll)
 
+            # if INCLUDE_WAVE_NOISE:
+            #     # Apply stochastic wave noise
+            #     z += update_noise(z_noise, a, b, wave_amplitude)
+            #     pitch += update_noise(pitch_noise, a, b, 0.015)
+            #     roll += update_noise(roll_noise, a, b, 0.015)
+
             ET.SubElement(
                 trajectory,
                 "keypoint",
                 time=str(time_key),
                 xyz=f"{position[0]} {position[1]} {z}",
                 rpy=f"{pitch} {roll} {heading}"
-            )
+            )          
 
     # Generate the XML tree and write it to a file
     tree = ET.ElementTree(root)

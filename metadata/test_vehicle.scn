@@ -1,5 +1,11 @@
 <?xml version="1.0"?>
     <scenario>
+
+        <!--
+        LiDAR position on boat:
+        Fisherboat-> "-1.0 3.0 0.0"
+        ReseachBoat-> "-3.2 1.75 0.0"
+        -->
     
         <static name="Fisherboat" type="model">
             <physical>
@@ -47,34 +53,36 @@
             <!--Front-->
             <sensor name="DcamF" rate="10.0" type="depthcamera">
                 <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
-                <origin xyz="-1.0 3.0 0.0" rpy="0.0 1.57 3.14" />
+                <origin xyz="-3.2 1.75 0.0" rpy="0.0 1.57 3.14" />
                 <ros_publisher topic="/sim_camF_depth_0" />
             </sensor>
             <!--Right-->
             <sensor name="DcamR" rate="10.0" type="depthcamera">
                 <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
-                <origin xyz="-1.0 3.0 0.0" rpy="0.0 3.14 3.14" />
+                <origin xyz="-3.2 1.75 0.0" rpy="0.0 3.14 3.14" />
                 <ros_publisher topic="/sim_camR_depth_0" />
             </sensor>
             <!--Left-->
             <sensor name="DcamL" rate="10.0" type="depthcamera">
                 <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
-                <origin xyz="-1.0 3.0 0.0" rpy="0.0 0.0 3.14" />
+                <origin xyz="-3.2 1.75 0.0" rpy="0.0 0.0 3.14" />
                 <ros_publisher topic="/sim_camL_depth_0" />
             </sensor>
             <!--Back-->
             <sensor name="DcamB" rate="10.0" type="depthcamera">
                 <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
-                <origin xyz="-1.0 3.0 0.0" rpy="0.0 4.71 3.14" />
+                <origin xyz="-3.2 1.75 0.0" rpy="0.0 4.71 3.14" />
                 <ros_publisher topic="/sim_camB_depth_0" />
             </sensor>
         </animated>
 
+        <!--
         <static name="Wall" type="box">
             <dimensions xyz="300.0 0.2 100.0"/>
             <material name="Steel"/>
             <look name="White"/>
             <world_transform xyz="150.0 160.0 0.0" rpy="0.0 0.0 0.0"/>
         </static>
+        -->
 
     </scenario>
