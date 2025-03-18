@@ -12,9 +12,19 @@ INCLUDE_WAVE_NOISE = True
 wave_amplitude = 0.005
 wave_frequency = 3.0
 
-VEHICLES_WITH_CAMERA = [
-    "Boat1"
-    ]
+VEHICLES_WITH_SENSORS = {
+    "Boat0": {"lidar": "ouster_os1", "camera": "zedi2"},
+    }
+
+LIDAR_PARAMETERS = {
+    "ouster_os1": {"min_range": "0.5", "max_range": "170.0", "rate": "10.0", "noise": "0.0001"},
+    "small_lidar": {"min_range": "0.5", "max_range": "50.0", "rate": "10.0", "noise": "0.0001"},
+}
+
+CAMERA_PARAMETERS = {
+    "zedi2": {"res_x": "1280", "res_y": "720", "fov": "90.0", "rate": "10.0"},
+    "FLIR": {"res_x": "640", "res_y": "480", "fov": "110.0", "rate": "10.0"},
+}
 
 VEHICLE_MODELS = {
     "Boat0": {"model": "boats/fisher_boat.obj", "phys_model": "boats/fisher_boat_cube_phys.obj", "material": "Boat", "look": "Fisherboat"},
@@ -30,7 +40,7 @@ VEHICLE_MODELS = {
 
 json_input = f"scenario_parser/{DYNAMIC}.json"
 output_file = f"metadata/{DYNAMIC}.scn"
-pm.parse_dynamic_to_xml(json_input, output_file, VEHICLES_WITH_CAMERA, VEHICLE_MODELS, INCLUDE_WAVE_NOISE, wave_amplitude, wave_frequency)
+pm.parse_dynamic_to_xml(json_input, output_file, VEHICLES_WITH_SENSORS, VEHICLE_MODELS, LIDAR_PARAMETERS, CAMERA_PARAMETERS, INCLUDE_WAVE_NOISE, wave_amplitude, wave_frequency)
 
 # Parsing of static data:
 

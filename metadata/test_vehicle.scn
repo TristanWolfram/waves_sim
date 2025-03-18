@@ -3,6 +3,7 @@
 
         <!--
         LiDAR position on boat:
+        null_> "0.0 0.0 0.0"
         Fisherboat-> "-1.0 3.0 0.0"
         ReseachBoat-> "-3.2 1.75 0.0"
         -->
@@ -19,13 +20,6 @@
             <material name="Boat"/>
             <look name="Fisherboat" uv_mode="0"/>
             <world_transform xyz="150.0 150.0 0.5" rpy="-1.57 0.0 -1.57"/>
-        </static>
-
-        <static name="SensorPlatform" type="box">
-            <dimensions xyz="0.01 0.01 0.01"/>
-            <material name="Neutral"/>
-            <look name="LightGray"/>
-            <world_transform xyz="150.0 55.0 -2.0" rpy="-1.57 0.0 3.14"/>
         </static>
 
         <animated name="MovingBoat0" type="model" collition="true">
@@ -52,36 +46,108 @@
             </sensor>
             <!--Front-->
             <sensor name="DcamF" rate="10.0" type="depthcamera">
-                <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
+                <specs resolution_x="512" resolution_y="256" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
                 <origin xyz="-3.2 1.75 0.0" rpy="0.0 1.57 3.14" />
                 <ros_publisher topic="/sim_camF_depth_0" />
             </sensor>
             <!--Right-->
             <sensor name="DcamR" rate="10.0" type="depthcamera">
-                <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
+                <specs resolution_x="512" resolution_y="256" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
                 <origin xyz="-3.2 1.75 0.0" rpy="0.0 3.14 3.14" />
                 <ros_publisher topic="/sim_camR_depth_0" />
             </sensor>
             <!--Left-->
             <sensor name="DcamL" rate="10.0" type="depthcamera">
-                <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
+                <specs resolution_x="512" resolution_y="256" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
                 <origin xyz="-3.2 1.75 0.0" rpy="0.0 0.0 3.14" />
                 <ros_publisher topic="/sim_camL_depth_0" />
             </sensor>
             <!--Back-->
             <sensor name="DcamB" rate="10.0" type="depthcamera">
-                <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
+                <specs resolution_x="512" resolution_y="256" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
                 <origin xyz="-3.2 1.75 0.0" rpy="0.0 4.71 3.14" />
                 <ros_publisher topic="/sim_camB_depth_0" />
             </sensor>
+
+            <!-- GPS -->
+            <sensor name="GPS" rate="1.0" type="gps">
+                <noise ned_position="0.5"/>
+                <history samples="1"/>
+                <origin xyz="-3.2 1.75 0.0" rpy="0.0 0.0 0.0"/>
+                <ros_publisher topic="/sim_gps_0" />
+            </sensor>
+
+            <!-- IMU -->
+            <sensor name="IMU" rate="10.0" type="imu">
+                <range angular_velocity="10.0 10.0 5.0" linear_acceleration="10.0"/>
+                <noise angle="0.1 0.1 0.5" angular_velocity="0.05" yaw_drift="0.001" linear_acceleration="0.1"/>
+                <history samples="1"/>
+                <origin xyz="-3.2 1.75 0.0" rpy="0.0 0.0 0.0"/>
+                <ros_publisher topic="/sim_imu_0" />
+            </sensor>
         </animated>
 
+        <!-- Static sensor platform without boat -->
+        <!--
+        <static name="SensorPlatform" type="box">
+            <dimensions xyz="4.0 4.0 4.0"/>
+            <material name="Neutral"/>
+            <look name="LightGray"/>
+            <world_transform xyz="150.0 55.0 -2.0" rpy="-1.57 0.0 0.785"/>
+            <sensor name="Cam" rate="10.0" type="camera">
+                <specs resolution_x="1280" resolution_y="720" horizontal_fov="90.0" />
+                <noise depth="0.02" />
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 1.57 3.14" />
+                <ros_publisher topic="/sim_cam_color0" />
+            </sensor>
+            <sensor name="DcamF" rate="10.0" type="depthcamera">
+                <specs resolution_x="512" resolution_y="256" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 1.57 3.14" />
+                <ros_publisher topic="/sim_camF_depth_0" />
+            </sensor>
+            <sensor name="DcamR" rate="10.0" type="depthcamera">
+                <specs resolution_x="512" resolution_y="256" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 3.14 3.14" />
+                <ros_publisher topic="/sim_camR_depth_0" />
+            </sensor>
+            <sensor name="DcamL" rate="10.0" type="depthcamera">
+                <specs resolution_x="512" resolution_y="256" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 3.14" />
+                <ros_publisher topic="/sim_camL_depth_0" />
+            </sensor>
+            <sensor name="DcamB" rate="10.0" type="depthcamera">
+                <specs resolution_x="512" resolution_y="256" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 4.71 3.14" />
+                <ros_publisher topic="/sim_camB_depth_0" />
+            </sensor>
+        </static>
+        -->
+        
+        <!-- Box -->
         <!--
         <static name="Wall" type="box">
-            <dimensions xyz="300.0 0.2 100.0"/>
+            <dimensions xyz="80.0 0.2 100.0"/>
             <material name="Steel"/>
             <look name="White"/>
-            <world_transform xyz="150.0 160.0 0.0" rpy="0.0 0.0 0.0"/>
+            <world_transform xyz="150.0 15.0 0.0" rpy="0.0 0.0 0.0"/>
+        </static>
+        <static name="Wall" type="box">
+            <dimensions xyz="80.0 0.2 100.0"/>
+            <material name="Steel"/>
+            <look name="White"/>
+            <world_transform xyz="150.0 95.0 0.0" rpy="0.0 0.0 0.0"/>
+        </static>
+        <static name="Wall" type="box">
+            <dimensions xyz="80.0 0.2 100.0"/>
+            <material name="Steel"/>
+            <look name="Black"/>
+            <world_transform xyz="110.0 55.0 0.0" rpy="0.0 0.0 1.57"/>
+        </static>
+        <static name="Wall" type="box">
+            <dimensions xyz="80.0 0.2 100.0"/>
+            <material name="Steel"/>
+            <look name="Black"/>
+            <world_transform xyz="190.0 55.0 0.0" rpy="0.0 0.0 1.57"/>
         </static>
         -->
 

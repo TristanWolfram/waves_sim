@@ -26,7 +26,10 @@ def update_noise(noise_list, a, b, amplitude):
     noise_list.append(new_value)
     return amplitude * new_value  # Scale by wave_amplitude
 
-def parse_dynamic_to_xml(json_file, output_file, vehicles_with_camera, vehicle_models, INCLUDE_WAVE_NOISE=False, wave_amplitude=0.1, wave_frequency=0.5):
+def parse_dynamic_to_xml(json_file, output_file, vehicles_with_sensor, vehicle_models, lidar_specs_combined, camera_specs_combined, INCLUDE_WAVE_NOISE=False, wave_amplitude=0.1, wave_frequency=0.5):
+
+    print("Parsing dynamic data to XML...\n")
+
     with open(json_file, "r") as f:
         json_data = json.load(f)
 
@@ -75,13 +78,18 @@ def parse_dynamic_to_xml(json_file, output_file, vehicles_with_camera, vehicle_m
                 )
                 vehicles[vehicle_name] = trajectory
 
-                if vehicle_name in vehicles_with_camera:
+                if vehicle_name in vehicles_with_sensor:
 
-                    print(f"Adding camera to {vehicle_name}, ROS2 topic -> /sim_cam_color{number_of_vehicles_with_camera}")
-                    print(f"Adding depth camera to {vehicle_name}, ROS2 topic -> /sim_cam_depth{number_of_vehicles_with_camera}")
+                    sensors = vehicles_with_sensor[vehicle_name]
+                    camera_specs = camera_specs_combined[sensors["camera"]]
+                    lidar_specs = lidar_specs_combined[sensors["lidar"]]
 
-                    sensor = ET.SubElement(animated, "sensor", name="Cam", rate="10.0", type="camera")
-                    ET.SubElement(sensor, "specs", resolution_x="1280", resolution_y="720", horizontal_fov="90.0")
+                    print(f"-----------------> {vehicle_name} has sensors!")
+                    print(f"Adding camera ({sensors['camera']}), ROS2 topic -> /sim_cam_color{number_of_vehicles_with_camera}")
+                    print(f"Adding LiDAR ({sensors['lidar']}), ROS2 topic -> /sim_cam_depth{number_of_vehicles_with_camera}\n")
+
+                    sensor = ET.SubElement(animated, "sensor", name="Cam", rate=camera_specs["rate"], type="camera")
+                    ET.SubElement(sensor, "specs", resolution_x=camera_specs["res_x"], resolution_y=camera_specs["res_y"], horizontal_fov=camera_specs["fov"])
                     ET.SubElement(sensor, "origin", xyz="-3.2 1.75 0.0", rpy="0.0 1.57 3.14")
                     ET.SubElement(sensor, "ros_publisher", topic=f"/sim_cam_color{number_of_vehicles_with_camera}")  
 
@@ -93,9 +101,9 @@ def parse_dynamic_to_xml(json_file, output_file, vehicles_with_camera, vehicle_m
                     ]
 
                     for cam in cameras:
-                        sensor = ET.SubElement(animated, "sensor", name=cam["name"], rate="10.0", type="depthcamera")
-                        ET.SubElement(sensor, "specs", resolution_x="256", resolution_y="128", horizontal_fov="90.0", depth_min="0.2", depth_max="100.0")
-                        ET.SubElement(sensor, "noise", depth="0.0002")
+                        sensor = ET.SubElement(animated, "sensor", name=cam["name"], rate=lidar_specs["rate"], type="depthcamera")
+                        ET.SubElement(sensor, "specs", resolution_x="256", resolution_y="128", horizontal_fov="90.0", depth_min=lidar_specs["min_range"], depth_max=lidar_specs["max_range"])
+                        ET.SubElement(sensor, "noise", depth=lidar_specs["noise"])
                         ET.SubElement(sensor, "origin", xyz=cam["xyz"], rpy=cam["rpy"])
                         topic = cam["topic"]
                         ET.SubElement(sensor, "ros_publisher", topic=f"{topic}_{number_of_vehicles_with_camera}")
@@ -138,13 +146,17 @@ def parse_dynamic_to_xml(json_file, output_file, vehicles_with_camera, vehicle_m
                 time=str(time_key),
                 xyz=f"{position[0]} {position[1]} {z}",
                 rpy=f"{pitch} {roll} {heading}"
-            )          
+            )   
 
     # Generate the XML tree and write it to a file
     tree = ET.ElementTree(root)
     ET.indent(tree, space="    ", level=0)  # Pretty print the XML
     tree.write(output_file, encoding="utf-8", xml_declaration=True)
-    print(f"Dynamic XML file has been generated: {output_file}")
+
+    if INCLUDE_WAVE_NOISE:
+        print(f"Dynamic data has been generated -----> with wave noise: {output_file}\n")
+    else:
+        print(f"Dynamic data has been generated: {output_file}\n")    
 
 
 def parse_static_to_xml(json_file, output_file, CREATE_OUTER_BORDER=False, MODEL_REPLACEMENTS={}):

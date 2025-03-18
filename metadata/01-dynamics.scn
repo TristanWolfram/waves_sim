@@ -2013,6 +2013,35 @@
             <keypoint time="199.8" xyz="211.719 12.717 0.5030027821811502" rpy="-1.572110988814246 -0.011993735554576359 6.31859" />
             <keypoint time="199.9" xyz="211.457 12.709 0.5016872036499727" rpy="-1.5764053909108944 -0.014120201648407063 6.31659" />
         </trajectory>
+        <sensor name="Cam" rate="10.0" type="camera">
+            <specs resolution_x="1280" resolution_y="720" horizontal_fov="90.0" />
+            <origin xyz="-3.2 1.75 0.0" rpy="0.0 1.57 3.14" />
+            <ros_publisher topic="/sim_cam_color0" />
+        </sensor>
+        <sensor name="DcamF" rate="10.0" type="depthcamera">
+            <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
+            <noise depth="0.0001" />
+            <origin xyz="-3.2 1.75 0.0" rpy="0.0 1.57 3.14" />
+            <ros_publisher topic="/sim_camF_depth_0" />
+        </sensor>
+        <sensor name="DcamR" rate="10.0" type="depthcamera">
+            <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
+            <noise depth="0.0001" />
+            <origin xyz="-3.2 1.75 0.0" rpy="0.0 3.14 3.14" />
+            <ros_publisher topic="/sim_camR_depth_0" />
+        </sensor>
+        <sensor name="DcamL" rate="10.0" type="depthcamera">
+            <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
+            <noise depth="0.0001" />
+            <origin xyz="-3.2 1.75 0.0" rpy="0.0 0.0 3.14" />
+            <ros_publisher topic="/sim_camL_depth_0" />
+        </sensor>
+        <sensor name="DcamB" rate="10.0" type="depthcamera">
+            <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
+            <noise depth="0.0001" />
+            <origin xyz="-3.2 1.75 0.0" rpy="0.0 -1.57 3.14" />
+            <ros_publisher topic="/sim_camB_depth_0" />
+        </sensor>
     </animated>
     <animated name="Boat1" type="model" collition="true">
         <physical>
@@ -4027,35 +4056,6 @@
             <keypoint time="199.8" xyz="28.563 16.933 0.5030027821811502" rpy="-1.572110988814246 -0.011993735554576359 6.00259" />
             <keypoint time="199.9" xyz="28.371 16.987 0.5016872036499727" rpy="-1.5764053909108944 -0.014120201648407063 5.98859" />
         </trajectory>
-        <sensor name="Cam" rate="10.0" type="camera">
-            <specs resolution_x="1280" resolution_y="720" horizontal_fov="90.0" />
-            <origin xyz="-3.2 1.75 0.0" rpy="0.0 1.57 3.14" />
-            <ros_publisher topic="/sim_cam_color0" />
-        </sensor>
-        <sensor name="DcamF" rate="10.0" type="depthcamera">
-            <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
-            <noise depth="0.0002" />
-            <origin xyz="-3.2 1.75 0.0" rpy="0.0 1.57 3.14" />
-            <ros_publisher topic="/sim_camF_depth_0" />
-        </sensor>
-        <sensor name="DcamR" rate="10.0" type="depthcamera">
-            <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
-            <noise depth="0.0002" />
-            <origin xyz="-3.2 1.75 0.0" rpy="0.0 3.14 3.14" />
-            <ros_publisher topic="/sim_camR_depth_0" />
-        </sensor>
-        <sensor name="DcamL" rate="10.0" type="depthcamera">
-            <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
-            <noise depth="0.0002" />
-            <origin xyz="-3.2 1.75 0.0" rpy="0.0 0.0 3.14" />
-            <ros_publisher topic="/sim_camL_depth_0" />
-        </sensor>
-        <sensor name="DcamB" rate="10.0" type="depthcamera">
-            <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
-            <noise depth="0.0002" />
-            <origin xyz="-3.2 1.75 0.0" rpy="0.0 -1.57 3.14" />
-            <ros_publisher topic="/sim_camB_depth_0" />
-        </sensor>
     </animated>
     <animated name="Boat2" type="model" collition="true">
         <physical>
