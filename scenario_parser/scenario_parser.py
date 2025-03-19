@@ -13,7 +13,7 @@ wave_amplitude = 0.005
 wave_frequency = 3.0
 
 VEHICLES_WITH_SENSORS = {
-    "Boat0": {"lidar": "ouster_os1", "camera": "zedi2"},
+    "Boat5": {"lidar": "ouster_os1", "camera": "zed", "gps": "gps_base", "imu": "imu_clear"},
     }
 
 LIDAR_PARAMETERS = {
@@ -22,8 +22,24 @@ LIDAR_PARAMETERS = {
 }
 
 CAMERA_PARAMETERS = {
-    "zedi2": {"res_x": "1280", "res_y": "720", "fov": "90.0", "rate": "10.0"},
+    "base_cam": {"res_x": "1280", "res_y": "720", "fov": "90.0", "rate": "10.0"},
     "FLIR": {"res_x": "640", "res_y": "480", "fov": "110.0", "rate": "10.0"},
+    "zed": {"res_x": "960", "res_y": "600", "fov": "110.0", "rate": "15.0"},
+}
+
+GPS_PARAMETERS = {
+    "gps_base": {"rate": "1.0", "noise": "0.5"},
+}
+
+IMU_PARAMETERS = {
+    "imu_base": {"rate": "1.0", 
+                 "range": {"ang_vel": "10.0 10.0 5.0", "lin_acc": "10.0"},
+                 "noise": {"angle": "0.01 0.01 0.01", "ang_vel":"0.05", "yaw_drift": "0.001", "lin_acc": "0.1"}
+                },
+    "imu_clear": {"rate": "1.0",
+                  "range": {"ang_vel": "10.0 10.0 5.0", "lin_acc": "10.0"}
+                },
+                  
 }
 
 VEHICLE_MODELS = {
@@ -40,7 +56,17 @@ VEHICLE_MODELS = {
 
 json_input = f"scenario_parser/{DYNAMIC}.json"
 output_file = f"metadata/{DYNAMIC}.scn"
-pm.parse_dynamic_to_xml(json_input, output_file, VEHICLES_WITH_SENSORS, VEHICLE_MODELS, LIDAR_PARAMETERS, CAMERA_PARAMETERS, INCLUDE_WAVE_NOISE, wave_amplitude, wave_frequency)
+pm.parse_dynamic_to_xml(json_input,
+                        output_file,
+                        VEHICLES_WITH_SENSORS,
+                        VEHICLE_MODELS,
+                        LIDAR_PARAMETERS,
+                        CAMERA_PARAMETERS,
+                        GPS_PARAMETERS,
+                        IMU_PARAMETERS,
+                        INCLUDE_WAVE_NOISE,
+                        wave_amplitude,
+                        wave_frequency)
 
 # Parsing of static data:
 

@@ -26,7 +26,7 @@ def update_noise(noise_list, a, b, amplitude):
     noise_list.append(new_value)
     return amplitude * new_value  # Scale by wave_amplitude
 
-def parse_dynamic_to_xml(json_file, output_file, vehicles_with_sensor, vehicle_models, lidar_specs_combined, camera_specs_combined, INCLUDE_WAVE_NOISE=False, wave_amplitude=0.1, wave_frequency=0.5):
+def parse_dynamic_to_xml(json_file, output_file, vehicles_with_sensor, vehicle_models, lidar_specs_combined, camera_specs_combined, gps_specs_compined, imu_specs_combined, INCLUDE_WAVE_NOISE=False, wave_amplitude=0.1, wave_frequency=0.5):
 
     print("Parsing dynamic data to XML...\n")
 
@@ -86,18 +86,18 @@ def parse_dynamic_to_xml(json_file, output_file, vehicles_with_sensor, vehicle_m
 
                     print(f"-----------------> {vehicle_name} has sensors!")
                     print(f"Adding camera ({sensors['camera']}), ROS2 topic -> /sim_cam_color{number_of_vehicles_with_camera}")
-                    print(f"Adding LiDAR ({sensors['lidar']}), ROS2 topic -> /sim_cam_depth{number_of_vehicles_with_camera}\n")
+                    print(f"Adding LiDAR ({sensors['lidar']}), ROS2 topic -> /sim_cam_depth{number_of_vehicles_with_camera}")
 
                     sensor = ET.SubElement(animated, "sensor", name="Cam", rate=camera_specs["rate"], type="camera")
                     ET.SubElement(sensor, "specs", resolution_x=camera_specs["res_x"], resolution_y=camera_specs["res_y"], horizontal_fov=camera_specs["fov"])
-                    ET.SubElement(sensor, "origin", xyz="-3.2 1.75 0.0", rpy="0.0 1.57 3.14")
-                    ET.SubElement(sensor, "ros_publisher", topic=f"/sim_cam_color{number_of_vehicles_with_camera}")  
+                    ET.SubElement(sensor, "origin", xyz="-4.2 1.75 0.0", rpy="0.0 1.57 3.14")
+                    ET.SubElement(sensor, "ros_publisher", topic=f"/sim_cam_color_{number_of_vehicles_with_camera}")  
 
                     cameras = [
-                        {"name": "DcamF", "xyz": "-3.2 1.75 0.0", "rpy": "0.0 1.57 3.14", "topic": "/sim_camF_depth"},
-                        {"name": "DcamR", "xyz": "-3.2 1.75 0.0", "rpy": "0.0 3.14 3.14", "topic": "/sim_camR_depth"},
-                        {"name": "DcamL", "xyz": "-3.2 1.75 0.0", "rpy": "0.0 0.0 3.14", "topic": "/sim_camL_depth"},
-                        {"name": "DcamB", "xyz": "-3.2 1.75 0.0", "rpy": "0.0 -1.57 3.14", "topic": "/sim_camB_depth"},
+                        {"name": "DcamF", "xyz": "-4.2 1.75 0.0", "rpy": "0.0 1.57 3.14", "topic": "/sim_camF_depth"},
+                        {"name": "DcamR", "xyz": "-4.2 1.75 0.0", "rpy": "0.0 3.14 3.14", "topic": "/sim_camR_depth"},
+                        {"name": "DcamL", "xyz": "-4.2 1.75 0.0", "rpy": "0.0 0.0 3.14", "topic": "/sim_camL_depth"},
+                        {"name": "DcamB", "xyz": "-4.2 1.75 0.0", "rpy": "0.0 -1.57 3.14", "topic": "/sim_camB_depth"},
                     ]
 
                     for cam in cameras:
@@ -107,8 +107,29 @@ def parse_dynamic_to_xml(json_file, output_file, vehicles_with_sensor, vehicle_m
                         ET.SubElement(sensor, "origin", xyz=cam["xyz"], rpy=cam["rpy"])
                         topic = cam["topic"]
                         ET.SubElement(sensor, "ros_publisher", topic=f"{topic}_{number_of_vehicles_with_camera}")
+                    
+                    if "gps" in sensors:
+                        print(f"Adding GPS ({sensors['gps']}), ROS2 topic -> /sim_gps{number_of_vehicles_with_camera}")
+                        gps_specs = gps_specs_compined[sensors["gps"]]
+                        gps = ET.SubElement(animated, "sensor", name="GPS", rate=gps_specs["rate"], type="gps")
+                        ET.SubElement(gps, "noise", ned_position=gps_specs["noise"])
+                        ET.SubElement(gps, "history", samples="1")
+                        ET.SubElement(gps, "origin", xyz="-4.2 1.75 0.0", rpy="0.0 0.0 0.0")
+                        ET.SubElement(gps, "ros_publisher", topic=f"/sim_gps_{number_of_vehicles_with_camera}")
 
-                    number_of_vehicles_with_camera += 1       
+                    if "imu" in sensors:
+                        print(f"Adding IMU ({sensors['imu']}), ROS2 topic -> /sim_imu{number_of_vehicles_with_camera}")
+                        imu_specs = imu_specs_combined[sensors["imu"]]
+                        imu = ET.SubElement(animated, "sensor", name="IMU", rate=imu_specs["rate"], type="imu")
+                        ET.SubElement(imu, "range", angular_velocity=imu_specs["range"]["ang_vel"], linear_acceleration=imu_specs["range"]["lin_acc"])
+                        if "noise" in imu_specs:
+                            ET.SubElement(imu, "noise", angle=imu_specs["noise"]["angle"], angular_velocity=imu_specs["noise"]["ang_vel"], yaw_drift=imu_specs["noise"]["yaw_drift"], linear_acceleration=imu_specs["noise"]["lin_acc"])
+                        ET.SubElement(imu, "history", samples="1")
+                        ET.SubElement(imu, "origin", xyz="0.0 0.0 0.0", rpy="-1.57 0.0 0.0")
+                        ET.SubElement(imu, "ros_publisher", topic=f"/sim_imu_{number_of_vehicles_with_camera}")
+
+                    number_of_vehicles_with_camera += 1
+                    print("\n")
 
             trajectory = vehicles[vehicle_name]
             position = details["center_position_m"]
