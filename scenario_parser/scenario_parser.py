@@ -2,8 +2,8 @@ import parsing_methods as pm
 import random
 
 # input:
-STATIC = "01-statics"
-DYNAMIC = "01-dynamics"
+STATIC = "00-statics"
+DYNAMIC = "00-dynamics"
 
 # Parsing of dynamic data:
 

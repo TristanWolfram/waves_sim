@@ -12083,6 +12083,47 @@
             <keypoint time="199.8" xyz="88.969 54.275 0.5030027821811502" rpy="-1.572110988814246 -0.011993735554576359 7.63059" />
             <keypoint time="199.9" xyz="88.903 53.982 0.5016872036499727" rpy="-1.5764053909108944 -0.014120201648407063 7.63059" />
         </trajectory>
+        <sensor name="Cam" rate="15.0" type="camera">
+            <specs resolution_x="960" resolution_y="600" horizontal_fov="110.0" />
+            <origin xyz="-4.2 1.75 0.0" rpy="0.0 1.57 3.14" />
+            <ros_publisher topic="/sim_cam_color_0" />
+        </sensor>
+        <sensor name="DcamF" rate="10.0" type="depthcamera">
+            <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
+            <noise depth="0.0001" />
+            <origin xyz="-4.2 1.75 0.0" rpy="0.0 1.57 3.14" />
+            <ros_publisher topic="/sim_camF_depth_0" />
+        </sensor>
+        <sensor name="DcamR" rate="10.0" type="depthcamera">
+            <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
+            <noise depth="0.0001" />
+            <origin xyz="-4.2 1.75 0.0" rpy="0.0 3.14 3.14" />
+            <ros_publisher topic="/sim_camR_depth_0" />
+        </sensor>
+        <sensor name="DcamL" rate="10.0" type="depthcamera">
+            <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
+            <noise depth="0.0001" />
+            <origin xyz="-4.2 1.75 0.0" rpy="0.0 0.0 3.14" />
+            <ros_publisher topic="/sim_camL_depth_0" />
+        </sensor>
+        <sensor name="DcamB" rate="10.0" type="depthcamera">
+            <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
+            <noise depth="0.0001" />
+            <origin xyz="-4.2 1.75 0.0" rpy="0.0 -1.57 3.14" />
+            <ros_publisher topic="/sim_camB_depth_0" />
+        </sensor>
+        <sensor name="GPS" rate="1.0" type="gps">
+            <noise ned_position="0.5" />
+            <history samples="1" />
+            <origin xyz="-4.2 1.75 0.0" rpy="0.0 0.0 0.0" />
+            <ros_publisher topic="/sim_gps_0" />
+        </sensor>
+        <sensor name="IMU" rate="1.0" type="imu">
+            <range angular_velocity="10.0 10.0 5.0" linear_acceleration="10.0" />
+            <history samples="1" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+            <ros_publisher topic="/sim_imu_0" />
+        </sensor>
     </animated>
     <animated name="Boat6" type="model" collition="true">
         <physical>
@@ -14097,39 +14138,6 @@
             <keypoint time="199.8" xyz="14.392 31.358 0.5030027821811502" rpy="-1.572110988814246 -0.011993735554576359 5.67759" />
             <keypoint time="199.9" xyz="14.434 31.328 0.5016872036499727" rpy="-1.5764053909108944 -0.014120201648407063 5.67059" />
         </trajectory>
-        <sensor name="CamF" rate="10.0" type="camera">
-            <specs resolution_x="1280" resolution_y="720" horizontal_fov="90.0"/>
-            <origin xyz="1.0 3.0 0.0" rpy="0.0 1.57 3.14"/>
-            <ros_publisher topic="/sim_camF_color"/>
-        </sensor>
-        <!--Front-->
-        <sensor name="DcamF" rate="10.0" type="depthcamera">
-            <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
-            <noise depth="0.0002"/>
-            <origin xyz="1.0 3.0 0.0" rpy="0.0 1.57 3.14" />
-            <ros_publisher topic="/sim_camF_depth" />
-        </sensor>
-        <!--Right-->
-        <sensor name="DcamR" rate="10.0" type="depthcamera">
-            <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
-            <noise depth="0.0002"/>
-            <origin xyz="1.0 3.0 0.0" rpy="0.0 3.14 3.14" />
-            <ros_publisher topic="/sim_camR_depth" />
-        </sensor>
-        <!--Left-->
-        <sensor name="DcamL" rate="10.0" type="depthcamera">
-            <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
-            <noise depth="0.0002"/>
-            <origin xyz="1.0 3.0 0.0" rpy="0.0 0.0 3.14" />
-            <ros_publisher topic="/sim_camL_depth" />
-        </sensor>
-        <!--Back-->
-        <sensor name="DcamB" rate="10.0" type="depthcamera">
-            <specs resolution_x="256" resolution_y="128" horizontal_fov="90.0" depth_min="0.2" depth_max="100.0" />
-            <noise depth="0.0002"/>
-            <origin xyz="1.0 3.0 0.0" rpy="0.0 4.71 3.14" />
-            <ros_publisher topic="/sim_camB_depth" />
-        </sensor>
     </animated>
     <animated name="Boat7" type="model" collition="true">
         <physical>

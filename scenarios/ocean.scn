@@ -23,10 +23,10 @@
 <!-- Simulation interiors -->
   <!--
    
-  
+  Change the scene here:
   -->
-  <include file="$(find ocean_sim)/metadata/01-dynamics.scn"/>
-  <include file="$(find ocean_sim)/metadata/01-statics.scn"/>
+  <include file="$(find ocean_sim)/metadata/00-dynamics.scn"/>
+  <include file="$(find ocean_sim)/metadata/00-statics.scn"/>
   <include file="$(find ocean_sim)/metadata/surroundings.scn"/>
 
 <!-- Testing stuff -->

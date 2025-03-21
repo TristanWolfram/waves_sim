@@ -41,31 +41,31 @@
             <sensor name="Cam" rate="10.0" type="camera">
                 <specs resolution_x="1280" resolution_y="720" horizontal_fov="90.0" />
                 <noise depth="0.02" />
-                <origin xyz="-3.2 1.75 0.0" rpy="0.0 1.57 3.14" />
+                <origin xyz="-4.2 1.75 0.0" rpy="0.0 1.57 3.14" />
                 <ros_publisher topic="/sim_cam_color_0" />
             </sensor>
             <!--Front-->
             <sensor name="DcamF" rate="10.0" type="depthcamera">
                 <specs resolution_x="512" resolution_y="256" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
-                <origin xyz="-3.2 1.75 0.0" rpy="0.0 1.57 3.14" />
+                <origin xyz="-4.2 1.75 0.0" rpy="0.0 1.57 3.14" />
                 <ros_publisher topic="/sim_camF_depth_0" />
             </sensor>
             <!--Right-->
             <sensor name="DcamR" rate="10.0" type="depthcamera">
                 <specs resolution_x="512" resolution_y="256" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
-                <origin xyz="-3.2 1.75 0.0" rpy="0.0 3.14 3.14" />
+                <origin xyz="-4.2 1.75 0.0" rpy="0.0 3.14 3.14" />
                 <ros_publisher topic="/sim_camR_depth_0" />
             </sensor>
             <!--Left-->
             <sensor name="DcamL" rate="10.0" type="depthcamera">
                 <specs resolution_x="512" resolution_y="256" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
-                <origin xyz="-3.2 1.75 0.0" rpy="0.0 0.0 3.14" />
+                <origin xyz="-4.2 1.75 0.0" rpy="0.0 0.0 3.14" />
                 <ros_publisher topic="/sim_camL_depth_0" />
             </sensor>
             <!--Back-->
             <sensor name="DcamB" rate="10.0" type="depthcamera">
                 <specs resolution_x="512" resolution_y="256" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
-                <origin xyz="-3.2 1.75 0.0" rpy="0.0 4.71 3.14" />
+                <origin xyz="-4.2 1.75 0.0" rpy="0.0 4.71 3.14" />
                 <ros_publisher topic="/sim_camB_depth_0" />
             </sensor>
 
@@ -73,7 +73,7 @@
             <sensor name="GPS" rate="1.0" type="gps">
                 <noise ned_position="0.5"/>
                 <history samples="1"/>
-                <origin xyz="-3.2 1.75 0.0" rpy="0.0 0.0 0.0"/>
+                <origin xyz="-4.2 1.75 0.0" rpy="0.0 0.0 0.0"/>
                 <ros_publisher topic="/sim_gps_0" />
             </sensor>
 
@@ -82,10 +82,17 @@
                 <range angular_velocity="10.0 10.0 5.0" linear_acceleration="10.0"/>
                 <noise angle="0.1 0.1 0.5" angular_velocity="0.05" yaw_drift="0.001" linear_acceleration="0.1"/>
                 <history samples="1"/>
-                <origin xyz="-3.2 1.75 0.0" rpy="-1.57 0.0 0.0"/>
+                <origin xyz="-4.2 1.75 0.0" rpy="-1.57 0.0 0.0"/>
                 <ros_publisher topic="/sim_imu_0" />
             </sensor>
         </animated>
+
+        <static name="Wall" type="box">
+            <dimensions xyz="80.0 0.2 100.0"/>
+            <material name="Steel"/>
+            <look name="White"/>
+            <world_transform xyz="250.0 80.0 0.0" rpy="0.0 0.0 1.57"/>
+        </static>
 
         <!-- Static sensor platform without boat -->
         <!--
