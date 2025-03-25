@@ -16,7 +16,7 @@ class ConcatenateSubstitutions(Substitution):
 
 def generate_launch_description():
     # Get the directories of the involved packages
-    vortex_stonefish_sim_dir = get_package_share_directory('ocean_sim')
+    vortex_stonefish_sim_dir = get_package_share_directory('rbi_sim')
     stonefish_ros2_dir = get_package_share_directory('stonefish_ros2')
 
     # Set default paths for simulation_data and scenario_desc
@@ -78,7 +78,7 @@ def generate_launch_description():
 
     # Lidar convertion node
     lidar_converter_node = Node(
-        package='ocean_sim',  # Replace with actual package name
+        package='rbi_sim',  # Replace with actual package name
         executable='LiDAR_converter',  # Name of your built executable
         name='lidar_converter',        # Optional: give the node a unique name
         output='screen',               # Optional: log output to screen
