@@ -4,6 +4,7 @@ from launch_ros.actions import Node
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, TextSubstitution
 from launch.substitution import Substitution
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 
 class ConcatenateSubstitutions(Substitution):
@@ -75,11 +76,22 @@ def generate_launch_description():
         }.items()
     )
 
+    # Lidar convertion node
+    lidar_converter_node = Node(
+        package='ocean_sim',  # Replace with actual package name
+        executable='LiDAR_converter',  # Name of your built executable
+        name='lidar_converter',        # Optional: give the node a unique name
+        output='screen',               # Optional: log output to screen
+        parameters=[{
+        }]
+    )
+
     return LaunchDescription([
         simulation_data_arg,
         scenario_desc_arg,
         window_res_x_arg,
         window_res_y_arg,
         quality_arg,
-        include_stonefish_launch
+        include_stonefish_launch,
+        lidar_converter_node
     ])

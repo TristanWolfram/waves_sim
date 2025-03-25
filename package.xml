@@ -4,10 +4,19 @@
   <name>ocean_sim</name>
   <version>0.0.0</version>
   <description>Package for boat simulation</description>
-  <maintainer email="tristanw@stud.ntnu.no">vortex</maintainer>
+  <maintainer email="tristanw@stud.ntnu.no">tristan_master</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>sensor_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>image_transport</depend>
+  <depend>message_filters</depend>
+  <depend>pcl_ros</depend>
+  <depend>OpenCV</depend>
+  <depend>pcl_conversions</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
