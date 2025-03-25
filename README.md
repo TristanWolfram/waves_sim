@@ -1,1 +1,1 @@
-# Realistic Boat Interaction - Simulation
+# Realistic Boat Interaction - Simulation Package
