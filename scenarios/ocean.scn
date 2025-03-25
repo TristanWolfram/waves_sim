@@ -17,25 +17,25 @@
 
 
 <!-- Needed configurations of materials and visuals -->
-  <include file="$(find ocean_sim)/metadata/materials.scn"/>
-  <include file="$(find ocean_sim)/metadata/looks.scn"/>
+  <include file="$(find rbi_sim)/metadata/materials.scn"/>
+  <include file="$(find rbi_sim)/metadata/looks.scn"/>
 
 <!-- Simulation interiors -->
   <!--
    
   Change the scene here:
   -->
-  <include file="$(find ocean_sim)/metadata/00-dynamics.scn"/>
-  <include file="$(find ocean_sim)/metadata/00-statics.scn"/>
-  <include file="$(find ocean_sim)/metadata/surroundings.scn"/>
+  <include file="$(find rbi_sim)/metadata/00-dynamics.scn"/>
+  <include file="$(find rbi_sim)/metadata/00-statics.scn"/>
+  <include file="$(find rbi_sim)/metadata/surroundings.scn"/>
 
 <!-- Testing stuff -->
   
   
   <!--
-  <include file="$(find ocean_sim)/metadata/robot.scn"/>
-  <include file="$(find ocean_sim)/metadata/test_vehicle.scn"/>
-  <include file="$(find ocean_sim)/metadata/environment_base.scn"/>
+  <include file="$(find rbi_sim)/metadata/robot.scn"/>
+  <include file="$(find rbi_sim)/metadata/test_vehicle.scn"/>
+  <include file="$(find rbi_sim)/metadata/environment_base.scn"/>
   -->
   <static name="Wall" type="box">
     <dimensions xyz="300.0 2.0 60.0"/>

@@ -17,20 +17,20 @@
 
 
 <!-- Needed configurations of materials and visuals -->
-  <include file="$(find ocean_sim)/metadata/materials.scn"/>
-  <include file="$(find ocean_sim)/metadata/looks.scn"/>
+  <include file="$(find rbi_sim)/metadata/materials.scn"/>
+  <include file="$(find rbi_sim)/metadata/looks.scn"/>
 
 <!-- Simulation interiors -->
 
-  <include file="$(find ocean_sim)/metadata/surroundings.scn"/> 
-  <include file="$(find ocean_sim)/metadata/01-statics.scn"/>
-  <include file="$(find ocean_sim)/metadata/test_vehicle.scn"/>
+  <include file="$(find rbi_sim)/metadata/surroundings.scn"/> 
+  <include file="$(find rbi_sim)/metadata/01-statics.scn"/>
+  <include file="$(find rbi_sim)/metadata/test_vehicle.scn"/>
   
 
 <!-- Other testing stuff -->
   
   <!--
-  <include file="$(find ocean_sim)/metadata/environment_base.scn"/>
+  <include file="$(find rbi_sim)/metadata/environment_base.scn"/>
   -->
 
 </scenario>
