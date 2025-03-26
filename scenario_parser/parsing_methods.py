@@ -5,8 +5,8 @@ import numpy as np
 import random
 
 # Parameters for wave noise model
-wave_amplitude = 0.01  # Amplitude of wave motion in Z direction
-wave_frequency = 0.005  # Wave frequency in Hz
+wave_amplitude = 0.03  # Amplitude of wave motion in Z direction
+wave_frequency = 0.05  # Wave frequency in Hz
 
 dt = 0.1  # Time step in seconds
 r = 0.997  # Weak damping factor
@@ -37,6 +37,7 @@ def parse_dynamic_to_xml(json_file, output_file, vehicles_with_sensor, vehicle_m
     vehicles = {}
     number_of_vehicles_with_camera = 0
 
+    id_for_testing = 0
     for time_key, vehicle_data in json_data["time_s"].items():
         time_float = float(time_key)
 
@@ -133,33 +134,37 @@ def parse_dynamic_to_xml(json_file, output_file, vehicles_with_sensor, vehicle_m
 
             trajectory = vehicles[vehicle_name]
             position = details["center_position_m"]
-            heading = details["heading_rad"] + 3.14159
+            heading = round(details["heading_rad"] + 3.14159, 3)
 
             z = 0.5  # Base depth of the boat
             pitch = -1.57  # Default pitch
             roll = 0.0  # Default roll
             
-            if INCLUDE_WAVE_NOISE:
-
-                # ** Add wave motion **
-                # 0.5 is the base depth of the boat (stonefish reverses the z-axis)
-                z += wave_amplitude * math.sin(wave_frequency * time_float)
-
-                # ** Add noise to the pitch and roll **
-                pitch_amplitude = 0.015
-                roll_amplitude = 0.015  
-                phase_shift_pitch = math.pi / 4
-                phase_shift_roll = math.pi / 2   
-
-
-                pitch += pitch_amplitude * math.sin(wave_frequency * time_float + phase_shift_pitch)
-                roll += roll_amplitude * math.sin(wave_frequency * time_float + phase_shift_roll)
-
             # if INCLUDE_WAVE_NOISE:
-            #     # Apply stochastic wave noise
-            #     z += update_noise(z_noise, a, b, wave_amplitude)
-            #     pitch += update_noise(pitch_noise, a, b, 0.015)
-            #     roll += update_noise(roll_noise, a, b, 0.015)
+
+            #     # ** Add wave motion **
+            #     # 0.5 is the base depth of the boat (stonefish reverses the z-axis)
+            #     z += wave_amplitude * math.sin(wave_frequency * time_float)
+
+            #     # ** Add noise to the pitch and roll **
+            #     pitch_amplitude = 0.015
+            #     roll_amplitude = 0.015  
+            #     phase_shift_pitch = math.pi / 4
+            #     phase_shift_roll = math.pi / 2   
+
+
+            #     pitch += pitch_amplitude * math.sin(wave_frequency * time_float + phase_shift_pitch)
+            #     roll += roll_amplitude * math.sin(wave_frequency * time_float + phase_shift_roll)
+
+            if INCLUDE_WAVE_NOISE:
+                # Apply stochastic wave noise
+                z += update_noise(z_noise, a, b, wave_amplitude)
+                pitch += update_noise(pitch_noise, a, b, 0.001)
+                roll += update_noise(roll_noise, a, b, 0.001)
+
+            z = round(z, 3)
+            pitch = round(pitch, 3)
+            roll = round(roll, 3)
 
             ET.SubElement(
                 trajectory,
@@ -167,7 +172,7 @@ def parse_dynamic_to_xml(json_file, output_file, vehicles_with_sensor, vehicle_m
                 time=str(time_key),
                 xyz=f"{position[0]} {position[1]} {z}",
                 rpy=f"{pitch} {roll} {heading}"
-            )   
+            )  
 
     # Generate the XML tree and write it to a file
     tree = ET.ElementTree(root)

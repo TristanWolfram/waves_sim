@@ -13,7 +13,7 @@ wave_amplitude = 0.005
 wave_frequency = 3.0
 
 VEHICLES_WITH_SENSORS = {
-    "Boat5": {"lidar": "ouster_os1", "camera": "zed", "gps": "gps_base", "imu": "imu_clear"},
+    "Boat0": {"lidar": "ouster_os1", "camera": "zed", "gps": "gps_base", "imu": "imu_clear"},
     }
 
 LIDAR_PARAMETERS = {

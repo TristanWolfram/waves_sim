@@ -34,8 +34,8 @@
             <material name="Boat"/>
             <look name="LightGray"/>
             <trajectory type="spline" playback="repeat">
-                <keypoint time="0.0" xyz="205.0 150.0 0.5" rpy="-1.57 0.0 -1.57"/>
-                <keypoint time="30.0" xyz="205.0 10.0 0.5" rpy="-1.57 0.0 -1.57"/>
+                <keypoint time="0.0" xyz="205.0 150.0 0.5" rpy="-1.57 0.0 0.0"/>
+                <keypoint time="80.0" xyz="15.0 150.0 0.5" rpy="-1.57 0.0 0.0"/>
             </trajectory>
             <!--Color Cam-->
             <sensor name="Cam" rate="10.0" type="camera">
