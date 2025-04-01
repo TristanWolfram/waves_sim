@@ -2,22 +2,20 @@ import parsing_methods as pm
 import random
 
 # input:
-STATIC = "00-statics"
-DYNAMIC = "00-dynamics"
+STATIC = "02-statics"
+DYNAMIC = "02-dynamics"
 
 # Parsing of dynamic data:
 
 # Wave parameters
 INCLUDE_WAVE_NOISE = True
-wave_amplitude = 0.005
-wave_frequency = 3.0
 
 VEHICLES_WITH_SENSORS = {
     "Boat0": {"lidar": "ouster_os1", "camera": "zed", "gps": "gps_base", "imu": "imu_clear"},
     }
 
 LIDAR_PARAMETERS = {
-    "ouster_os1": {"min_range": "0.5", "max_range": "170.0", "rate": "10.0", "noise": "0.0001"},
+    "ouster_os1": {"min_range": "0.5", "max_range": "170.0", "rate": "10.0", "noise": "0.0"},
     "small_lidar": {"min_range": "0.5", "max_range": "50.0", "rate": "10.0", "noise": "0.0001"},
 }
 
@@ -43,16 +41,20 @@ IMU_PARAMETERS = {
 }
 
 VEHICLE_MODELS = {
-    "Boat0": {"model": "boats/fisher_boat.obj", "phys_model": "boats/fisher_boat_cube_phys.obj", "material": "Boat", "look": "Fisherboat"},
-    "Boat1": {"model": "boats/fisher_boat.obj", "phys_model": "boats/fisher_boat_cube_phys.obj", "material": "Boat", "look": "Fisherboat"},
-    "Boat2": {"model": "boats/fisher_boat.obj", "phys_model": "boats/fisher_boat_cube_phys.obj", "material": "Boat", "look": "Fisherboat"},
-    "Boat3": {"model": "boats/fisher_boat.obj", "phys_model": "boats/fisher_boat_cube_phys.obj", "material": "Boat", "look": "Fisherboat"},
-    "Boat4": {"model": "boats/fisher_boat.obj", "phys_model": "boats/fisher_boat_cube_phys.obj", "material": "Boat", "look": "Fisherboat"},
-    "Boat5": {"model": "boats/fisher_boat.obj", "phys_model": "boats/fisher_boat_cube_phys.obj", "material": "Boat", "look": "Fisherboat"},
-    "Boat6": {"model": "boats/res_boat.obj", "phys_model": "boats/res_boat_cube_phys.obj", "material": "Boat", "look": "LightGray"},
-    "Boat7": {"model": "boats/res_boat.obj", "phys_model": "boats/res_boat_cube_phys.obj", "material": "Boat", "look": "LightGray"},
-    "Boat8": {"model": "boats/res_boat.obj", "phys_model": "boats/res_boat_cube_phys.obj", "material": "Boat", "look": "LightGray"},
+    "Boat0": {"model": "boats/fisher_boat.obj", "phys_model": "boats/fisher_boat_cube_phys.obj", "material": "Boat", "look": "Fisherboat", "depth": 0.5},
+    "Boat1": {"model": "boats/fisher_boat.obj", "phys_model": "boats/fisher_boat_cube_phys.obj", "material": "Boat", "look": "Fisherboat", "depth": 0.5},
+    "Boat2": {"model": "boats/fisher_boat.obj", "phys_model": "boats/fisher_boat_cube_phys.obj", "material": "Boat", "look": "Fisherboat", "depth": 0.5},
+    "Boat3": {"model": "boats/old_boat.obj", "phys_model": "boats/old_boat_cube_phys.obj", "material": "Boat", "look": "old_boat", "depth": 0.4},
+    "Boat4": {"model": "boats/old_boat.obj", "phys_model": "boats/old_boat_cube_phys.obj", "material": "Boat", "look": "old_boat", "depth": 0.4},
+    "Boat5": {"model": "boats/old_boat.obj", "phys_model": "boats/old_boat_cube_phys.obj", "material": "Boat", "look": "old_boat", "depth": 0.4},
+    # "Boat6": {"model": "boats/old_boat.obj", "phys_model": "boats/old_boat_cube_phys.obj", "material": "Boat", "look": "old_boat", "depth": 0.4},
+    # "Boat7": {"model": "boats/old_boat.obj", "phys_model": "boats/old_boat_cube_phys.obj", "material": "Boat", "look": "old_boat", "depth": 0.4},
+    # "Boat8": {"model": "boats/old_boat.obj", "phys_model": "boats/old_boat_cube_phys.obj", "material": "Boat", "look": "old_boat", "depth": 0.2},
 }
+
+# "Boat6": {"model": "boats/res_boat.obj", "phys_model": "boats/res_boat_cube_phys.obj", "material": "Boat", "look": "LightGray", "depth": 0.9},
+# "Boat7": {"model": "boats/res_boat.obj", "phys_model": "boats/res_boat_cube_phys.obj", "material": "Boat", "look": "LightGray", "depth": 0.9},
+# "Boat8": {"model": "boats/res_boat.obj", "phys_model": "boats/res_boat_cube_phys.obj", "material": "Boat", "look": "LightGray", "depth": 0.9},
 
 json_input = f"scenario_parser/{DYNAMIC}.json"
 output_file = f"metadata/{DYNAMIC}.scn"
@@ -64,9 +66,7 @@ pm.parse_dynamic_to_xml(json_input,
                         CAMERA_PARAMETERS,
                         GPS_PARAMETERS,
                         IMU_PARAMETERS,
-                        INCLUDE_WAVE_NOISE,
-                        wave_amplitude,
-                        wave_frequency)
+                        INCLUDE_WAVE_NOISE,)
 
 # Parsing of static data:
 

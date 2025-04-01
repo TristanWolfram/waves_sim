@@ -15,6 +15,8 @@
             <world_transform xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0"/>
         </static>
 
+        <!--Big Tanker Ship-->
+        <!--
         <dynamic name="Transport_Ship" type="model" physics="floating">
             <physical>
                 <mesh filename="boats/transport_phys.obj" scale="1.0"/>
@@ -28,6 +30,7 @@
             <look name="Orange"/>
             <world_transform xyz="100.0 175.0 -1.0" rpy="-1.57 0.0 3.14"/>
         </dynamic>
+        -->
 
         <dynamic name="Buoy0" type="model" physics="floating">
             <physical>

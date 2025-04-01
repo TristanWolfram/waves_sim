@@ -1,0 +1,276 @@
+<?xml version='1.0' encoding='utf-8'?>
+<scenario>
+    <static name="wm1" type="model">
+        <physical>
+            <mesh filename="obstacles/windmill_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/windmill3.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 2.053645307551514" />
+        </visual>
+        <material name="Stone" />
+        <look name="White" />
+        <world_transform xyz="30.0 30.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="wm2" type="model">
+        <physical>
+            <mesh filename="obstacles/windmill_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/windmill2.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 2.053645307551514" />
+        </visual>
+        <material name="Stone" />
+        <look name="White" />
+        <world_transform xyz="70.0 30.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="wm3" type="model">
+        <physical>
+            <mesh filename="obstacles/windmill_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/windmill1.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 2.053645307551514" />
+        </visual>
+        <material name="Stone" />
+        <look name="White" />
+        <world_transform xyz="110.0 30.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="wm4" type="model">
+        <physical>
+            <mesh filename="obstacles/windmill_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/windmill1.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 2.053645307551514" />
+        </visual>
+        <material name="Stone" />
+        <look name="White" />
+        <world_transform xyz="150.0 30.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="wm5" type="model">
+        <physical>
+            <mesh filename="obstacles/windmill_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/windmill1.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 2.053645307551514" />
+        </visual>
+        <material name="Stone" />
+        <look name="White" />
+        <world_transform xyz="190.0 30.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="wm6" type="model">
+        <physical>
+            <mesh filename="obstacles/windmill_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/windmill1.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 2.053645307551514" />
+        </visual>
+        <material name="Stone" />
+        <look name="White" />
+        <world_transform xyz="230.0 30.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="wm7" type="model">
+        <physical>
+            <mesh filename="obstacles/windmill_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/windmill3.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 2.053645307551514" />
+        </visual>
+        <material name="Stone" />
+        <look name="White" />
+        <world_transform xyz="270.0 30.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="wm8" type="model">
+        <physical>
+            <mesh filename="obstacles/windmill_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/windmill3.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.0565586315050277" />
+        </visual>
+        <material name="Stone" />
+        <look name="White" />
+        <world_transform xyz="30.0 80.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="wm9" type="model">
+        <physical>
+            <mesh filename="obstacles/windmill_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/windmill2.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.0565586315050277" />
+        </visual>
+        <material name="Stone" />
+        <look name="White" />
+        <world_transform xyz="70.0 80.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="wm10" type="model">
+        <physical>
+            <mesh filename="obstacles/windmill_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/windmill3.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.0565586315050277" />
+        </visual>
+        <material name="Stone" />
+        <look name="White" />
+        <world_transform xyz="110.0 80.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="wm11" type="model">
+        <physical>
+            <mesh filename="obstacles/windmill_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/windmill3.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.0565586315050277" />
+        </visual>
+        <material name="Stone" />
+        <look name="White" />
+        <world_transform xyz="150.0 80.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="wm12" type="model">
+        <physical>
+            <mesh filename="obstacles/windmill_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/windmill3.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.0565586315050277" />
+        </visual>
+        <material name="Stone" />
+        <look name="White" />
+        <world_transform xyz="190.0 80.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="wm13" type="model">
+        <physical>
+            <mesh filename="obstacles/windmill_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/windmill2.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.0565586315050277" />
+        </visual>
+        <material name="Stone" />
+        <look name="White" />
+        <world_transform xyz="230.0 80.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="wm14" type="model">
+        <physical>
+            <mesh filename="obstacles/windmill_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/windmill3.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.0565586315050277" />
+        </visual>
+        <material name="Stone" />
+        <look name="White" />
+        <world_transform xyz="270.0 80.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="wm15" type="model">
+        <physical>
+            <mesh filename="obstacles/windmill_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/windmill2.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 2.0163153595924936" />
+        </visual>
+        <material name="Stone" />
+        <look name="White" />
+        <world_transform xyz="30.0 130.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="wm16" type="model">
+        <physical>
+            <mesh filename="obstacles/windmill_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/windmill1.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 2.0163153595924936" />
+        </visual>
+        <material name="Stone" />
+        <look name="White" />
+        <world_transform xyz="70.0 130.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="wm17" type="model">
+        <physical>
+            <mesh filename="obstacles/windmill_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/windmill2.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 2.0163153595924936" />
+        </visual>
+        <material name="Stone" />
+        <look name="White" />
+        <world_transform xyz="110.0 130.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="wm18" type="model">
+        <physical>
+            <mesh filename="obstacles/windmill_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/windmill1.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 2.0163153595924936" />
+        </visual>
+        <material name="Stone" />
+        <look name="White" />
+        <world_transform xyz="150.0 130.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="wm19" type="model">
+        <physical>
+            <mesh filename="obstacles/windmill_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/windmill1.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 2.0163153595924936" />
+        </visual>
+        <material name="Stone" />
+        <look name="White" />
+        <world_transform xyz="190.0 130.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="wm20" type="model">
+        <physical>
+            <mesh filename="obstacles/windmill_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/windmill2.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 2.0163153595924936" />
+        </visual>
+        <material name="Stone" />
+        <look name="White" />
+        <world_transform xyz="230.0 130.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="wm21" type="model">
+        <physical>
+            <mesh filename="obstacles/windmill_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/windmill3.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 2.0163153595924936" />
+        </visual>
+        <material name="Stone" />
+        <look name="White" />
+        <world_transform xyz="270.0 130.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+</scenario>

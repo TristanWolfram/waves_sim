@@ -1,0 +1,19 @@
+Fisherboat: https://www.turbosquid.com/3d-models/boat-pbr-model-1522670
+Old Fisherboat: https://www.cgtrader.com/free-3d-models/watercraft/other/old-harbour-boat-game-ready-asset
+Windmills: https://www.cgtrader.com/free-3d-models/industrial/other/low-poly-wind-turbine-free
+Mountains: https://www.cgtrader.com/free-3d-models/exterior/landscape/large-mountainous-terrain-8k-with-element3d-model
+Buoy: https://www.cgtrader.com/free-3d-models/watercraft/other/3000-lateral-buoy-sea-mark
+
+A simulation featuring a wind park and vessels traversing it. The video stream is created aut of ROS2 messages originating in a camera sensor placed on one of the boats.
+
+Used free models:
+Fisherboat 1:
+www.turbosquid.com/3d-models/boat-pbr-model-1522670
+Fisherboat 2:
+www.cgtrader.com/free-3d-models/watercraft/other/old-harbour-boat-game-ready-asset
+Windmill:
+www.cgtrader.com/free-3d-models/industrial/other/low-poly-wind-turbine-free
+Mountains:
+www.cgtrader.com/free-3d-models/exterior/landscape/large-mountainous-terrain-8k-with-element3d-model
+Buoy:
+www.cgtrader.com/free-3d-models/watercraft/other/3000-lateral-buoy-sea-mark

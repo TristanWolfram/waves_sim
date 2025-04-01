@@ -5,11 +5,16 @@ import numpy as np
 import random
 
 # Parameters for wave noise model
-wave_amplitude = 0.03  # Amplitude of wave motion in Z direction
+wave_amp_z = 0.006  # Amplitude of wave motion in Z direction
+wave_amp_pitch = 0.0018  # Amplitude of wave motion in pitch direction
+wave_amp_roll = 0.003  # Amplitude of wave motion in roll direction
+
+noise_scale = 0.0206  # Scale of noise
+
 wave_frequency = 0.05  # Wave frequency in Hz
 
 dt = 0.1  # Time step in seconds
-r = 0.997  # Weak damping factor
+r = 0.998  # Weak damping factor
 omega_d = 2 * math.pi * wave_frequency
 
 a = 2 * r * math.cos(omega_d * dt)
@@ -21,12 +26,12 @@ pitch_noise = [np.random.randn(), np.random.randn()]
 roll_noise = [np.random.randn(), np.random.randn()]
 
 def update_noise(noise_list, a, b, amplitude):
-    e = 0.1 * np.random.randn()  # Small random input
+    e = noise_scale * np.random.randn()  # Small random input
     new_value = a * noise_list[-1] + b * noise_list[-2] + e
     noise_list.append(new_value)
     return amplitude * new_value  # Scale by wave_amplitude
 
-def parse_dynamic_to_xml(json_file, output_file, vehicles_with_sensor, vehicle_models, lidar_specs_combined, camera_specs_combined, gps_specs_compined, imu_specs_combined, INCLUDE_WAVE_NOISE=False, wave_amplitude=0.1, wave_frequency=0.5):
+def parse_dynamic_to_xml(json_file, output_file, vehicles_with_sensor, vehicle_models, lidar_specs_combined, camera_specs_combined, gps_specs_compined, imu_specs_combined, INCLUDE_WAVE_NOISE=False):
 
     print("Parsing dynamic data to XML...\n")
 
@@ -39,7 +44,6 @@ def parse_dynamic_to_xml(json_file, output_file, vehicles_with_sensor, vehicle_m
 
     id_for_testing = 0
     for time_key, vehicle_data in json_data["time_s"].items():
-        time_float = float(time_key)
 
         for vehicle_name, details in vehicle_data.items():
             if vehicle_name not in vehicles:
@@ -136,7 +140,7 @@ def parse_dynamic_to_xml(json_file, output_file, vehicles_with_sensor, vehicle_m
             position = details["center_position_m"]
             heading = round(details["heading_rad"] + 3.14159, 3)
 
-            z = 0.5  # Base depth of the boat
+            z = vehicle_models[vehicle_name]["depth"] # Base depth of the boat
             pitch = -1.57  # Default pitch
             roll = 0.0  # Default roll
             
@@ -158,9 +162,9 @@ def parse_dynamic_to_xml(json_file, output_file, vehicles_with_sensor, vehicle_m
 
             if INCLUDE_WAVE_NOISE:
                 # Apply stochastic wave noise
-                z += update_noise(z_noise, a, b, wave_amplitude)
-                pitch += update_noise(pitch_noise, a, b, 0.001)
-                roll += update_noise(roll_noise, a, b, 0.001)
+                z += update_noise(z_noise, a, b, wave_amp_z)
+                pitch += update_noise(pitch_noise, a, b, wave_amp_pitch)
+                roll += update_noise(roll_noise, a, b, wave_amp_roll)
 
             z = round(z, 3)
             pitch = round(pitch, 3)

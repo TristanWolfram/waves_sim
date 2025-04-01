@@ -5,7 +5,7 @@
     <ocean>
         <water density="1031.0" jerlov="0.20"/>
         <waves height="0.0"/>
-        <particles enabled="true"/>
+        <particles enabled="false"/>
         <current type="uniform">
             <velocity xyz="0.1 0.1 0.1"/>
         </current>
@@ -25,8 +25,8 @@
    
   Change the scene here:
   -->
-  <include file="$(find rbi_sim)/metadata/00-dynamics.scn"/>
-  <include file="$(find rbi_sim)/metadata/00-statics.scn"/>
+  <include file="$(find rbi_sim)/metadata/02-dynamics.scn"/>
+  <include file="$(find rbi_sim)/metadata/02-statics.scn"/>
   <include file="$(find rbi_sim)/metadata/surroundings.scn"/>
 
 <!-- Testing stuff -->
@@ -36,12 +36,13 @@
   <include file="$(find rbi_sim)/metadata/robot.scn"/>
   <include file="$(find rbi_sim)/metadata/test_vehicle.scn"/>
   <include file="$(find rbi_sim)/metadata/environment_base.scn"/>
-  -->
+  
   <static name="Wall" type="box">
     <dimensions xyz="300.0 2.0 60.0"/>
     <material name="Steel"/>
     <look name="Brown"/>
     <world_transform xyz="150.0 -50.0 -15.0" rpy="0.0 0.0 0.0"/>
   </static>
+  -->
 
 </scenario>
