@@ -3,8 +3,8 @@ import random
 import parsing_methods as pm
 
 # input:
-STATIC = "02-statics"
-DYNAMIC = "02-dynamics"
+STATIC = "03-statics"
+DYNAMIC = "03-dynamics"
 
 # Parsing of dynamic data:
 
@@ -105,14 +105,10 @@ VEHICLE_MODELS = {
         "look": "old_boat",
         "depth": 0.4,
     },
-    # "Boat6": {"model": "boats/old_boat.obj", "phys_model": "boats/old_boat_cube_phys.obj", "material": "Boat", "look": "old_boat", "depth": 0.4},
-    # "Boat7": {"model": "boats/old_boat.obj", "phys_model": "boats/old_boat_cube_phys.obj", "material": "Boat", "look": "old_boat", "depth": 0.4},
-    # "Boat8": {"model": "boats/old_boat.obj", "phys_model": "boats/old_boat_cube_phys.obj", "material": "Boat", "look": "old_boat", "depth": 0.2},
+    "Boat6": {"model": "boats/res_boat.obj", "phys_model": "boats/res_boat_cube_phys.obj", "material": "Boat", "look": "res_boat", "depth": 0.9},
+    "Boat7": {"model": "boats/res_boat.obj", "phys_model": "boats/res_boat_cube_phys.obj", "material": "Boat", "look": "res_boat", "depth": 0.9},
+    "Boat8": {"model": "boats/res_boat.obj", "phys_model": "boats/res_boat_cube_phys.obj", "material": "Boat", "look": "res_boat", "depth": 0.9},
 }
-
-# "Boat6": {"model": "boats/res_boat.obj", "phys_model": "boats/res_boat_cube_phys.obj", "material": "Boat", "look": "LightGray", "depth": 0.9},
-# "Boat7": {"model": "boats/res_boat.obj", "phys_model": "boats/res_boat_cube_phys.obj", "material": "Boat", "look": "LightGray", "depth": 0.9},
-# "Boat8": {"model": "boats/res_boat.obj", "phys_model": "boats/res_boat_cube_phys.obj", "material": "Boat", "look": "LightGray", "depth": 0.9},
 
 json_input = f"scenario_parser/{DYNAMIC}.json"
 output_file = f"metadata/{DYNAMIC}.scn"
@@ -175,7 +171,7 @@ for i in range(1, 22):
     MODEL_REPLACEMENTS[f"wm{i}"] = {
         "model": model_choice,
         "phys_model": "windmill_phys",
-        "look": "White",
+        "look": "windmill",
         "rpy": (
             -1.57,
             0.0,

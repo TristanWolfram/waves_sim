@@ -6,8 +6,8 @@
             <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
         </physical>
         <visual>
-            <mesh filename="obstacles/windmill2.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 4.374298215153495" />
+            <mesh filename="obstacles/windmill1.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.927584692398913" />
         </visual>
         <material name="Stone" />
         <look name="windmill" />
@@ -20,7 +20,7 @@
         </physical>
         <visual>
             <mesh filename="obstacles/windmill2.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 4.374298215153495" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.927584692398913" />
         </visual>
         <material name="Stone" />
         <look name="windmill" />
@@ -33,7 +33,7 @@
         </physical>
         <visual>
             <mesh filename="obstacles/windmill3.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 4.374298215153495" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.927584692398913" />
         </visual>
         <material name="Stone" />
         <look name="windmill" />
@@ -45,8 +45,8 @@
             <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
         </physical>
         <visual>
-            <mesh filename="obstacles/windmill2.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 4.374298215153495" />
+            <mesh filename="obstacles/windmill3.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.927584692398913" />
         </visual>
         <material name="Stone" />
         <look name="windmill" />
@@ -59,7 +59,7 @@
         </physical>
         <visual>
             <mesh filename="obstacles/windmill2.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 4.374298215153495" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.927584692398913" />
         </visual>
         <material name="Stone" />
         <look name="windmill" />
@@ -71,8 +71,8 @@
             <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
         </physical>
         <visual>
-            <mesh filename="obstacles/windmill1.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 4.374298215153495" />
+            <mesh filename="obstacles/windmill2.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.927584692398913" />
         </visual>
         <material name="Stone" />
         <look name="windmill" />
@@ -84,8 +84,8 @@
             <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
         </physical>
         <visual>
-            <mesh filename="obstacles/windmill3.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 4.374298215153495" />
+            <mesh filename="obstacles/windmill1.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.927584692398913" />
         </visual>
         <material name="Stone" />
         <look name="windmill" />
@@ -98,7 +98,7 @@
         </physical>
         <visual>
             <mesh filename="obstacles/windmill3.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 4.951351005078855" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 1.1469227593440743" />
         </visual>
         <material name="Stone" />
         <look name="windmill" />
@@ -111,7 +111,7 @@
         </physical>
         <visual>
             <mesh filename="obstacles/windmill2.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 4.951351005078855" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 1.1469227593440743" />
         </visual>
         <material name="Stone" />
         <look name="windmill" />
@@ -123,8 +123,8 @@
             <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
         </physical>
         <visual>
-            <mesh filename="obstacles/windmill2.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 4.951351005078855" />
+            <mesh filename="obstacles/windmill3.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 1.1469227593440743" />
         </visual>
         <material name="Stone" />
         <look name="windmill" />
@@ -136,8 +136,8 @@
             <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
         </physical>
         <visual>
-            <mesh filename="obstacles/windmill2.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 4.951351005078855" />
+            <mesh filename="obstacles/windmill3.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 1.1469227593440743" />
         </visual>
         <material name="Stone" />
         <look name="windmill" />
@@ -149,8 +149,8 @@
             <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
         </physical>
         <visual>
-            <mesh filename="obstacles/windmill2.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 4.951351005078855" />
+            <mesh filename="obstacles/windmill3.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 1.1469227593440743" />
         </visual>
         <material name="Stone" />
         <look name="windmill" />
@@ -163,7 +163,7 @@
         </physical>
         <visual>
             <mesh filename="obstacles/windmill3.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 4.951351005078855" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 1.1469227593440743" />
         </visual>
         <material name="Stone" />
         <look name="windmill" />
@@ -175,8 +175,8 @@
             <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
         </physical>
         <visual>
-            <mesh filename="obstacles/windmill2.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 4.951351005078855" />
+            <mesh filename="obstacles/windmill1.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 1.1469227593440743" />
         </visual>
         <material name="Stone" />
         <look name="windmill" />
@@ -188,8 +188,8 @@
             <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
         </physical>
         <visual>
-            <mesh filename="obstacles/windmill3.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 1.7010948520493763" />
+            <mesh filename="obstacles/windmill2.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.267153471849235" />
         </visual>
         <material name="Stone" />
         <look name="windmill" />
@@ -201,8 +201,8 @@
             <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
         </physical>
         <visual>
-            <mesh filename="obstacles/windmill3.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 1.7010948520493763" />
+            <mesh filename="obstacles/windmill2.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.267153471849235" />
         </visual>
         <material name="Stone" />
         <look name="windmill" />
@@ -215,7 +215,7 @@
         </physical>
         <visual>
             <mesh filename="obstacles/windmill1.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 1.7010948520493763" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.267153471849235" />
         </visual>
         <material name="Stone" />
         <look name="windmill" />
@@ -228,7 +228,7 @@
         </physical>
         <visual>
             <mesh filename="obstacles/windmill1.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 1.7010948520493763" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.267153471849235" />
         </visual>
         <material name="Stone" />
         <look name="windmill" />
@@ -240,8 +240,8 @@
             <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
         </physical>
         <visual>
-            <mesh filename="obstacles/windmill3.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 1.7010948520493763" />
+            <mesh filename="obstacles/windmill1.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.267153471849235" />
         </visual>
         <material name="Stone" />
         <look name="windmill" />
@@ -253,8 +253,8 @@
             <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
         </physical>
         <visual>
-            <mesh filename="obstacles/windmill2.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 1.7010948520493763" />
+            <mesh filename="obstacles/windmill3.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.267153471849235" />
         </visual>
         <material name="Stone" />
         <look name="windmill" />
@@ -266,8 +266,8 @@
             <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
         </physical>
         <visual>
-            <mesh filename="obstacles/windmill3.obj" scale="1.0" />
-            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 1.7010948520493763" />
+            <mesh filename="obstacles/windmill1.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.267153471849235" />
         </visual>
         <material name="Stone" />
         <look name="windmill" />

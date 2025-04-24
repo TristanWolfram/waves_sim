@@ -22,6 +22,20 @@
             <world_transform xyz="150.0 150.0 0.5" rpy="-1.57 0.0 -1.57"/>
         </static>
 
+        <static name="ResearchBoat" type="model">
+            <physical>
+                <mesh filename="boats/res_boat_cube_phys.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </physical>
+            <visual>
+                <mesh filename="boats/res_boat.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </visual>
+            <material name="Boat"/>
+            <look name="res_boat" uv_mode="2"/>
+            <world_transform xyz="0.0 0.0 0.8" rpy="-1.57 0.0 -1.57"/>
+        </static>
+
         <animated name="MovingBoat0" type="model" collition="true">
             <physical>
                 <mesh filename="boats/old_boat_cube_phys.obj" scale="1.0"/>
@@ -90,7 +104,7 @@
         <static name="Wall" type="box">
             <dimensions xyz="80.0 0.2 100.0"/>
             <material name="Steel"/>
-            <look name="White"/>
+            <look name="windmill"/>
             <world_transform xyz="250.0 80.0 0.0" rpy="0.0 0.0 1.57"/>
         </static>
 

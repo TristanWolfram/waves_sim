@@ -99,88 +99,94 @@ def parse_dynamic_to_xml(
                     lidar_specs = lidar_specs_combined[sensors["lidar"]]
 
                     print(f"-----------------> {vehicle_name} has sensors!")
-                    print(
-                        f"Adding camera ({sensors['camera']}), ROS2 topic -> /sim_cam_color{number_of_vehicles_with_camera}"
-                    )
-                    print(
-                        f"Adding LiDAR ({sensors['lidar']}), ROS2 topic -> /sim_cam_depth{number_of_vehicles_with_camera}"
-                    )
 
-                    sensor = ET.SubElement(
-                        animated,
-                        "sensor",
-                        name="Cam",
-                        rate=camera_specs["rate"],
-                        type="camera",
-                    )
-                    ET.SubElement(
-                        sensor,
-                        "specs",
-                        resolution_x=camera_specs["res_x"],
-                        resolution_y=camera_specs["res_y"],
-                        horizontal_fov=camera_specs["fov"],
-                    )
-                    ET.SubElement(
-                        sensor, "origin", xyz="-4.2 1.75 0.0", rpy="0.0 1.57 3.14"
-                    )
-                    ET.SubElement(
-                        sensor,
-                        "ros_publisher",
-                        topic=f"/sim_cam_color_{number_of_vehicles_with_camera}",
-                    )
+                    if "camera" in sensors:
+                        print(
+                            f"Adding camera ({sensors['camera']}), ROS2 topic -> /sim_cam_color{number_of_vehicles_with_camera}"
+                        )
+                        
 
-                    cameras = [
-                        {
-                            "name": "DcamF",
-                            "xyz": "-4.2 1.75 0.0",
-                            "rpy": "0.0 1.57 3.14",
-                            "topic": "/sim_camF_depth",
-                        },
-                        {
-                            "name": "DcamR",
-                            "xyz": "-4.2 1.75 0.0",
-                            "rpy": "0.0 3.14 3.14",
-                            "topic": "/sim_camR_depth",
-                        },
-                        {
-                            "name": "DcamL",
-                            "xyz": "-4.2 1.75 0.0",
-                            "rpy": "0.0 0.0 3.14",
-                            "topic": "/sim_camL_depth",
-                        },
-                        {
-                            "name": "DcamB",
-                            "xyz": "-4.2 1.75 0.0",
-                            "rpy": "0.0 -1.57 3.14",
-                            "topic": "/sim_camB_depth",
-                        },
-                    ]
-
-                    for cam in cameras:
                         sensor = ET.SubElement(
                             animated,
                             "sensor",
-                            name=cam["name"],
-                            rate=lidar_specs["rate"],
-                            type="depthcamera",
+                            name="Cam",
+                            rate=camera_specs["rate"],
+                            type="camera",
                         )
                         ET.SubElement(
                             sensor,
                             "specs",
-                            resolution_x="256",
-                            resolution_y="128",
-                            horizontal_fov="90.0",
-                            depth_min=lidar_specs["min_range"],
-                            depth_max=lidar_specs["max_range"],
+                            resolution_x=camera_specs["res_x"],
+                            resolution_y=camera_specs["res_y"],
+                            horizontal_fov=camera_specs["fov"],
                         )
-                        ET.SubElement(sensor, "noise", depth=lidar_specs["noise"])
-                        ET.SubElement(sensor, "origin", xyz=cam["xyz"], rpy=cam["rpy"])
-                        topic = cam["topic"]
+                        ET.SubElement(
+                            sensor, "origin", xyz="-4.2 1.75 0.0", rpy="0.0 1.57 3.14"
+                        )
                         ET.SubElement(
                             sensor,
                             "ros_publisher",
-                            topic=f"{topic}_{number_of_vehicles_with_camera}",
+                            topic=f"/sim_cam_color_{number_of_vehicles_with_camera}",
                         )
+
+                    if "lidar" in sensors:
+
+                        print(
+                            f"Adding LiDAR ({sensors['lidar']}), ROS2 topic -> /sim_cam_depth{number_of_vehicles_with_camera}"
+                        )
+
+                        cameras = [
+                            {
+                                "name": "DcamF",
+                                "xyz": "-4.2 1.75 0.0",
+                                "rpy": "0.0 1.57 3.14",
+                                "topic": "/sim_camF_depth",
+                            },
+                            {
+                                "name": "DcamR",
+                                "xyz": "-4.2 1.75 0.0",
+                                "rpy": "0.0 3.14 3.14",
+                                "topic": "/sim_camR_depth",
+                            },
+                            {
+                                "name": "DcamL",
+                                "xyz": "-4.2 1.75 0.0",
+                                "rpy": "0.0 0.0 3.14",
+                                "topic": "/sim_camL_depth",
+                            },
+                            {
+                                "name": "DcamB",
+                                "xyz": "-4.2 1.75 0.0",
+                                "rpy": "0.0 -1.57 3.14",
+                                "topic": "/sim_camB_depth",
+                            },
+                        ]
+
+                        for cam in cameras:
+                            sensor = ET.SubElement(
+                                animated,
+                                "sensor",
+                                name=cam["name"],
+                                rate=lidar_specs["rate"],
+                                type="depthcamera",
+                            )
+                            ET.SubElement(
+                                sensor,
+                                "specs",
+                                resolution_x="256",
+                                resolution_y="128",
+                                horizontal_fov="90.0",
+                                depth_min=lidar_specs["min_range"],
+                                depth_max=lidar_specs["max_range"],
+                            )
+                            ET.SubElement(sensor, "noise", depth=lidar_specs["noise"])
+                            ET.SubElement(sensor, "origin", xyz=cam["xyz"], rpy=cam["rpy"])
+                            topic = cam["topic"]
+                            ET.SubElement(
+                                sensor,
+                                "ros_publisher",
+                                topic=f"{topic}_{number_of_vehicles_with_camera}",
+                            )
 
                     if "gps" in sensors:
                         print(

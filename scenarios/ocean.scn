@@ -25,8 +25,8 @@
    
   Change the scene here:
   -->
-  <include file="$(find rbi_sim)/metadata/02-dynamics.scn"/>
-  <include file="$(find rbi_sim)/metadata/02-statics.scn"/>
+  <include file="$(find rbi_sim)/metadata/03-dynamics.scn"/>
+  <include file="$(find rbi_sim)/metadata/03-statics.scn"/>
   <include file="$(find rbi_sim)/metadata/surroundings.scn"/>
 
 <!-- Testing stuff -->

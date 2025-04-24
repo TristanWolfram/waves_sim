@@ -23,7 +23,7 @@
 <!-- Simulation interiors -->
 
   <include file="$(find rbi_sim)/metadata/surroundings.scn"/> 
-  <include file="$(find rbi_sim)/metadata/01-statics.scn"/>
+  <include file="$(find rbi_sim)/metadata/02-statics.scn"/>
   <include file="$(find rbi_sim)/metadata/test_vehicle.scn"/>
   
 
