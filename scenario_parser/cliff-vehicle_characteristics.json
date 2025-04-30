@@ -1,0 +1,47 @@
+{
+  "Boat0": {
+    "type": "car",
+    "length_m": 8.0,
+    "width_m": 1.42
+  },
+  "Boat1": {
+    "type": "car",
+    "length_m": 8.0,
+    "width_m": 1.42
+  },
+  "Boat2": {
+    "type": "car",
+    "length_m": 8.0,
+    "width_m": 1.42
+  },
+  "Boat3": {
+    "type": "car",
+    "length_m": 7.0,
+    "width_m": 3.0
+  },
+  "Boat4": {
+    "type": "car",
+    "length_m": 7.0,
+    "width_m": 3.0
+  },
+  "Boat5": {
+    "type": "car",
+    "length_m": 7.0,
+    "width_m": 3.0
+  },
+  "Boat6": {
+    "type": "car",
+    "length_m": 7.0,
+    "width_m": 2.3
+  },
+  "Boat7": {
+    "type": "car",
+    "length_m": 7.0,
+    "width_m": 2.3
+  },
+  "Boat8": {
+    "type": "car",
+    "length_m": 7.0,
+    "width_m": 2.3
+  }
+}

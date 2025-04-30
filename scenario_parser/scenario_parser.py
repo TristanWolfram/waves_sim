@@ -3,20 +3,25 @@ import random
 import parsing_methods as pm
 
 # input:
-STATIC = "03-statics"
-DYNAMIC = "03-dynamics"
+STATIC = "cliff-statics"
+DYNAMIC = "cliff-dynamics"
 
 # Parsing of dynamic data:
 
 # Wave parameters
 INCLUDE_WAVE_NOISE = True
 
+# example definition:
+# "Boat0": {
+#     "lidar": "ouster_os1",
+#     "camera": "zed",
+#     "gps": "gps_base",
+#     "imu": "imu_clear",
+# },
+
 VEHICLES_WITH_SENSORS = {
-    "Boat0": {
-        "lidar": "ouster_os1",
-        "camera": "zed",
-        "gps": "gps_base",
-        "imu": "imu_clear",
+    "Boat4": {
+        "camera": "cinematic_cam",
     },
 }
 
@@ -36,7 +41,7 @@ LIDAR_PARAMETERS = {
 }
 
 CAMERA_PARAMETERS = {
-    "base_cam": {"res_x": "1280", "res_y": "720", "fov": "90.0", "rate": "10.0"},
+    "cinematic_cam": {"res_x": "1920", "res_y": "1080", "fov": "90.0", "rate": "60.0"},
     "FLIR": {"res_x": "640", "res_y": "480", "fov": "110.0", "rate": "10.0"},
     "zed": {"res_x": "960", "res_y": "600", "fov": "110.0", "rate": "15.0"},
 }
@@ -131,34 +136,40 @@ pm.parse_dynamic_to_xml(
 # the file ending <.obj> is not needed in the model name
 # rpy is the rotation of the model
 MODEL_REPLACEMENTS = {
-    "Pier1": {
-        "model": "rocks_line2",
-        "phys_model": "rocks_line2_phys",
-        "look": "rocks_line2",
+    "r1": {
+        "model": "r1",
+        "phys_model": "r1_phys",
+        "look": "r1",
         "rpy": (-1.57, 0.0, 0.0),
     },
-    "Pier2": {
-        "model": "rocks_line",
-        "phys_model": "rocks_line_phys",
-        "look": "rocks_line",
+    "r2": {
+        "model": "r2",
+        "phys_model": "r2_phys",
+        "look": "r2",
         "rpy": (-1.57, 0.0, 0.0),
     },
-    "Building1": {
-        "model": "rock3",
-        "phys_model": "rock3_phys",
-        "look": "rock3",
+    "r3": {
+        "model": "r3",
+        "phys_model": "r3_phys",
+        "look": "r3",
         "rpy": (-1.57, 0.0, 0.0),
     },
-    "Building2": {
-        "model": "stone_formation",
-        "phys_model": "stone_formation_phys",
-        "look": "stone_formation",
+    "r4": {
+        "model": "r4",
+        "phys_model": "r4_phys",
+        "look": "r4",
         "rpy": (1.57, 0.0, 0.0),
     },
-    "Building3": {
-        "model": "rock3",
-        "phys_model": "rock3_phys",
-        "look": "rock3",
+    "r5": {
+        "model": "r5",
+        "phys_model": "r5_phys",
+        "look": "r5",
+        "rpy": (-1.57, 0.0, 0.0),
+    },
+    "r6": {
+        "model": "r6",
+        "phys_model": "r6_phys",
+        "look": "r6",
         "rpy": (-1.57, 0.0, 0.0),
     },
 }

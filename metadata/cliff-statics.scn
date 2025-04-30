@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='utf-8'?>
+<scenario>
+    <static name="r1" type="model">
+        <physical>
+            <mesh filename="obstacles/r1_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/r1.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </visual>
+        <material name="Stone" />
+        <look name="r1" />
+        <world_transform xyz="65.0 137.5 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="r2" type="model">
+        <physical>
+            <mesh filename="obstacles/r2_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/r2.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </visual>
+        <material name="Stone" />
+        <look name="r2" />
+        <world_transform xyz="250.0 95.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="r3" type="model">
+        <physical>
+            <mesh filename="obstacles/r3_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/r3.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </visual>
+        <material name="Stone" />
+        <look name="r3" />
+        <world_transform xyz="40.0 50.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="r4" type="model">
+        <physical>
+            <mesh filename="obstacles/r4_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/r4.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="1.57 0.0 0.0" />
+        </visual>
+        <material name="Stone" />
+        <look name="r4" />
+        <world_transform xyz="95.0 20.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="r5" type="model">
+        <physical>
+            <mesh filename="obstacles/r5_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/r5.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </visual>
+        <material name="Stone" />
+        <look name="r5" />
+        <world_transform xyz="200.0 22.5 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+    <static name="r6" type="model">
+        <physical>
+            <mesh filename="obstacles/r6_phys.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </physical>
+        <visual>
+            <mesh filename="obstacles/r6.obj" scale="1.0" />
+            <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0" />
+        </visual>
+        <material name="Stone" />
+        <look name="r6" />
+        <world_transform xyz="150.0 80.0 0.5" rpy="0.0 0.0 0.0" />
+    </static>
+</scenario>

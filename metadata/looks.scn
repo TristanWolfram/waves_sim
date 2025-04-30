@@ -19,6 +19,14 @@
             <look name="rocks_line" gray="1.0" roughness="0.2" texture="textures/rocks_line.png"/>
             <look name="rocks_line2" gray="1.0" roughness="0.2" texture="textures/rocks_line2.jpg"/>
             <look name="stone_formation" gray="1.0" roughness="0.2" texture="textures/stone_formation.jpg"/>
+
+            <look name="r1" gray="1.0" roughness="0.2" texture="textures/r1.jpg"/>
+            <look name="r2" gray="1.0" roughness="0.2" texture="textures/r2.jpg"/>
+            <look name="r3" gray="1.0" roughness="0.2" texture="textures/r3.jpg"/>
+            <look name="r4" gray="1.0" roughness="0.2" texture="textures/r4.jpg"/>
+            <look name="r5" gray="1.0" roughness="0.2" texture="textures/r5.jpg"/>
+            <look name="r6" gray="1.0" roughness="0.2" texture="textures/r6.jpg"/>
+
             <!--look name="mountains" gray="1.0" roughness="0.2" texture="textures/mountains.png"/-->
             <look name="big_mountains" gray="1.0" roughness="1.0" texture="textures/big_mountains.png"/>
             <look name="buoy" gray="1.0" roughness="0.2" texture="textures/Buoy1.png"/>

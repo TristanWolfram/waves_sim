@@ -95,14 +95,13 @@ def parse_dynamic_to_xml(
                 if vehicle_name in vehicles_with_sensor:
 
                     sensors = vehicles_with_sensor[vehicle_name]
-                    camera_specs = camera_specs_combined[sensors["camera"]]
-                    lidar_specs = lidar_specs_combined[sensors["lidar"]]
 
                     print(f"-----------------> {vehicle_name} has sensors!")
 
                     if "camera" in sensors:
+                        camera_specs = camera_specs_combined[sensors["camera"]]
                         print(
-                            f"Adding camera ({sensors['camera']}), ROS2 topic -> /sim_cam_color{number_of_vehicles_with_camera}"
+                            f"Adding camera ({sensors['camera']}), ROS2 topic -> /sim_cam_color_{number_of_vehicles_with_camera}"
                         )
                         
 
@@ -130,9 +129,9 @@ def parse_dynamic_to_xml(
                         )
 
                     if "lidar" in sensors:
-
+                        lidar_specs = lidar_specs_combined[sensors["lidar"]]
                         print(
-                            f"Adding LiDAR ({sensors['lidar']}), ROS2 topic -> /sim_cam_depth{number_of_vehicles_with_camera}"
+                            f"Adding LiDAR ({sensors['lidar']}), ROS2 topic -> /sim_cam_depth_{number_of_vehicles_with_camera}"
                         )
 
                         cameras = [
@@ -190,7 +189,7 @@ def parse_dynamic_to_xml(
 
                     if "gps" in sensors:
                         print(
-                            f"Adding GPS ({sensors['gps']}), ROS2 topic -> /sim_gps{number_of_vehicles_with_camera}"
+                            f"Adding GPS ({sensors['gps']}), ROS2 topic -> /sim_gps_{number_of_vehicles_with_camera}"
                         )
                         gps_specs = gps_specs_compined[sensors["gps"]]
                         gps = ET.SubElement(
@@ -213,7 +212,7 @@ def parse_dynamic_to_xml(
 
                     if "imu" in sensors:
                         print(
-                            f"Adding IMU ({sensors['imu']}), ROS2 topic -> /sim_imu{number_of_vehicles_with_camera}"
+                            f"Adding IMU ({sensors['imu']}), ROS2 topic -> /sim_imu_{number_of_vehicles_with_camera}"
                         )
                         imu_specs = imu_specs_combined[sensors["imu"]]
                         imu = ET.SubElement(
