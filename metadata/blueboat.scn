@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+    <scenario>
+    
+        <dynamic name="BlueBoat" type="model" physics="floating">
+            <physical>
+                <mesh filename="boats/blueboat_phys.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </physical>
+            <visual>
+                <mesh filename="boats/blueboat.obj" scale="1.0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </visual>
+            <material name="Buoy"/>
+            <look name="Blue"/>
+            <world_transform xyz="0.0 0.0 0.0" rpy="-1.57 0.0 3.14"/>
+            <sensor name="ZedCam1" rate="30.0" type="camera">
+                <specs resolution_x="960" resolution_y="600" horizontal_fov="110.0" />
+                <origin xyz="-0.425 0.154 -0.297" rpy="0.0 1.57 3.14" />
+                <ros_publisher topic="/blue_cam_color_1" />
+            </sensor>
+            <!--
+            <sensor name="ZedCam2" rate="30.0" type="camera">
+                <specs resolution_x="960" resolution_y="600" horizontal_fov="110.0" />
+                <origin xyz="-0.425 0.154 0.297" rpy="0.0 1.57 3.14" />
+                <ros_publisher topic="/blue_cam_color_2" />
+            </sensor>
+            -->
+            <!--x should be -0.365, changed it becasue of the overlap of blatoons-->
+            <sensor name="DcamF" rate="10.0" type="depthcamera">
+                <specs resolution_x="512" resolution_y="256" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
+                <origin xyz="0.0 0.45 0.0" rpy="0.0 1.57 3.14" />
+                <ros_publisher topic="/blue_camF_depth_0" />
+            </sensor>
+            <sensor name="DcamR" rate="10.0" type="depthcamera">
+                <specs resolution_x="512" resolution_y="256" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
+                <origin xyz="0.0 0.45 0.0" rpy="0.0 3.14 3.14" />
+                <ros_publisher topic="/blue_camR_depth_0" />
+            </sensor>
+            <sensor name="DcamL" rate="10.0" type="depthcamera">
+                <specs resolution_x="512" resolution_y="256" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
+                <origin xyz="0.0 0.45 0.0" rpy="0.0 0.0 3.14" />
+                <ros_publisher topic="/blue_camL_depth_0" />
+            </sensor>
+            <sensor name="DcamB" rate="10.0" type="depthcamera">
+                <specs resolution_x="512" resolution_y="256" horizontal_fov="90.0" depth_min="0.5" depth_max="170.0" />
+                <origin xyz="0.0 0.45 0.0" rpy="0.0 4.71 3.14" />
+                <ros_publisher topic="/blue_camB_depth_0" />
+            </sensor>
+        </dynamic>
+
+    </scenario>

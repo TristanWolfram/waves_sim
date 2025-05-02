@@ -10,6 +10,7 @@
             <look name="White" rgb="1.0 1.0 1.0" roughness="0.2" metalness="0.7"/>
             <look name="Brown" rgb="0.5 0.3 0.0" roughness="0.2"/>
             <look name="Pink" rgb="1.0 0.078 0.576" roughness="0.8"/>
+            <look name="Blue" rgb="0.0 0.0 1.0" roughness="0.2"/>
             <look name="Orange" rgb="0.659 0.247 0.039" roughness="0.8"/>
             <look name="SimpleIsland" gray="1.0" roughness="0.2" texture="textures/IslandTexture.jpg"/>
             <look name="Container" gray="1.0" roughness="0.2" texture="textures/container.jpg"/>

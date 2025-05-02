@@ -14,15 +14,18 @@ INCLUDE_WAVE_NOISE = True
 # example definition:
 # "Boat0": {
 #     "lidar": "ouster_os1",
-#     "camera": "zed",
+#     "camera": {"specs": "cinematic_cam", "pos": "-4.2 1.75 0.0", "rpy": "0.0 1.57 3.14"},
 #     "gps": "gps_base",
 #     "imu": "imu_clear",
 # },
 
 VEHICLES_WITH_SENSORS = {
-    "Boat4": {
-        "camera": "cinematic_cam",
-    },
+    "Boat0": {
+        "camera": {"specs": "zed", "pos": "-0.425 0.154 -0.297", "rpy": "0.0 1.57 3.14"},
+        "lidar": {"specs": "ouster_os1", "pos": "0.0 0.45 0.0"},
+        "gps": {"specs": "gps_base", "pos": "0.0 0.0 0.0"},
+        "imu": {"specs": "imu_base", "pos": "0.0 0.0 0.0"},
+    }, # BlueBoat
 }
 
 LIDAR_PARAMETERS = {
@@ -43,7 +46,7 @@ LIDAR_PARAMETERS = {
 CAMERA_PARAMETERS = {
     "cinematic_cam": {"res_x": "1920", "res_y": "1080", "fov": "90.0", "rate": "60.0"},
     "FLIR": {"res_x": "640", "res_y": "480", "fov": "110.0", "rate": "10.0"},
-    "zed": {"res_x": "960", "res_y": "600", "fov": "110.0", "rate": "15.0"},
+    "zed": {"res_x": "960", "res_y": "600", "fov": "110.0", "rate": "30.0"},
 }
 
 GPS_PARAMETERS = {
@@ -69,11 +72,11 @@ IMU_PARAMETERS = {
 
 VEHICLE_MODELS = {
     "Boat0": {
-        "model": "boats/fisher_boat.obj",
-        "phys_model": "boats/fisher_boat_cube_phys.obj",
+        "model": "boats/blueboat.obj",
+        "phys_model": "boats/blueboat_phys.obj",
         "material": "Boat",
-        "look": "Fisherboat",
-        "depth": 0.5,
+        "look": "Blue",
+        "depth": -0.25,
     },
     "Boat1": {
         "model": "boats/fisher_boat.obj",
@@ -90,11 +93,11 @@ VEHICLE_MODELS = {
         "depth": 0.5,
     },
     "Boat3": {
-        "model": "boats/old_boat.obj",
-        "phys_model": "boats/old_boat_cube_phys.obj",
+        "model": "boats/fisher_boat.obj",
+        "phys_model": "boats/fisher_boat_cube_phys.obj",
         "material": "Boat",
-        "look": "old_boat",
-        "depth": 0.4,
+        "look": "Fisherboat",
+        "depth": 0.5,
     },
     "Boat4": {
         "model": "boats/old_boat.obj",
@@ -110,9 +113,15 @@ VEHICLE_MODELS = {
         "look": "old_boat",
         "depth": 0.4,
     },
-    "Boat6": {"model": "boats/res_boat.obj", "phys_model": "boats/res_boat_cube_phys.obj", "material": "Boat", "look": "res_boat", "depth": 0.9},
+    "Boat6": {        
+        "model": "boats/old_boat.obj",
+        "phys_model": "boats/old_boat_cube_phys.obj",
+        "material": "Boat",
+        "look": "old_boat",
+        "depth": 0.4,},
     "Boat7": {"model": "boats/res_boat.obj", "phys_model": "boats/res_boat_cube_phys.obj", "material": "Boat", "look": "res_boat", "depth": 0.9},
     "Boat8": {"model": "boats/res_boat.obj", "phys_model": "boats/res_boat_cube_phys.obj", "material": "Boat", "look": "res_boat", "depth": 0.9},
+    "Boat9": {"model": "boats/res_boat.obj", "phys_model": "boats/res_boat_cube_phys.obj", "material": "Boat", "look": "res_boat", "depth": 0.9},
 }
 
 json_input = f"scenario_parser/{DYNAMIC}.json"

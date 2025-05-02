@@ -99,7 +99,8 @@ def parse_dynamic_to_xml(
                     print(f"-----------------> {vehicle_name} has sensors!")
 
                     if "camera" in sensors:
-                        camera_specs = camera_specs_combined[sensors["camera"]]
+                        camera_d = sensors["camera"]
+                        camera_specs = camera_specs_combined[camera_d["specs"]]
                         print(
                             f"Adding camera ({sensors['camera']}), ROS2 topic -> /sim_cam_color_{number_of_vehicles_with_camera}"
                         )
@@ -120,7 +121,7 @@ def parse_dynamic_to_xml(
                             horizontal_fov=camera_specs["fov"],
                         )
                         ET.SubElement(
-                            sensor, "origin", xyz="-4.2 1.75 0.0", rpy="0.0 1.57 3.14"
+                            sensor, "origin", xyz=camera_d["pos"], rpy=camera_d["rpy"]
                         )
                         ET.SubElement(
                             sensor,
@@ -129,7 +130,8 @@ def parse_dynamic_to_xml(
                         )
 
                     if "lidar" in sensors:
-                        lidar_specs = lidar_specs_combined[sensors["lidar"]]
+                        lidar_d = sensors["lidar"]
+                        lidar_specs = lidar_specs_combined[lidar_d["specs"]]
                         print(
                             f"Adding LiDAR ({sensors['lidar']}), ROS2 topic -> /sim_cam_depth_{number_of_vehicles_with_camera}"
                         )
@@ -137,25 +139,25 @@ def parse_dynamic_to_xml(
                         cameras = [
                             {
                                 "name": "DcamF",
-                                "xyz": "-4.2 1.75 0.0",
+                                "xyz": lidar_d["pos"],
                                 "rpy": "0.0 1.57 3.14",
                                 "topic": "/sim_camF_depth",
                             },
                             {
                                 "name": "DcamR",
-                                "xyz": "-4.2 1.75 0.0",
+                                "xyz": lidar_d["pos"],
                                 "rpy": "0.0 3.14 3.14",
                                 "topic": "/sim_camR_depth",
                             },
                             {
                                 "name": "DcamL",
-                                "xyz": "-4.2 1.75 0.0",
+                                "xyz": lidar_d["pos"],
                                 "rpy": "0.0 0.0 3.14",
                                 "topic": "/sim_camL_depth",
                             },
                             {
                                 "name": "DcamB",
-                                "xyz": "-4.2 1.75 0.0",
+                                "xyz": lidar_d["pos"],
                                 "rpy": "0.0 -1.57 3.14",
                                 "topic": "/sim_camB_depth",
                             },
@@ -191,7 +193,8 @@ def parse_dynamic_to_xml(
                         print(
                             f"Adding GPS ({sensors['gps']}), ROS2 topic -> /sim_gps_{number_of_vehicles_with_camera}"
                         )
-                        gps_specs = gps_specs_compined[sensors["gps"]]
+                        gps_d = sensors["gps"]
+                        gps_specs = gps_specs_compined[gps_d["specs"]]
                         gps = ET.SubElement(
                             animated,
                             "sensor",
@@ -202,7 +205,7 @@ def parse_dynamic_to_xml(
                         ET.SubElement(gps, "noise", ned_position=gps_specs["noise"])
                         ET.SubElement(gps, "history", samples="1")
                         ET.SubElement(
-                            gps, "origin", xyz="-4.2 1.75 0.0", rpy="0.0 0.0 0.0"
+                            gps, "origin", xyz=gps_d["pos"], rpy="0.0 0.0 0.0"
                         )
                         ET.SubElement(
                             gps,
@@ -214,7 +217,8 @@ def parse_dynamic_to_xml(
                         print(
                             f"Adding IMU ({sensors['imu']}), ROS2 topic -> /sim_imu_{number_of_vehicles_with_camera}"
                         )
-                        imu_specs = imu_specs_combined[sensors["imu"]]
+                        imu_d = sensors["imu"]
+                        imu_specs = imu_specs_combined[imu_d["specs"]]
                         imu = ET.SubElement(
                             animated,
                             "sensor",
@@ -239,7 +243,7 @@ def parse_dynamic_to_xml(
                             )
                         ET.SubElement(imu, "history", samples="1")
                         ET.SubElement(
-                            imu, "origin", xyz="0.0 0.0 0.0", rpy="-1.57 0.0 0.0"
+                            imu, "origin", xyz=imu_d["pos"], rpy="-1.57 0.0 0.0"
                         )
                         ET.SubElement(
                             imu,

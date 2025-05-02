@@ -106,8 +106,6 @@ private:
             RCLCPP_ERROR(this->get_logger(), "Error: LiDAR azimuth bins exceed camera's width!");
             return;
         }
-        const float min_theta = -lidar_fov_y / 2.0;
-        const float max_theta = lidar_fov_y / 2.0;
 
         pcl::PointCloud<pcl::PointXYZ>::Ptr cloud = std::make_shared<pcl::PointCloud<pcl::PointXYZ>>();
 
