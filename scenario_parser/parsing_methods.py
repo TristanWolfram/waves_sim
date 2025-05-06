@@ -174,8 +174,8 @@ def parse_dynamic_to_xml(
                             ET.SubElement(
                                 sensor,
                                 "specs",
-                                resolution_x="256",
-                                resolution_y="128",
+                                resolution_x="512",
+                                resolution_y="256",
                                 horizontal_fov="90.0",
                                 depth_min=lidar_specs["min_range"],
                                 depth_max=lidar_specs["max_range"],

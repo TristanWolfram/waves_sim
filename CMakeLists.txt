@@ -39,7 +39,9 @@ if(BUILD_TESTING)
 endif()
 
 add_executable(LiDAR_converter src/LiDAR_converter.cpp)
+add_executable(thrust_allocator src/thrust_allocator.cpp)
 ament_target_dependencies(LiDAR_converter rclcpp sensor_msgs cv_bridge image_transport message_filters OpenCV PCL pcl_conversions pcl_ros)
+ament_target_dependencies(thrust_allocator rclcpp sensor_msgs)
 
 install(DIRECTORY
   data  
@@ -50,7 +52,9 @@ install(DIRECTORY
   DESTINATION share/${PROJECT_NAME}
 )
 
-install(TARGETS LiDAR_converter
+install(TARGETS 
+  LiDAR_converter
+  thrust_allocator
   DESTINATION lib/${PROJECT_NAME}
 )
 

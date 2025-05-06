@@ -3,8 +3,9 @@ import random
 import parsing_methods as pm
 
 # input:
-STATIC = "cliff-statics"
-DYNAMIC = "cliff-dynamics"
+preamble = "cliff"
+STATIC = f"{preamble}-statics"
+DYNAMIC = f"{preamble}-dynamics"
 
 # Parsing of dynamic data:
 
@@ -32,21 +33,21 @@ LIDAR_PARAMETERS = {
     "ouster_os1": {
         "min_range": "0.5",
         "max_range": "170.0",
-        "rate": "10.0",
+        "rate": "8.0",
         "noise": "0.0",
     },
     "small_lidar": {
         "min_range": "0.5",
         "max_range": "50.0",
-        "rate": "10.0",
+        "rate": "8.0",
         "noise": "0.0001",
     },
 }
 
 CAMERA_PARAMETERS = {
     "cinematic_cam": {"res_x": "1920", "res_y": "1080", "fov": "90.0", "rate": "60.0"},
-    "FLIR": {"res_x": "640", "res_y": "480", "fov": "110.0", "rate": "10.0"},
-    "zed": {"res_x": "960", "res_y": "600", "fov": "110.0", "rate": "30.0"},
+    "FLIR": {"res_x": "640", "res_y": "480", "fov": "110.0", "rate": "15.0"},
+    "zed": {"res_x": "960", "res_y": "600", "fov": "110.0", "rate": "20.0"},
 }
 
 GPS_PARAMETERS = {

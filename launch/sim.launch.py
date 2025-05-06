@@ -86,6 +86,30 @@ def generate_launch_description():
         }]
     )
 
+    joy_node = Node(
+        package='joy',
+        executable='joy_node',
+        name='joy_node',
+        output='screen',
+        parameters=[
+            # adjust these if you like:
+            {'deadzone': 0.05},         # ignore small stick deflections
+            {'autorepeat_rate': 20.0},  # Hz
+        ],
+    )
+
+    thruster_node = Node(
+        package='rbi_sim',
+        executable='thrust_allocator',
+        name='thruster_allocator',
+        output='screen',
+        parameters=[
+            {'throttle_axis': 1},
+            {'steering_axis': 3},
+            {'max_thrust':    200.0},
+        ],
+    )
+
     return LaunchDescription([
         simulation_data_arg,
         scenario_desc_arg,
@@ -93,5 +117,7 @@ def generate_launch_description():
         window_res_y_arg,
         quality_arg,
         include_stonefish_launch,
-        lidar_converter_node
+        lidar_converter_node,
+        joy_node,
+        thruster_node,
     ])

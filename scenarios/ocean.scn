@@ -6,9 +6,6 @@
         <water density="1031.0" jerlov="0.20"/>
         <waves height="0.0"/>
         <particles enabled="false"/>
-        <current type="uniform">
-            <velocity xyz="0.1 0.1 0.1"/>
-        </current>
     </ocean>
     <atmosphere>
         <sun azimuth="-88.0" elevation="20.0"/>
@@ -25,9 +22,11 @@
    
   Change the scene here:
   -->
-  <include file="$(find rbi_sim)/metadata/cliff-dynamics.scn"/>
-  <include file="$(find rbi_sim)/metadata/cliff-statics.scn"/>
+  <include file="$(find rbi_sim)/metadata/03-dynamics.scn"/>
+  <include file="$(find rbi_sim)/metadata/windmill-statics.scn"/>
   <include file="$(find rbi_sim)/metadata/surroundings.scn"/>
+
+  <include file="$(find rbi_sim)/metadata/blueboat.scn"/>
 
 <!-- Testing stuff -->
   

@@ -22,7 +22,7 @@
 
 <!-- Simulation interiors -->
 
-  <include file="$(find rbi_sim)/metadata/surroundings.scn"/> 
+  
   <include file="$(find rbi_sim)/metadata/cliff-statics.scn"/>
   <include file="$(find rbi_sim)/metadata/test_vehicle.scn"/>
 
@@ -31,6 +31,7 @@
 <!-- Other testing stuff -->
   
   <!--
+  <include file="$(find rbi_sim)/metadata/surroundings.scn"/> 
   <include file="$(find rbi_sim)/metadata/static_sensor_platform.scn"/>
   <include file="$(find rbi_sim)/metadata/environment_base.scn"/>
   -->
