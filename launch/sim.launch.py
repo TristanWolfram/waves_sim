@@ -106,7 +106,26 @@ def generate_launch_description():
         parameters=[
             {'throttle_axis': 1},
             {'steering_axis': 3},
-            {'max_thrust':    200.0},
+            {'max_forward_thrust':    350.0},
+            {'max_steering_thrust':    75.0},
+        ],
+    )
+
+    tf_node1 = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='tf_publisher_zed1',
+        output='screen',
+        arguments=[
+            '--x', '-0.297',
+            '--y', '-0.296',
+            '--z', '-0.425',
+            '--qx', '0.7071',
+            '--qy', '0.0',
+            '--qz', '0.0',
+            '--qw', '0.7071',
+            '--frame-id', 'BlueBoat/ZedCam1',
+            '--child-frame-id', 'BlueBoat/DcamF',
         ],
     )
 
@@ -120,4 +139,5 @@ def generate_launch_description():
         lidar_converter_node,
         joy_node,
         thruster_node,
+        tf_node1,
     ])

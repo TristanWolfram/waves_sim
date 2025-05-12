@@ -25,7 +25,7 @@
   
   <include file="$(find rbi_sim)/metadata/cliff-statics.scn"/>
   <include file="$(find rbi_sim)/metadata/test_vehicle.scn"/>
-
+  <include file="$(find rbi_sim)/metadata/surroundings.scn"/> 
   <include file="$(find rbi_sim)/metadata/blueboat.scn"/>
   
 <!-- Other testing stuff -->
