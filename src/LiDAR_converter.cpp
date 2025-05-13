@@ -171,6 +171,10 @@ private:
                     cloud->push_back(pcl::PointXYZ(static_cast<float>(X_rot),
                                             static_cast<float>(Z_rot),
                                             static_cast<float>(-Y)));
+
+                    // cloud->push_back(pcl::PointXYZ(static_cast<float>(Z_rot),
+                    //                         static_cast<float>(-X_rot),
+                    //                         static_cast<float>(-Y)));
                 }
             }
         };
@@ -193,6 +197,7 @@ private:
         sensor_msgs::msg::PointCloud2 cloud_msg; 
         pcl::toROSMsg(filtered_cloud, cloud_msg);
         cloud_msg.header = msg_front->header;
+        cloud_msg.header.frame_id = "LiDAR";
 
         RCLCPP_INFO(this->get_logger(), "Publishing merged point cloud: %d", id_++);
         publisher_->publish(cloud_msg);

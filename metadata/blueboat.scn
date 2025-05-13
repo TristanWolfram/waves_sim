@@ -56,14 +56,14 @@
                 <origin xyz="-0.425 0.154 -0.297" rpy="0.0 1.57 3.14" />
                 <ros_publisher topic="/sim_cam_color_0" />
             </sensor>
-            <!---->
+            <!--
             <sensor name="ZedCam2" rate="15.0" type="camera">
                 <link name="Base"/>
                 <specs resolution_x="960" resolution_y="600" horizontal_fov="110.0" />
                 <origin xyz="-0.425 0.154 0.297" rpy="0.0 1.57 3.14" />
                 <ros_publisher topic="/sim_cam_color_1" />
             </sensor>
-            
+            -->
             <!--x should be -0.365, changed it becasue of the overlap of blatoons-->
             <sensor name="DcamF" rate="10.0" type="depthcamera">
                 <link name="Base"/>

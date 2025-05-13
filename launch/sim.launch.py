@@ -125,7 +125,7 @@ def generate_launch_description():
             '--qz', '0.0',
             '--qw', '0.7071',
             '--frame-id', 'BlueBoat/ZedCam1',
-            '--child-frame-id', 'BlueBoat/DcamF',
+            '--child-frame-id', 'LiDAR',
         ],
     )
 
