@@ -60,7 +60,8 @@ private:
 
     int id_;
     const float WATER_LEVEL = 0.0;
-    const float SENSOR_HEIGHT = 2.5;
+    const float SENSOR_HEIGHT = 0.45; // BlueBoat
+    // const float SENSOR_HEIGHT = 2.5;
 
     void depth_callback(const sensor_msgs::msg::Image::ConstSharedPtr &msg_front,
                         const sensor_msgs::msg::Image::ConstSharedPtr &msg_back,
