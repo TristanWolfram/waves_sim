@@ -10202,7 +10202,11 @@
             <keypoint time="11.7" xyz="250.0 90.2 0.313" rpy="-1.563 0.011 7.854" />
             <keypoint time="11.8" xyz="250.0 89.9 0.322" rpy="-1.572 0.007 7.854" />
             <keypoint time="11.9" xyz="250.0 89.6 0.34" rpy="-1.579 0.003 7.854" />
-            <keypoint time="12.0" xyz="250.0 89.3 0.36" rpy="-1.586 -0.001 7.854" />
+            <keypoint time="12.0" xyz="250.0 89.3 0.36" rpy="-1.586 -0.001 7.854" />        <sensor name="Cam" rate="25.0" type="camera">
+            <specs resolution_x="960" resolution_y="540" horizontal_fov="90.0" />
+            <origin xyz="-4.2 1.75 0.0" rpy="0.0 1.57 3.14" />
+            <ros_publisher topic="/sim_cam_color_0" />
+        </sensor>
             <keypoint time="12.1" xyz="250.0 89.0 0.384" rpy="-1.592 -0.005 7.854" />
             <keypoint time="12.2" xyz="250.0 88.7 0.412" rpy="-1.596 -0.006 7.854" />
             <keypoint time="12.3" xyz="250.0 88.4 0.436" rpy="-1.599 -0.007 7.854" />
@@ -10213,7 +10217,11 @@
             <keypoint time="12.8" xyz="250.0 86.9 0.43" rpy="-1.574 -0.027 7.854" />
             <keypoint time="12.9" xyz="250.0 86.6 0.412" rpy="-1.565 -0.031 7.854" />
             <keypoint time="13.0" xyz="250.0 86.3 0.398" rpy="-1.556 -0.034 7.854" />
-            <keypoint time="13.1" xyz="250.0 86.0 0.389" rpy="-1.548 -0.034 7.854" />
+            <keypoint time="13.1" xyz="250.0 86.0 0.389" rpy="-1.548 -0.034 7.854" />        <sensor name="Cam" rate="25.0" type="camera">
+            <specs resolution_x="960" resolution_y="540" horizontal_fov="90.0" />
+            <origin xyz="-4.2 1.75 0.0" rpy="0.0 1.57 3.14" />
+            <ros_publisher topic="/sim_cam_color_0" />
+        </sensor>
             <keypoint time="13.2" xyz="250.0 85.7 0.383" rpy="-1.542 -0.035 7.854" />
             <keypoint time="13.3" xyz="250.0 85.4 0.385" rpy="-1.538 -0.037 7.854" />
             <keypoint time="13.4" xyz="250.0 85.1 0.386" rpy="-1.537 -0.037 7.854" />

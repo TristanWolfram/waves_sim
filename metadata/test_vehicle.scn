@@ -19,7 +19,7 @@
             </visual>
             <material name="Boat"/>
             <look name="Fisherboat" uv_mode="0"/>
-            <world_transform xyz="146.0 130.0 0.5" rpy="-1.57 0.0 -1.57"/>
+            <world_transform xyz="140.0 130.0 0.5" rpy="-1.57 0.0 -1.57"/>
         </static>
 
         <static name="Fisherboat2" type="model">
@@ -36,9 +36,9 @@
             <world_transform xyz="150.0 130.0 0.5" rpy="-1.57 0.0 -1.57"/>
         </static>
 
-        <static name="Fisherboat3" type="model">
+        <animated name="MovingBoat0" type="model" collisions="true">
             <physical>
-                <mesh filename="boats/res_boat_cube_phys.obj" scale="1.0"/>
+                <mesh filename="boats/res_boat.obj" scale="1.0"/>
                 <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             </physical>
             <visual>
@@ -47,12 +47,15 @@
             </visual>
             <material name="Boat"/>
             <look name="res_boat" uv_mode="0"/>
-            <world_transform xyz="154.0 130.0 0.5" rpy="-1.57 0.0 -1.57"/>
-        </static>
+            <trajectory type="spline" playback="repeat">
+                <keypoint time="0.0" xyz="185.0 170.0 0.5" rpy="-1.57 0.0 1.57"/>
+                <keypoint time="65.0" xyz="185.0 30.0 0.5" rpy="-1.57 0.0 1.57"/>
+            </trajectory>
+        </animated>
 
-        <animated name="MovingBoat0" type="model" collition="true">
+        <animated name="MovingBoat1" type="model" collisions="true">
             <physical>
-                <mesh filename="boats/old_boat_cube_phys.obj" scale="1.0"/>
+                <mesh filename="boats/old_boat.obj" scale="1.0"/>
                 <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             </physical>
             <visual>
@@ -62,8 +65,8 @@
             <material name="Boat"/>
             <look name="old_boat"/>
             <trajectory type="spline" playback="repeat">
-                <keypoint time="0.0" xyz="205.0 150.0 0.5" rpy="-1.57 0.0 0.0"/>
-                <keypoint time="80.0" xyz="15.0 150.0 0.5" rpy="-1.57 0.0 0.0"/>
+                <keypoint time="0.0" xyz="225.0 150.0 0.5" rpy="-1.57 0.0 0.0"/>
+                <keypoint time="80.0" xyz="35.0 150.0 0.5" rpy="-1.57 0.0 0.0"/>
             </trajectory>
             
             

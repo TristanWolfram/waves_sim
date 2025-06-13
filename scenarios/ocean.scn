@@ -21,12 +21,14 @@
   <!--
    
   Change the scene here:
+   <include file="$(find rbi_sim)/metadata/blueboat.scn"/>
+
   -->
-  <include file="$(find rbi_sim)/metadata/03-dynamics.scn"/>
+
   <include file="$(find rbi_sim)/metadata/windmill-statics.scn"/>
   <include file="$(find rbi_sim)/metadata/surroundings.scn"/>
-
-  <include file="$(find rbi_sim)/metadata/blueboat.scn"/>
+  <include file="$(find rbi_sim)/metadata/windmill-dynamics_no-sensors.scn"/>
+ 
 
 <!-- Testing stuff -->
   
