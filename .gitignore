@@ -6,7 +6,7 @@ log/
 
 .vscode/
 
-scenario_parser/output/
+scenario_parser/exported_wave_data/
 
 output/
 data/static/big_mountains.obj

@@ -102,7 +102,7 @@ private:
             RCLCPP_ERROR(this->get_logger(), "Error: LiDAR vertical FOV exceeds camera's vertical FOV!");
             return;
         }
-        const int num_azimuth_bins = width*2;   // Can't be higher than the camera's width
+        const int num_azimuth_bins = 1024;   // Can't be higher than the camera's width
         if (num_azimuth_bins > width * 4) {
             RCLCPP_ERROR(this->get_logger(), "Error: LiDAR azimuth bins exceed camera's width!");
             return;

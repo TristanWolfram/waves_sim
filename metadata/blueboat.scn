@@ -12,7 +12,7 @@
                     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
                 </visual>
                 <material name="Buoy"/>
-                <look name="Gray"/>
+                <look name="Blueboat_Blue"/>
                 <!--
                 <mass value="30.0"/>
                 -->

@@ -131,7 +131,7 @@ VEHICLE_MODELS = {
     "Boat8": {"model": "boats/res_boat.obj", "phys_model": "boats/res_boat_cube_phys.obj", "material": "Boat", "look": "res_boat", "depth": 0.9},
 }
 
-json_input = f"scenario_parser/{DYNAMIC}.json"
+json_input = f"scenario_parser/json_files/{DYNAMIC}.json"
 output_file = f"metadata/{DYNAMIC}.scn"
 pm.parse_dynamic_to_xml(
     json_input,
@@ -208,7 +208,7 @@ for i in range(1, 22):
 
 CREATE_OUTER_BORDER = False
 
-json_input_statics = f"scenario_parser/{STATIC}.json"
+json_input_statics = f"scenario_parser/json_files/{STATIC}.json"
 output_file_statics = f"metadata/{STATIC}.scn"
 pm.parse_static_to_xml(
     json_input_statics, output_file_statics, CREATE_OUTER_BORDER, MODEL_REPLACEMENTS
