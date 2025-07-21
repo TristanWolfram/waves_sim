@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<scenario>
+    <environment>
+        <ned latitude="63.452664" longitude="10.364303"/> 
+        <atmosphere>
+            <sun azimuth="-88.0" elevation="20.0"/>
+        </atmosphere>
+    </environment>
+    <include file="$(find rbi_sim)/metadata/materials.scn"/>
+    <include file="$(find rbi_sim)/metadata/looks.scn"/>
+
+    <include file="$(find rbi_sim)/metadata/static_sensor_platform.scn"/>
+
+    <static name="Floor" type="plane">
+        <material name="Steel"/>
+        <look name="Yellow"/>
+        <world_transform xyz="0.0 0.0 -2.9" rpy="0.0 0.0 0.0"/>
+    </static>
+
+    <static name="Wall" type="box">
+        <dimensions xyz="8.0 0.2 5.0"/>
+        <material name="Steel"/>
+        <look name="Gray"/>
+        <world_transform xyz="5.5 5.5 -3.0" rpy="0.0 0.0 -0.78539816339"/>
+    </static>
+    <static name="Wall2" type="box">
+        <dimensions xyz="8.0 0.2 5.0"/>
+        <material name="Steel"/>
+        <look name="Gray"/>
+        <world_transform xyz="5.5 -5.5 -3.0" rpy="0.0 0.0 0.78539816339"/>
+    </static>
+    <static name="Wall3" type="box">
+        <dimensions xyz="8.0 0.2 5.0"/>
+        <material name="Steel"/>
+        <look name="Gray"/>
+        <world_transform xyz="-5.5 5.5 -3.0" rpy="0.0 0.0 0.78539816339"/>
+    </static>
+        <static name="Wall4" type="box">
+        <dimensions xyz="8.0 0.2 5.0"/>
+        <material name="Steel"/>
+        <look name="Gray"/>
+        <world_transform xyz="-5.5 -5.5 -3.0" rpy="0.0 0.0 -0.78539816339"/>
+    </static>
+
+</scenario>

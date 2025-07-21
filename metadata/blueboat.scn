@@ -89,8 +89,25 @@
                 <origin xyz="0.0 0.45 0.0" rpy="0.0 4.71 3.14" />
                 <ros_publisher topic="/sim_camB_depth_0" />
             </sensor>
+            <sensor name="GPS" rate="1.0" type="gps">
+                <link name="Base"/>
+                <noise ned_position="0.5"/>
+                <history samples="1"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <ros_publisher topic="/sim_gps_0" />
+            </sensor>
+            <sensor name="IMU" rate="10.0" type="imu">
+                <link name="Base"/>
+                <range angular_velocity="10.0 10.0 5.0" linear_acceleration="10.0"/>
+                <noise angle="0.1 0.1 0.5" angular_velocity="0.05" yaw_drift="0.001" linear_acceleration="0.1"/>
+                <history samples="1"/>
+                <origin xyz="0.0 0.0 0.0" rpy="-1.57 0.0 0.0"/>
+                <ros_publisher topic="/sim_imu_0" />
+            </sensor>
 
             <world_transform xyz="150.0 170.0 -0.5" rpy="-1.57 0.0 3.14"/>
+
+            <!--world_transform xyz="0.0 0.0 -0.5" rpy="-1.57 0.0 3.14"/-->
 
             <ros_subscriber thrusters="/blueboat/thruster_forces"/>
         </robot>

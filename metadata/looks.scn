@@ -32,6 +32,6 @@
             <look name="big_mountains" gray="1.0" roughness="1.0" texture="textures/big_mountains.png"/>
             <look name="buoy" gray="1.0" roughness="0.2" texture="textures/Buoy1.png"/>
             <look name="windmill" gray="1.0" roughness="0.2" texture="textures/windmill.png"/>
-            <look name="res_boat" gray="1.0" roughness="0.2" texture="textures/res_boat.png"/>
+            <look name="res_boat" gray="1.0" roughness="0.2" texture="textures/res_boat_2.png"/>
         </looks>
     </scenario>

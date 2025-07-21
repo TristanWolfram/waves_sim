@@ -2013,11 +2013,6 @@
             <keypoint time="199.8" xyz="210.286 50.048 0.489" rpy="-1.554 -0.011 3.617" />
             <keypoint time="199.9" xyz="210.552 50.185 0.495" rpy="-1.554 -0.02 3.617" />
         </trajectory>
-        <sensor name="Cam" rate="25.0" type="camera">
-            <specs resolution_x="960" resolution_y="540" horizontal_fov="90.0" />
-            <origin xyz="-4.2 1.75 0.0" rpy="0.0 1.57 3.14" />
-            <ros_publisher topic="/sim_cam_color_0" />
-        </sensor>
     </animated>
     <animated name="Boat1" type="model" collition="true">
         <physical>
@@ -8060,6 +8055,11 @@
             <keypoint time="199.8" xyz="26.317 24.497 0.39" rpy="-1.554 -0.014 5.359" />
             <keypoint time="199.9" xyz="26.178 24.68 0.398" rpy="-1.554 -0.023 5.368" />
         </trajectory>
+        <sensor name="Cam" rate="25.0" type="camera">
+            <specs resolution_x="1280" resolution_y="720" horizontal_fov="90.0" />
+            <origin xyz="-4.2 1.75 0.0" rpy="0.0 1.57 3.14" />
+            <ros_publisher topic="/sim_cam_color_0" />
+        </sensor>
     </animated>
     <animated name="Boat4" type="model" collition="true">
         <physical>

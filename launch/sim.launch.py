@@ -37,6 +37,7 @@ def generate_launch_description():
         choices=[
             'ocean',
             'testing',
+            'plane',
         ]
     )
 

@@ -19,7 +19,7 @@
             </visual>
             <material name="Boat"/>
             <look name="Fisherboat" uv_mode="0"/>
-            <world_transform xyz="140.0 130.0 0.5" rpy="-1.57 0.0 -1.57"/>
+            <world_transform xyz="146.0 130.0 0.5" rpy="-1.57 0.0 -1.57"/>
         </static>
 
         <static name="Fisherboat2" type="model">
@@ -65,8 +65,8 @@
             <material name="Boat"/>
             <look name="old_boat"/>
             <trajectory type="spline" playback="repeat">
-                <keypoint time="0.0" xyz="225.0 150.0 0.5" rpy="-1.57 0.0 0.0"/>
-                <keypoint time="80.0" xyz="35.0 150.0 0.5" rpy="-1.57 0.0 0.0"/>
+                <keypoint time="0.0" xyz="225.0 157.5 0.5" rpy="-1.57 0.0 0.0"/>
+                <keypoint time="80.0" xyz="35.0 157.5 0.5" rpy="-1.57 0.0 0.0"/>
             </trajectory>
             
             
